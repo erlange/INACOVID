@@ -38,5 +38,5 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        repository: erlange/COVID-19
+        repository: erlange/INACOVID
         github_token: ${{ secrets.GITHUB_TOKEN }}          
