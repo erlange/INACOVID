@@ -1,0 +1,42 @@
+name: Report Collecting
+
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: '11 * * * *'
+    
+
+jobs:
+  build:
+
+    runs-on: windows-2019
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+    - name: Install dependencies
+      run: dotnet restore $Env:GITHUB_WORKSPACE/ActionRunner/ActionRunner.csproj
+    - name: Build ActionRunner
+      run: |
+            dotnet build $Env:GITHUB_WORKSPACE/ActionRunner/ActionRunner.csproj
+    - name: Retrieve Indonesia Data
+      run: |
+            dotnet run --project $Env:GITHUB_WORKSPACE/ActionRunner/ActionRunner.csproj
+    - name: Commit datasets
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git pull
+        git status
+        git add .
+        git commit -m "Update Datasets" || echo "Nothing to commit"
+        git status
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        repository: erlange/COVID-19
+        github_token: ${{ secrets.GITHUB_TOKEN }}          
