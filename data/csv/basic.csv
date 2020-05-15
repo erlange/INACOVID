@@ -1,4 +1,5 @@
 Date,Location,Confirmed,Cured,Deaths
+"2020/05/15","National",16496,3803,1076
 "2020/05/14","National",16006,3518,1043
 "2020/05/13","National",15438,3287,1028
 "2020/05/12","National",14749,3063,1007
@@ -73,6 +74,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","National",2,0,0
 "2020/03/03","National",2,0,0
 "2020/03/02","National",2,0,0
+"2020/05/15","Aceh",17,13,1
 "2020/05/12","Aceh",17,12,1
 "2020/05/11","Aceh",17,11,1
 "2020/05/10","Aceh",17,11,1
@@ -145,6 +147,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Aceh",0,0,0
 "2020/03/03","Aceh",0,0,0
 "2020/03/02","Aceh",0,0,0
+"2020/05/15","Bali",343,232,4
 "2020/05/12","Bali",328,215,4
 "2020/05/11","Bali",314,210,4
 "2020/05/10","Bali",311,204,4
@@ -217,6 +220,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Bali",0,0,0
 "2020/03/03","Bali",0,0,0
 "2020/03/02","Bali",0,0,0
+"2020/05/15","Banten",622,158,60
 "2020/05/12","Banten",559,153,56
 "2020/05/11","Banten",541,146,56
 "2020/05/10","Banten",533,122,56
@@ -289,6 +293,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Banten",0,0,0
 "2020/03/03","Banten",0,0,0
 "2020/03/02","Banten",0,0,0
+"2020/05/15","Bengkulu",53,1,2
 "2020/05/12","Bengkulu",40,1,1
 "2020/05/11","Bengkulu",37,1,1
 "2020/05/10","Bengkulu",37,1,1
@@ -361,6 +366,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Bengkulu",0,0,0
 "2020/03/03","Bengkulu",0,0,0
 "2020/03/02","Bengkulu",0,0,0
+"2020/05/15","Daerah Istimewa Yogyakarta",188,71,7
 "2020/05/12","Daerah Istimewa Yogyakarta",169,63,7
 "2020/05/11","Daerah Istimewa Yogyakarta",159,61,7
 "2020/05/10","Daerah Istimewa Yogyakarta",153,60,7
@@ -433,6 +439,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Daerah Istimewa Yogyakarta",0,0,0
 "2020/03/03","Daerah Istimewa Yogyakarta",0,0,0
 "2020/03/02","Daerah Istimewa Yogyakarta",0,0,0
+"2020/05/15","DKI Jakarta",5774,1276,460
 "2020/05/12","DKI Jakarta",5375,924,443
 "2020/05/11","DKI Jakarta",5276,812,441
 "2020/05/10","DKI Jakarta",5190,803,434
@@ -505,6 +512,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","DKI Jakarta",2,0,0
 "2020/03/03","DKI Jakarta",2,0,0
 "2020/03/02","DKI Jakarta",2,0,0
+"2020/05/15","Gorontalo",22,14,1
 "2020/05/12","Gorontalo",19,12,1
 "2020/05/11","Gorontalo",19,12,1
 "2020/05/10","Gorontalo",19,11,1
@@ -577,6 +585,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Gorontalo",0,0,0
 "2020/03/03","Gorontalo",0,0,0
 "2020/03/02","Gorontalo",0,0,0
+"2020/05/15","Jambi",69,3,0
 "2020/05/12","Jambi",65,3,0
 "2020/05/11","Jambi",65,3,0
 "2020/05/10","Jambi",64,3,0
@@ -649,6 +658,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Jambi",0,0,0
 "2020/03/03","Jambi",0,0,0
 "2020/03/02","Jambi",0,0,0
+"2020/05/15","Jawa Barat",1596,259,100
 "2020/05/12","Jawa Barat",1545,213,98
 "2020/05/11","Jawa Barat",1493,213,95
 "2020/05/10","Jawa Barat",1437,202,95
@@ -721,6 +731,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Jawa Barat",0,0,0
 "2020/03/03","Jawa Barat",0,0,0
 "2020/03/02","Jawa Barat",0,0,0
+"2020/05/15","Jawa Tengah",1109,234,70
 "2020/05/12","Jawa Tengah",989,229,66
 "2020/05/11","Jawa Tengah",980,229,66
 "2020/05/10","Jawa Tengah",978,173,66
@@ -793,6 +804,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Jawa Tengah",0,0,0
 "2020/03/03","Jawa Tengah",0,0,0
 "2020/03/02","Jawa Tengah",0,0,0
+"2020/05/15","Jawa Timur",1921,294,178
 "2020/05/12","Jawa Timur",1669,258,155
 "2020/05/11","Jawa Timur",1536,244,149
 "2020/05/10","Jawa Timur",1502,230,143
@@ -865,6 +877,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Jawa Timur",0,0,0
 "2020/03/03","Jawa Timur",0,0,0
 "2020/03/02","Jawa Timur",0,0,0
+"2020/05/15","Kalimantan Barat",129,22,3
 "2020/05/12","Kalimantan Barat",123,20,3
 "2020/05/11","Kalimantan Barat",120,12,3
 "2020/05/10","Kalimantan Barat",120,12,3
@@ -937,6 +950,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Kalimantan Barat",0,0,0
 "2020/03/03","Kalimantan Barat",0,0,0
 "2020/03/02","Kalimantan Barat",0,0,0
+"2020/05/15","Kalimantan Selatan",363,24,9
 "2020/05/12","Kalimantan Selatan",277,24,9
 "2020/05/11","Kalimantan Selatan",263,24,9
 "2020/05/10","Kalimantan Selatan",263,24,9
@@ -1009,6 +1023,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Kalimantan Selatan",0,0,0
 "2020/03/03","Kalimantan Selatan",0,0,0
 "2020/03/02","Kalimantan Selatan",0,0,0
+"2020/05/15","Kalimantan Tengah",227,87,11
 "2020/05/12","Kalimantan Tengah",204,30,7
 "2020/05/11","Kalimantan Tengah",200,30,7
 "2020/05/10","Kalimantan Tengah",193,30,7
@@ -1081,6 +1096,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Kalimantan Tengah",0,0,0
 "2020/03/03","Kalimantan Tengah",0,0,0
 "2020/03/02","Kalimantan Tengah",0,0,0
+"2020/05/15","Kalimantan Timur",251,61,3
 "2020/05/12","Kalimantan Timur",228,41,3
 "2020/05/11","Kalimantan Timur",225,37,2
 "2020/05/10","Kalimantan Timur",218,34,2
@@ -1153,6 +1169,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Kalimantan Timur",0,0,0
 "2020/03/03","Kalimantan Timur",0,0,0
 "2020/03/02","Kalimantan Timur",0,0,0
+"2020/05/15","Kalimantan Utara",141,23,1
 "2020/05/12","Kalimantan Utara",132,7,1
 "2020/05/11","Kalimantan Utara",132,7,1
 "2020/05/10","Kalimantan Utara",131,7,1
@@ -1225,6 +1242,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Kalimantan Utara",0,0,0
 "2020/03/03","Kalimantan Utara",0,0,0
 "2020/03/02","Kalimantan Utara",0,0,0
+"2020/05/15","Kepulauan Bangka Belitung",29,7,1
 "2020/05/12","Kepulauan Bangka Belitung",29,7,1
 "2020/05/11","Kepulauan Bangka Belitung",29,6,1
 "2020/05/10","Kepulauan Bangka Belitung",29,6,1
@@ -1297,6 +1315,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Kepulauan Bangka Belitung",0,0,0
 "2020/03/03","Kepulauan Bangka Belitung",0,0,0
 "2020/03/02","Kepulauan Bangka Belitung",0,0,0
+"2020/05/15","Kepulauan Riau",115,77,11
 "2020/05/12","Kepulauan Riau",106,72,11
 "2020/05/11","Kepulauan Riau",104,72,11
 "2020/05/10","Kepulauan Riau",101,68,11
@@ -1369,6 +1388,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Kepulauan Riau",0,0,0
 "2020/03/03","Kepulauan Riau",0,0,0
 "2020/03/02","Kepulauan Riau",0,0,0
+"2020/05/15","Lampung",66,22,5
 "2020/05/12","Lampung",66,22,5
 "2020/05/11","Lampung",66,22,5
 "2020/05/10","Lampung",66,21,5
@@ -1441,6 +1461,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Lampung",0,0,0
 "2020/03/03","Lampung",0,0,0
 "2020/03/02","Lampung",0,0,0
+"2020/05/15","Maluku",62,17,4
 "2020/05/12","Maluku",50,17,4
 "2020/05/11","Maluku",32,12,2
 "2020/05/10","Maluku",32,12,2
@@ -1513,6 +1534,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Maluku",0,0,0
 "2020/03/03","Maluku",0,0,0
 "2020/03/02","Maluku",0,0,0
+"2020/05/15","Maluku Utara",85,12,3
 "2020/05/12","Maluku Utara",54,8,0
 "2020/05/11","Maluku Utara",54,8,0
 "2020/05/10","Maluku Utara",54,8,0
@@ -1585,6 +1607,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Maluku Utara",0,0,0
 "2020/03/03","Maluku Utara",0,0,0
 "2020/03/02","Maluku Utara",0,0,0
+"2020/05/15","Nusa Tenggara Barat",358,188,7
 "2020/05/12","Nusa Tenggara Barat",339,105,6
 "2020/05/11","Nusa Tenggara Barat",331,105,6
 "2020/05/10","Nusa Tenggara Barat",330,92,6
@@ -1657,6 +1680,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Nusa Tenggara Barat",0,0,0
 "2020/03/03","Nusa Tenggara Barat",0,0,0
 "2020/03/02","Nusa Tenggara Barat",0,0,0
+"2020/05/15","Nusa Tenggara Timur",19,1,1
 "2020/05/12","Nusa Tenggara Timur",16,1,0
 "2020/05/11","Nusa Tenggara Timur",12,1,0
 "2020/05/10","Nusa Tenggara Timur",12,1,0
@@ -1729,6 +1753,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Nusa Tenggara Timur",0,0,0
 "2020/03/03","Nusa Tenggara Timur",0,0,0
 "2020/03/02","Nusa Tenggara Timur",0,0,0
+"2020/05/15","Papua",335,48,6
 "2020/05/12","Papua",322,48,6
 "2020/05/11","Papua",308,48,6
 "2020/05/10","Papua",308,48,6
@@ -1801,6 +1826,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Papua",0,0,0
 "2020/03/03","Papua",0,0,0
 "2020/03/02","Papua",0,0,0
+"2020/05/15","Papua Barat",88,2,1
 "2020/05/12","Papua Barat",70,2,1
 "2020/05/11","Papua Barat",70,2,1
 "2020/05/10","Papua Barat",70,2,1
@@ -1873,6 +1899,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Papua Barat",0,0,0
 "2020/03/03","Papua Barat",0,0,0
 "2020/03/02","Papua Barat",0,0,0
+"2020/05/15","Riau",95,53,6
 "2020/05/12","Riau",81,49,6
 "2020/05/11","Riau",74,46,6
 "2020/05/10","Riau",73,39,6
@@ -1945,6 +1972,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Riau",0,0,0
 "2020/03/03","Riau",0,0,0
 "2020/03/02","Riau",0,0,0
+"2020/05/15","Sulawesi Barat",74,22,2
 "2020/05/12","Sulawesi Barat",68,7,2
 "2020/05/11","Sulawesi Barat",62,5,2
 "2020/05/10","Sulawesi Barat",62,5,2
@@ -2017,6 +2045,7 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/03/04","Sulawesi Barat",0,0,0
 "2020/03/03","Sulawesi Barat",0,0,0
 "2020/03/02","Sulawesi Barat",0,0,0
+"2020/05/15","Sulawesi Selatan",871,293,51
 "2020/05/12","Sulawesi Selatan",747,283,49
 "2020/05/11","Sulawesi Selatan",722,276,49
 "2020/05/10","Sulawesi Selatan",722,265,47
@@ -2045,31 +2074,3 @@ Date,Location,Confirmed,Cured,Deaths
 "2020/04/17","Sulawesi Selatan",332,43,23
 "2020/04/16","Sulawesi Selatan",271,42,23
 "2020/04/15","Sulawesi Selatan",242,42,15
-"2020/04/14","Sulawesi Selatan",231,33,15
-"2020/04/13","Sulawesi Selatan",223,31,15
-"2020/04/12","Sulawesi Selatan",222,25,15
-"2020/04/11","Sulawesi Selatan",178,25,15
-"2020/04/10","Sulawesi Selatan",167,24,11
-"2020/04/09","Sulawesi Selatan",138,23,8
-"2020/04/08","Sulawesi Selatan",127,21,6
-"2020/04/07","Sulawesi Selatan",127,21,6
-"2020/04/06","Sulawesi Selatan",113,19,6
-"2020/04/05","Sulawesi Selatan",83,9,5
-"2020/04/04","Sulawesi Selatan",82,9,5
-"2020/04/03","Sulawesi Selatan",82,4,5
-"2020/04/02","Sulawesi Selatan",66,0,5
-"2020/04/01","Sulawesi Selatan",66,0,5
-"2020/03/31","Sulawesi Selatan",50,0,1
-"2020/03/30","Sulawesi Selatan",50,0,1
-"2020/03/29","Sulawesi Selatan",47,0,1
-"2020/03/28","Sulawesi Selatan",33,0,1
-"2020/03/27","Sulawesi Selatan",29,0,1
-"2020/03/26","Sulawesi Selatan",27,0,1
-"2020/03/25","Sulawesi Selatan",13,0,1
-"2020/03/24","Sulawesi Selatan",4,0,1
-"2020/03/23","Sulawesi Selatan",2,0,1
-"2020/03/22","Sulawesi Selatan",2,0,0
-"2020/03/21","Sulawesi Selatan",2,0,0
-"2020/03/20","Sulawesi Selatan",2,0,0
-"2020/03/19","Sulawesi Selatan",2,0,0
-"2020/03/18","Sulawesi Selatan",0,0,0
