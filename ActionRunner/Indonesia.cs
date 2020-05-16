@@ -15,30 +15,23 @@ namespace com.github.erlange.inacovid
 {
     public class Indonesia
     {
-        public static IConfigurationRoot configuration = Program.configuration;
 
-        private static Dictionary<string, string> ApiEndPoints = configuration.GetSection("ApiEndPoints").Get<Dictionary<string, string>>();
-        private static Dictionary<string, string> LocalEndPoints = configuration.GetSection("LocalEndPoints").Get<Dictionary<string, string>>();
-        private static Dictionary<string, string> DictNatl = configuration.GetSection("DictAlt1").Get<Dictionary<string, string>>();
-        private static Dictionary<string, string> DictProv = configuration.GetSection("DictAlt2").Get<Dictionary<string, string>>();
-        private static Dictionary<string, string> httpHeaders = configuration.GetSection("HttpHeader").Get<Dictionary<string, string>>();
-        private const string sDelim = "--------------------";
 
-        public static async Task ProcessBasicData()
+        public static async Task Process()
         {
             string fileName= "basic.minified.json";
             string fileNameCsv= "basic.csv";
             string appDir = System.AppDomain.CurrentDomain.BaseDirectory;
-            string relDir = LocalEndPoints["PathToJson"];
-            string fullPath = Path.Combine(appDir, relDir, fileName);
-            string fullPathCsv = Path.Combine(appDir, LocalEndPoints["PathToCsv"], fileNameCsv);
+            string relDir = Utils.LocalEndPoints["PathToJson"];
+            //string fullPath = Path.Combine(appDir, relDir, fileName);
+            //string fullPathCsv = Path.Combine(appDir, Utils.LocalEndPoints["PathToCsv"], fileNameCsv);
+            string fullPath = Utils.GetAbsdir(fileName, relDir);
+            string fullPathCsv = Utils.GetAbsdir(fileNameCsv, Utils.LocalEndPoints["PathToCsv"]);
             
             JObject jResult = await GetBasicJson();
-            Log.Information("Saving JSON data...");
             await File.WriteAllTextAsync(fullPath, JsonConvert.SerializeObject(jResult, Formatting.None));
-            Log.Information("Saving CSV data...");
             await File.WriteAllTextAsync(fullPathCsv, await GetBasicCsvMerged());
-            Log.Information("Finished processing basic data");
+            Log.Information("Basic data done.");
         }
 
 
@@ -54,7 +47,7 @@ namespace com.github.erlange.inacovid
 
 
             var sb = new System.Text.StringBuilder();
-            sb.AppendLine("Date,Location,Confirmed,Cured,Deaths");
+            sb.AppendLine("\"Date\",\"Location\",\"Confirmed\",\"Cured\",\"Deaths\"");
             foreach (var fld in recsNatl)
             {
                 sb.AppendFormat("\"{0:yyyy/MM/dd}\",\"{1}\",{2},{3},{4}", fld.Date, fld.Location, fld.Confirmed, fld.Cured, fld.Deaths);
@@ -66,31 +59,25 @@ namespace com.github.erlange.inacovid
         public static async Task<JObject> GetBasicJson()
         {
             Log.Information("Processing Indonesia data...");
-            Log.Information(sDelim);
+            Log.Information(Utils.Delim);
 
-            string sCasesNatl = DictNatl["Cases"];
-            string sCuredNatl = DictNatl["Cured"];
-            string sDeadNatl = DictNatl["Dead"];
+            string sCasesNatl = Utils.DictNatl["Cases"];
+            string sCuredNatl = Utils.DictNatl["Cured"];
+            string sDeadNatl = Utils.DictNatl["Dead"];
 
-            string sCasesProv = DictProv["Cases"];
-            string sCuredProv = DictProv["Cured"];
-            string sDeadProv = DictProv["Dead"];
+            string sCasesProv = Utils.DictProv["Cases"];
+            string sCuredProv = Utils.DictProv["Cured"];
+            string sDeadProv = Utils.DictProv["Dead"];
 
-            string urlNatl = ApiEndPoints["Natl"];
-            string urlProv = ApiEndPoints["Prov"];
-
-
+            string urlNatl = Utils.ApiEndPoints["Natl"];
+            string urlProv = Utils.ApiEndPoints["Prov"];
 
             var root = JObject.Parse(@"{""National"":{}}");
             var triCasesNatl = JObject.Parse(@"{""Cases"":{}, ""Cured"":{},""Dead"":{}}");
             root["National"] = triCasesNatl;
             var jRoot = root["National"];
 
-            WebHeaderCollection headers = new WebHeaderCollection();
-            foreach (var item in httpHeaders)
-                headers.Add(item.Key, item.Value);
-
-            string sJson = await Utils.GetData(ApiEndPoints["Natl"], headers);
+            string sJson = await Utils.DownloadJsonStringAsync(urlNatl);
 
             JObject obj = (JObject)JsonConvert.DeserializeObject(sJson);
 
@@ -98,10 +85,10 @@ namespace com.github.erlange.inacovid
             var allRecords = arr.Children()["attributes"];
 
             Log.Information("Processing Indonesia National data...");
-            for (int i = 0; i < DictNatl.Count; i++)
+            for (int i = 0; i < Utils.DictNatl.Count; i++)
             {
-                string k = DictNatl.ElementAt(i).Key;
-                string v = DictNatl.ElementAt(i).Value;
+                string k = Utils.DictNatl.ElementAt(i).Key;
+                string v = Utils.DictNatl.ElementAt(i).Value;
                 var eachCaseNatl = from recs in allRecords
                                    where recs[v].ToString() != ""
                                 && recs[v].ToString() != "0"
@@ -115,10 +102,10 @@ namespace com.github.erlange.inacovid
                 }
             }
 
-            Log.Information(sDelim);
+            Log.Information(Utils.Delim);
             Log.Information("Processing Indonesia Provincial data...");
 
-            sJson = await Utils.GetData(urlProv, headers);
+            sJson = await Utils.DownloadJsonStringAsync(urlProv);
 
             obj = (JObject)JsonConvert.DeserializeObject(sJson);
             arr = (JArray)obj["features"];
@@ -137,10 +124,10 @@ namespace com.github.erlange.inacovid
                 root[sProv] = triCasesProv;
                 var jNodeProv = root[sProv];
 
-                for (int i = 0; i < DictProv.Count; i++)
+                for (int i = 0; i < Utils.DictProv.Count; i++)
                 {
-                    string k = DictProv.ElementAt(i).Key;
-                    string v = DictProv.ElementAt(i).Value;
+                    string k = Utils.DictProv.ElementAt(i).Key;
+                    string v = Utils.DictProv.ElementAt(i).Value;
 
                     var eachCaseProv = from rec in allRecords
                                        where rec["Provinsi"].ToString() == sProv
@@ -161,10 +148,10 @@ namespace com.github.erlange.inacovid
         public static async Task< List<CsvField>> GetBasicCsvNatl()
         {
             WebHeaderCollection headers = new WebHeaderCollection();
-            foreach (var item in httpHeaders)
+            foreach (var item in Utils.httpHeaders)
                 headers.Add(item.Key, item.Value);
 
-            string jsonString = await Utils.GetData(ApiEndPoints["Natl"], headers);
+            string jsonString = await Utils.DownloadJsonStringAsync(Utils.ApiEndPoints["Natl"]);
 
             var recs = Utils.JsonToEnumerable(jsonString);
 
@@ -172,14 +159,21 @@ namespace com.github.erlange.inacovid
             CsvField csv = new CsvField();
             foreach(var rec in recs)
             {
-                csvFields.Add(new CsvField
+                try
                 {
-                    Date = DateTime.Parse(rec["Tgl"].ToString()),
-                    Location = "National",
-                    Confirmed = int.Parse(rec[DictNatl["Cases"]].ToString()),
-                    Cured = int.Parse(rec[DictNatl["Cured"]].ToString()),
-                    Deaths = int.Parse(rec[DictNatl["Dead"]].ToString()),
-                });
+                    csvFields.Add(new CsvField
+                    {
+                        Date = DateTime.Parse(rec["Tgl"].ToString()),
+                        Location = "National",
+                        Confirmed = int.Parse(rec[Utils.DictNatl["Cases"]].ToString()),
+                        Cured = int.Parse(rec[Utils.DictNatl["Cured"]].ToString()),
+                        Deaths = int.Parse(rec[Utils.DictNatl["Dead"]].ToString()),
+                    });
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
             }
             return csvFields;
             //var sb=new System.Text.StringBuilder();
@@ -194,10 +188,10 @@ namespace com.github.erlange.inacovid
         public static async Task<List<CsvField>> GetBasicCsvProv()
         {
             WebHeaderCollection headers = new WebHeaderCollection();
-            foreach (var item in httpHeaders)
+            foreach (var item in Utils.httpHeaders)
                 headers.Add(item.Key, item.Value);
 
-            string jsonString = await Utils.GetData(ApiEndPoints["Prov"], headers);
+            string jsonString = await Utils.DownloadJsonStringAsync(Utils.ApiEndPoints["Prov"]);
 
             var recs = Utils.JsonToEnumerable(jsonString);
 
@@ -208,9 +202,9 @@ namespace com.github.erlange.inacovid
                 {
                     Date = DateTime.Parse(rec["Tgl"].ToString()),
                     Location = rec["Provinsi"].ToString(),
-                    Confirmed = int.Parse(rec[DictProv["Cases"]].ToString()),
-                    Cured = int.Parse(rec[DictProv["Cured"]].ToString()),
-                    Deaths = int.Parse(rec[DictProv["Dead"]].ToString()),
+                    Confirmed = int.Parse(rec[Utils.DictProv["Cases"]].ToString()),
+                    Cured = int.Parse(rec[Utils.DictProv["Cured"]].ToString()),
+                    Deaths = int.Parse(rec[Utils.DictProv["Dead"]].ToString()),
                 });
             }
             return csvFields;
