@@ -191,8 +191,8 @@ namespace com.github.erlange.inacovid
         {
             var line = new StringBuilder();
             line.AppendFormat("\"Date\",\"Location\",");
-            line.AppendFormat("\"{0}\",\"{1}\",\"{2}\",\"{3}\",", DiConfirmed, DiCured, DiDead, DiHosp);
-            line.AppendFormat("\"{0}\",\"{1}\",\"{2}\",\"{3}\"", Confirmed, Cured, Dead, Hosp);
+            line.AppendFormat("\"{0}\",\"{1}\",\"{2}\",\"{3}\",", DiConfirmed, DiCured, DiHosp, DiDead);
+            line.AppendFormat("\"{0}\",\"{1}\",\"{2}\",\"{3}\"", Confirmed, Cured, Hosp, Dead);
             line.AppendLine();
             return line.ToString();
         }
@@ -213,15 +213,15 @@ namespace com.github.erlange.inacovid
                 csv.Append(",");
                 csv.AppendFormat("{0}", r.DiCured);
                 csv.Append(",");
-                csv.AppendFormat("{0}", r.DiDeaths);
-                csv.Append(",");
                 csv.AppendFormat("{0}", r.DiHosp);
+                csv.Append(",");
+                csv.AppendFormat("{0}", r.DiDeaths);
                 csv.Append(",");
                 csv.AppendFormat("{0}", r.Confirmed);
                 csv.Append(",");
-                csv.AppendFormat("{0}", r.Hosp);
-                csv.Append(",");
                 csv.AppendFormat("{0}", r.Cured);
+                csv.Append(",");
+                csv.AppendFormat("{0}", r.Hosp);
                 csv.Append(",");
                 csv.AppendFormat("{0}", r.Deaths);
                 csv.AppendLine();
