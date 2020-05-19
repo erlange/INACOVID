@@ -54,20 +54,21 @@ namespace com.github.erlange.inacovid
             {
                 Log.Information("Starting INACOVID runner...");
 
-                await Indonesia.Process();
-                await NationalExtended.Process();
-                await ProvincialExtended.Process();
+                await NationalExtendedArcGis.Process();
+                //await Indonesia.Process();
+                //await NationalExtended.Process();
+                //await ProvincialExtended.Process();
 
-                string p = Utils.LocalEndPoints["PathToJson"];
-                string f1 = Utils.GetAbsdir("ext.natl.json", p);
-                string f2 = Utils.GetAbsdir("ext.prov.json", p);
-                string f3 = Utils.GetAbsdir("ext.merge.json", p);
+                //string p = Utils.LocalEndPoints["PathToJson"];
+                //string f1 = Utils.GetAbsdir("ext.natl.json", p);
+                //string f2 = Utils.GetAbsdir("ext.prov.json", p);
+                //string f3 = Utils.GetAbsdir("ext.merge.json", p);
 
-                JObject o1 = await Utils.GetJsonObj(f1);
-                JObject o2 = await Utils.GetJsonObj(f2);
-                o1.Merge(o2, new JsonMergeSettings() { MergeArrayHandling = MergeArrayHandling.Merge });
-                File.WriteAllText(f3, JsonConvert.SerializeObject(o1));
-                Console.WriteLine("Merging data done.");
+                //JObject o1 = await Utils.GetJsonObj(f1);
+                //JObject o2 = await Utils.GetJsonObj(f2);
+                //o1.Merge(o2, new JsonMergeSettings() { MergeArrayHandling = MergeArrayHandling.Merge });
+                //File.WriteAllText(f3, JsonConvert.SerializeObject(o1));
+                //Console.WriteLine("Merging data done.");
                 Log.Information(Utils.Delim);
 
             }

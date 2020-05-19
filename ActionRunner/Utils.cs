@@ -22,6 +22,7 @@ namespace com.github.erlange.inacovid
         public static Dictionary<string, string> httpHeaders = configuration.GetSection("HttpHeader").Get<Dictionary<string, string>>();
         public static Dictionary<string, string> DictNatlExt = configuration.GetSection("DictAltExt1").Get<Dictionary<string, string>>();
         public static Dictionary<string, string> DictProvExt = configuration.GetSection("DictAltExt2").Get<Dictionary<string, string>>();
+        public static Dictionary<string, string> DictNatlExtArcGis = configuration.GetSection("DictAltExt3").Get<Dictionary<string, string>>();
 
 
         public const string Delim = "--------------------";
