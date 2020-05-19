@@ -31,9 +31,9 @@ jobs:
         python-version: '3.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
     - name: Instalasi kebutuhan pythoong
-      run: |
-        python --version
-        pip install -r ActionRunner/requirements.txt    
+        run: |
+          python --version
+          pip install -r ActionRunner/requirements.txt    
     - name: Plot Indonesia chart
         run: |
           python ActionRunner/createplot.py        
