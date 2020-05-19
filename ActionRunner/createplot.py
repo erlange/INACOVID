@@ -4,7 +4,7 @@ from matplotlib import dates as mdates
 import datetime
 
 print("Plotting Indonesia trends")
-d_raw = pd.read_csv("./../data/csv/arcgis.natl.csv")
+d_raw = pd.read_csv("/data/csv/arcgis.natl.csv")
 d = d_raw.tail(45)
 # fig.subplots_adjust(hspace=0.46, top=0.85, bottom=0)
 fig, axs = plt.subplots(3, 1, sharex=True, figsize=(10,9))
@@ -83,5 +83,5 @@ plt.gcf().text(0.62, 0.9, '+' +str(DI_latest_deaths), color="#ffffff", fontsize=
 
 fig.subplots_adjust(hspace=0.44, top=0.84, bottom=0.08)
 # plt.show()
-plt.savefig("./../data/plot/inachart.png")
+plt.savefig("/data/plot/inachart.png")
 print("Done plotting. Chart successfully saved.")
