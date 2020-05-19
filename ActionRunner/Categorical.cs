@@ -20,6 +20,7 @@ namespace com.github.erlange.inacovid
         {
             string urlNatlCat= Utils.ApiEndPoints["NatlExtD"];
             //var recs = GetDailyListCat(await Utils.GetJsonObj(urlNatlCat));
+            await Utils.GetJsonObj(urlNatlCat);
 
         }
 
