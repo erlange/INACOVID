@@ -32,28 +32,11 @@ namespace com.github.erlange.inacovid
         static readonly string provNm = Utils.DictProvExt["Location"];
         readonly static string fmt = Utils.FmtDt;
 
-        public static async Task<List<string>> GetAllProvinces()
-        {
-            //string urlProvAll = Utils.ApiEndPoints["ProvAll"];
-            string urlProvAll = Utils.ApiEndPoints["Prov"];
-            JObject o = await Utils.GetJsonObj(urlProvAll);
-            var li = new List<string>();
-
-            //foreach (var p in o["list_data"].Children())
-            //    li.Add(p["key"].ToString());
-
-            foreach (var p in o["features"].Children())
-                li.Add(p["attributes"]["Provinsi"].ToString());
-
-            return li.Distinct().Select(x => x).ToList();
-        }
 
 
         public static async Task Process()
         {
-            string[] s = (await GetAllProvinces()).Select(x => x.Replace(' ', '_').ToUpper()).ToArray();
-            //foreach (string ss in s)
-            //Console.WriteLine(ss);
+            string[] s = (await Utils.GetAllProvinces()).Select(x => x.Replace(' ', '_').ToUpper()).ToArray();
             await ProcessOne(s);
         }
 
@@ -74,27 +57,30 @@ namespace com.github.erlange.inacovid
             string locJson = Utils.GetAbsdir("ext.prov.json", Utils.LocalEndPoints["PathToJson"]);
             File.Delete(loc);
             await File.AppendAllTextAsync(loc, WriteHeaderLine());
-            //var lJson = new List<JObject>();
             JObject o = null;
             foreach (var p in provinces)
             {
-                var recs = GetDailyListExt(await Utils.GetJsonObj(urlProvExt.Replace("[]", p)));
-                string sCsv = ListToCsv(recs, false);
+                try
+                {
+                    var recs = GetDailyListExt(await Utils.GetJsonObj(urlProvExt.Replace("[]", p)));
+                    string sCsv = ListToCsv(recs, false);
 
-                //if (o != null)
-                if (o == null)
-                    o = BuildJson(recs);
-                else
-                    o.Merge(BuildJson(recs));
+                    if (o == null)
+                        o = BuildJson(recs);
+                    else
+                        o.Merge(BuildJson(recs));
 
-                string fCsv = Utils.GetAbsdir("ext.prov.csv", Utils.LocalEndPoints["PathToCsv"]);
-                await File.AppendAllTextAsync(fCsv, sCsv);
-                Console.WriteLine(p + " done.");
-                System.Threading.Thread.Sleep(1000);
+                    string fCsv = Utils.GetAbsdir("ext.prov.csv", Utils.LocalEndPoints["PathToCsv"]);
+                    await File.AppendAllTextAsync(fCsv, sCsv);
+                    Console.WriteLine(p + " done.");
+                    System.Threading.Thread.Sleep(1000);
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
             }
-
             await File.WriteAllTextAsync(locJson, JsonConvert.SerializeObject(o));
-            
         }
 
         public static JObject BuildJson(List<CsvFieldExt> list)

@@ -88,6 +88,19 @@ namespace com.github.erlange.inacovid
             }
             return JsonString;
         }
+        public static async Task<List<string>> GetAllProvinces()
+        {
+            //string urlProvAll = Utils.ApiEndPoints["ProvAll"];
+            string urlProvAll = Utils.ApiEndPoints["Prov"];
+            JObject o = await Utils.GetJsonObj(urlProvAll);
+            var li = new List<string>();
+
+            foreach (var p in o["features"].Children())
+                li.Add(p["attributes"]["Provinsi"].ToString());
+
+            return li.Distinct().Select(x => x).ToList();
+        }
+
         public static async Task<JObject> GetJsonObj(string url)
         {
             string json = await Utils.DownloadJsonStringAsync(url);

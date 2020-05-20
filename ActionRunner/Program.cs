@@ -54,12 +54,12 @@ namespace com.github.erlange.inacovid
             {
                 Log.Information("Starting INACOVID runner...");
 
-
                 await Indonesia.Process();
                 await NationalExtended.Process();
                 await ProvincialExtended.Process();
                 await NationalExtendedArcGis.Process();
                 await Categorical.Process();
+                await CategoryProvincial.Process();
 
                 string p = Utils.LocalEndPoints["PathToJson"];
                 string f1 = Utils.GetAbsdir("ext.natl.json", p);
@@ -72,7 +72,6 @@ namespace com.github.erlange.inacovid
                 File.WriteAllText(f3, JsonConvert.SerializeObject(o1));
                 Console.WriteLine("Merging data done.");
                 Log.Information(Utils.Delim);
-
             }
             catch (Exception ex)
             {
