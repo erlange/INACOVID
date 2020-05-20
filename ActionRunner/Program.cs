@@ -54,10 +54,12 @@ namespace com.github.erlange.inacovid
             {
                 Log.Information("Starting INACOVID runner...");
 
+
                 await Indonesia.Process();
                 await NationalExtended.Process();
                 await ProvincialExtended.Process();
                 await NationalExtendedArcGis.Process();
+                await Categorical.Process();
 
                 string p = Utils.LocalEndPoints["PathToJson"];
                 string f1 = Utils.GetAbsdir("ext.natl.json", p);
