@@ -9,7 +9,7 @@ Datasets are automatically scheduled to refresh every hour at the 11th minute as
 ![Indonesia Covid-19 Chart](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inachart.png)
 
 
-The data sources are taken from the [Official Government Site](https://covid19.go.id/peta-sebaran) and the [ArcGIS Covid dashboard of Indonesia.](https://inacovid19.maps.arcgis.com/apps/opsdashboard/index.html#/81a3572883014c0088a62e1f320c97e1)
+The data sources are from the [Official Government Site](https://covid19.go.id/peta-sebaran) and the [ArcGIS Covid dashboard of Indonesia.](https://inacovid19.maps.arcgis.com/apps/opsdashboard/index.html#/81a3572883014c0088a62e1f320c97e1)
 
 
 ### Datasets
@@ -79,15 +79,34 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 </tbody>
 </table>
 
-### Scrapers
+### Charts
+---
+Charts are plotted periodically based on the scraped data.  
+#### Impacts on Indonesia Provinces
+---
+![Indonesia Covid-19 Cases by Genders and Age](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inaprovinces.png)
 
+#### Demographics
+---
+
+![Indonesia Covid-19 Cases by Genders and Age](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inagender.png)
+
+#### Medical Conditions
+---
+
+![Indonesia Covid-19 Cases by Genders and Age](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inacomorbid.png)
+![Indonesia Covid-19 Cases by Genders and Age](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inasymptoms.png)
+
+
+### Scrapers
+---
 The scripts to gather the data are all in the [📁ActionRunner](https://github.com/erlange/INACOVID/tree/master/ActionRunner) folder, written mostly in C# designed to run on the latest version .NET Core.  Some files however are in `.py` python format to plot the chart.
 
 ### Workflow
-
+---
 All the data scraping processes are located in the [📁.github/workflows](https://github.com/erlange/INACOVID/tree/master/.github/workflows)  folder automated by this repo  [Actions](https://github.com/erlange/INACOVID/actions). 
 
 ### Submit Bugs
-
+---
 Just open an [issue](https://github.com/erlange/INACOVID/issues/new). Any inputs are welcome.
 
