@@ -38,7 +38,9 @@ axs.grid(axis="x")
 
 fig.subplots_adjust( top=0.92, left=0.46, bottom=0.08, right=0.97)
 fig.suptitle('Cases by Preexisting Health Conditions', fontsize=14)
+
 # plt.show()
+
 plt.savefig("data/plot/inacomorbid.png")
 print("Plotting comorbid chart - Done.")
 

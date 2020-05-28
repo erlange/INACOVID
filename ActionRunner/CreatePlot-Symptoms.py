@@ -38,7 +38,9 @@ axs.grid(axis="x")
 
 fig.subplots_adjust( top=0.92, left=0.34, bottom=0.08, right=0.97)
 fig.suptitle('Cases by Symptoms', fontsize=14)
+
 # plt.show()
+
 plt.savefig("data/plot/inasymptoms.png")
 print("Plotting symptoms chart - Done.")
 

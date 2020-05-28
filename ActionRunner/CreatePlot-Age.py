@@ -41,7 +41,6 @@ r=np.arange( len(df_sex["Cured"])) + ws
 axs[0].set_xticks( r)
 axs[0].set_xticklabels(["Male","Female"])
 # axs[0].set_xlabel("Gender Group")
-
 axs[0].legend()
 axs[0].grid(axis="y")
 
