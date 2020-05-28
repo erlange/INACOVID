@@ -27,7 +27,7 @@ namespace com.github.erlange.inacovid
             //string fullPathCsv = Path.Combine(appDir, Utils.LocalEndPoints["PathToCsv"], fileNameCsv);
             string fullPath = Utils.GetAbsdir(fileName, relDir);
             string fullPathCsv = Utils.GetAbsdir(fileNameCsv, Utils.LocalEndPoints["PathToCsv"]);
-            
+
             JObject jResult = await GetBasicJson();
             await File.WriteAllTextAsync(fullPath, JsonConvert.SerializeObject(jResult, Formatting.None));
             await File.WriteAllTextAsync(fullPathCsv, await GetBasicCsvMerged());
@@ -56,7 +56,7 @@ namespace com.github.erlange.inacovid
             return sb.ToString();
         }
 
-        public static async Task<JObject> GetBasicJson()
+        public static async Task<JObject> GetBasicJson(bool sortOldestFirst = false)
         {
             Log.Information("Processing Indonesia data...");
             Log.Information(Utils.Delim);
@@ -94,6 +94,10 @@ namespace com.github.erlange.inacovid
                                 && recs[v].ToString() != "0"
                                 && recs[v].ToString().ToLower() != "null"
                                    select recs;
+
+                if (sortOldestFirst)
+                    eachCaseNatl = eachCaseNatl.OrderBy(x => x["Tgl"]).Select(x => x);
+
                 Log.Information("-- " + k + "(" + v + "):" + eachCaseNatl.Count() + " cases");
 
                 foreach (var col in eachCaseNatl)
@@ -111,8 +115,15 @@ namespace com.github.erlange.inacovid
             arr = (JArray)obj["features"];
             allRecords = arr.Children()["attributes"];
 
+
             var provGrouped = allRecords.GroupBy(x => x["Provinsi"])
-                .Select(g => g.First()).OrderByDescending(x => x[sCasesProv]);
+        .Select(g => g.First()).OrderByDescending(x => x[sCasesProv]);
+
+            if (sortOldestFirst)
+            {
+                provGrouped = allRecords.GroupBy(x => x["Provinsi"])
+            .Select(g => g.First()).OrderBy(x => x["Tgl"]);
+            }
 
             foreach (var prov in provGrouped)
             {
@@ -135,6 +146,9 @@ namespace com.github.erlange.inacovid
                                        && rec[v].ToString().ToLower() != "null"
                                        && rec[v].ToString() != "0"
                                        select rec;
+
+                    if (sortOldestFirst)
+                        eachCaseProv = eachCaseProv.OrderBy(x => x["Tgl"]).Select(x => x);
 
                     Log.Information("-- " + k + " (" + v + "):" + eachCaseProv.Count() + " cases");
                     foreach (var col in eachCaseProv)

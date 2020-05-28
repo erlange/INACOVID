@@ -105,5 +105,4 @@ fig.subplots_adjust(hspace=0.44, top=0.84, left=0.07, bottom=0.08, right=0.97)
 # plt.show()
 plt.savefig("data/plot/inachart.png")
 
-print("Done plotting. Chart successfully saved.")
-print("-----------")
+print("Plotting general chart - Done.")
