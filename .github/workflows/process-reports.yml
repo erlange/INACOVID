@@ -34,9 +34,13 @@ jobs:
       run: |
           python --version
           pip install -r ActionRunner/requirements.txt    
-    - name: Plot Indonesia chart
+    - name: Plot Indonesia charts
       run: |
-          python ActionRunner/createplot.py        
+          python ActionRunner/createplot.py
+          python ActionRunner/CreatePlot-Age.py        
+          python ActionRunner/CreatePlot-Comorbid.py        
+          python ActionRunner/CreatePlot-Provinces.py
+          python ActionRunner/CreatePlot-Symptoms.py                
     - name: Commit datasets
       run: |
         git config --local user.email "action@github.com"
