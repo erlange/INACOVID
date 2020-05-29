@@ -40,7 +40,8 @@ jobs:
           python ActionRunner/CreatePlot-Age.py        
           python ActionRunner/CreatePlot-Comorbid.py        
           python ActionRunner/CreatePlot-Provinces.py
-          python ActionRunner/CreatePlot-Symptoms.py                
+          python ActionRunner/CreatePlot-Symptoms.py
+          python ActionRunner/CreatePlot-Hospitals.py                
     - name: Commit datasets
       run: |
         git config --local user.email "action@github.com"
