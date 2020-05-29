@@ -74,13 +74,13 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 
 <tr>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
-<td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/ext.prov.csv>📄hospitals.csv</a></td>
+<td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/hospitals.csv>📄hospitals.csv</a></td>
 <td rowspan=2>Local hospital contacts and addresses
 </td>
 </tr>
 <tr>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
-<td><a href=https://github.com/erlange/INACOVID/blob/master/data/json/ext.prov.json>📜hospitals.json</a></td>
+<td><a href=https://github.com/erlange/INACOVID/blob/master/data/json/hospitals.json>📜hospitals.json</a></td>
 </td>
 </tr>
 
@@ -96,7 +96,7 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 Charts are plotted periodically based on the scraped data.  
 #### Impacts on Indonesia Provinces
 ---
-![Indonesia Covid-19 Cases by Genders and Age](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inaprovinces.png)
+![Cases by Provinces](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inaprovinces.png)
 
 #### Demographics
 ---
@@ -106,13 +106,13 @@ Charts are plotted periodically based on the scraped data.
 #### Medical Conditions
 ---
 
-![Indonesia Covid-19 Cases by Genders and Age](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inacomorbid.png)
-![Indonesia Covid-19 Cases by Genders and Age](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inasymptoms.png)
+![Comorbidities](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inacomorbid.png)
+![Symptoms](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inasymptoms.png)
 
 #### Medical Facilities
 ---
 
-![Indonesia Covid-19 Cases by Genders and Age](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inahosp.png)
+![Medical Facilities](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inahosp.png)
 
 ### Scrapers
 ---
