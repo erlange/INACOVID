@@ -106,6 +106,11 @@ namespace com.github.erlange.inacovid
             string json = await Utils.DownloadJsonStringAsync(url);
             return (JObject)JsonConvert.DeserializeObject(json);
         }
+        public static async Task<JArray> GetJsonArray(string url)
+        {
+            string json = await Utils.DownloadJsonStringAsync(url);
+            return (JArray)JsonConvert.DeserializeObject(json);
+        }
 
         public static string GetAbsdir(string filename, string dir)
         {

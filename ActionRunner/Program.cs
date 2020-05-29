@@ -29,7 +29,6 @@ namespace com.github.erlange.inacovid
 
             try
             {
-                // Start!
                 MainAsync(args).Wait();
                 return 0;
             }
@@ -41,14 +40,13 @@ namespace com.github.erlange.inacovid
 
         static async Task MainAsync(string[] args)
         {
-            // Create service collection
             Log.Information("Starting INACOVID service collection...");
             ServiceCollection serviceCollection = new ServiceCollection();
             ConfigureServices(serviceCollection);
 
-            // Create service provider
             Log.Information("Starting INACOVID service provider...");
             IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+
 
             try
             {
@@ -60,6 +58,7 @@ namespace com.github.erlange.inacovid
                 await NationalExtendedArcGis.Process();
                 await Categorical.Process();
                 await CategoryProvincial.Process();
+                await HospitalRef.Process();
 
                 string p = Utils.LocalEndPoints["PathToJson"];
                 string f1 = Utils.GetAbsdir("ext.natl.json", p);
@@ -76,7 +75,7 @@ namespace com.github.erlange.inacovid
             catch (Exception ex)
             {
                 Log.Fatal(ex, "Error running INACOVID service");
-                Log.Error(ex.Message);
+                Log.Error(ex.ToString());
                 //throw ex;
             }
             finally
