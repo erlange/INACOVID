@@ -90,6 +90,7 @@
 "2020/03/04","National",2,0,0
 "2020/03/03","National",2,0,0
 "2020/03/02","National",2,0,0
+"2020/05/31","Aceh",20,17,1
 "2020/05/30","Aceh",20,17,1
 "2020/05/29","Aceh",20,17,1
 "2020/05/28","Aceh",20,17,1
@@ -180,6 +181,7 @@
 "2020/03/04","Aceh",0,0,0
 "2020/03/03","Aceh",0,0,0
 "2020/03/02","Aceh",0,0,0
+"2020/05/31","Bali",465,329,4
 "2020/05/30","Bali",455,328,4
 "2020/05/29","Bali",443,320,4
 "2020/05/28","Bali",420,314,4
@@ -270,6 +272,7 @@
 "2020/03/04","Bali",0,0,0
 "2020/03/03","Bali",0,0,0
 "2020/03/02","Bali",0,0,0
+"2020/05/31","Banten",861,244,69
 "2020/05/30","Banten",858,244,69
 "2020/05/29","Banten",845,217,69
 "2020/05/28","Banten",831,205,66
@@ -360,6 +363,7 @@
 "2020/03/04","Banten",0,0,0
 "2020/03/03","Banten",0,0,0
 "2020/03/02","Banten",0,0,0
+"2020/05/31","Bengkulu",91,22,2
 "2020/05/30","Bengkulu",86,22,2
 "2020/05/29","Bengkulu",72,20,2
 "2020/05/28","Bengkulu",71,14,2
@@ -450,6 +454,7 @@
 "2020/03/04","Bengkulu",0,0,0
 "2020/03/03","Bengkulu",0,0,0
 "2020/03/02","Bengkulu",0,0,0
+"2020/05/31","Daerah Istimewa Yogyakarta",236,160,8
 "2020/05/30","Daerah Istimewa Yogyakarta",233,158,8
 "2020/05/29","Daerah Istimewa Yogyakarta",230,149,8
 "2020/05/28","Daerah Istimewa Yogyakarta",228,142,8
@@ -540,6 +545,7 @@
 "2020/03/04","Daerah Istimewa Yogyakarta",0,0,0
 "2020/03/03","Daerah Istimewa Yogyakarta",0,0,0
 "2020/03/02","Daerah Istimewa Yogyakarta",0,0,0
+"2020/05/31","DKI Jakarta",7348,2082,517
 "2020/05/30","DKI Jakarta",7229,2005,516
 "2020/05/29","DKI Jakarta",7128,1739,509
 "2020/05/28","DKI Jakarta",7001,1702,509
@@ -630,6 +636,7 @@
 "2020/03/04","DKI Jakarta",2,0,0
 "2020/03/03","DKI Jakarta",2,0,0
 "2020/03/02","DKI Jakarta",2,0,0
+"2020/05/31","Gorontalo",94,26,3
 "2020/05/30","Gorontalo",69,23,3
 "2020/05/29","Gorontalo",68,23,3
 "2020/05/28","Gorontalo",65,19,2
@@ -720,6 +727,7 @@
 "2020/03/04","Gorontalo",0,0,0
 "2020/03/03","Gorontalo",0,0,0
 "2020/03/02","Gorontalo",0,0,0
+"2020/05/31","Jambi",97,15,0
 "2020/05/30","Jambi",97,15,0
 "2020/05/29","Jambi",97,15,0
 "2020/05/28","Jambi",97,15,0
@@ -810,6 +818,7 @@
 "2020/03/04","Jambi",0,0,0
 "2020/03/03","Jambi",0,0,0
 "2020/03/02","Jambi",0,0,0
+"2020/05/31","Jawa Barat",2260,619,144
 "2020/05/30","Jawa Barat",2231,616,144
 "2020/05/29","Jawa Barat",2211,592,142
 "2020/05/28","Jawa Barat",2181,586,142
@@ -900,6 +909,7 @@
 "2020/03/04","Jawa Barat",0,0,0
 "2020/03/03","Jawa Barat",0,0,0
 "2020/03/02","Jawa Barat",0,0,0
+"2020/05/31","Jawa Tengah",1403,361,70
 "2020/05/30","Jawa Tengah",1366,355,70
 "2020/05/29","Jawa Tengah",1350,336,70
 "2020/05/28","Jawa Tengah",1336,276,70
@@ -990,6 +1000,7 @@
 "2020/03/04","Jawa Tengah",0,0,0
 "2020/03/03","Jawa Tengah",0,0,0
 "2020/03/02","Jawa Tengah",0,0,0
+"2020/05/31","Jawa Timur",4857,609,396
 "2020/05/30","Jawa Timur",4613,589,372
 "2020/05/29","Jawa Timur",4414,570,345
 "2020/05/28","Jawa Timur",4313,548,334
@@ -1080,6 +1091,7 @@
 "2020/03/04","Jawa Timur",0,0,0
 "2020/03/03","Jawa Timur",0,0,0
 "2020/03/02","Jawa Timur",0,0,0
+"2020/05/31","Kalimantan Barat",189,53,4
 "2020/05/30","Kalimantan Barat",184,47,4
 "2020/05/29","Kalimantan Barat",184,47,4
 "2020/05/28","Kalimantan Barat",184,44,4
@@ -1170,6 +1182,7 @@
 "2020/03/04","Kalimantan Barat",0,0,0
 "2020/03/03","Kalimantan Barat",0,0,0
 "2020/03/02","Kalimantan Barat",0,0,0
+"2020/05/31","Kalimantan Selatan",919,99,80
 "2020/05/30","Kalimantan Selatan",893,97,77
 "2020/05/29","Kalimantan Selatan",893,82,72
 "2020/05/28","Kalimantan Selatan",819,80,71
@@ -1260,6 +1273,7 @@
 "2020/03/04","Kalimantan Selatan",0,0,0
 "2020/03/03","Kalimantan Selatan",0,0,0
 "2020/03/02","Kalimantan Selatan",0,0,0
+"2020/05/31","Kalimantan Tengah",410,164,19
 "2020/05/30","Kalimantan Tengah",398,164,19
 "2020/05/29","Kalimantan Tengah",367,158,17
 "2020/05/28","Kalimantan Tengah",337,151,17
@@ -1350,6 +1364,7 @@
 "2020/03/04","Kalimantan Tengah",0,0,0
 "2020/03/03","Kalimantan Tengah",0,0,0
 "2020/03/02","Kalimantan Tengah",0,0,0
+"2020/05/31","Kalimantan Timur",295,172,3
 "2020/05/30","Kalimantan Timur",291,161,3
 "2020/05/29","Kalimantan Timur",285,143,3
 "2020/05/28","Kalimantan Timur",281,134,3
@@ -1440,6 +1455,7 @@
 "2020/03/04","Kalimantan Timur",0,0,0
 "2020/03/03","Kalimantan Timur",0,0,0
 "2020/03/02","Kalimantan Timur",0,0,0
+"2020/05/31","Kalimantan Utara",165,72,2
 "2020/05/30","Kalimantan Utara",165,72,2
 "2020/05/29","Kalimantan Utara",165,72,2
 "2020/05/28","Kalimantan Utara",165,69,2
@@ -1530,6 +1546,7 @@
 "2020/03/04","Kalimantan Utara",0,0,0
 "2020/03/03","Kalimantan Utara",0,0,0
 "2020/03/02","Kalimantan Utara",0,0,0
+"2020/05/31","Kepulauan Bangka Belitung",46,27,1
 "2020/05/30","Kepulauan Bangka Belitung",45,27,1
 "2020/05/29","Kepulauan Bangka Belitung",42,27,1
 "2020/05/28","Kepulauan Bangka Belitung",42,27,1
@@ -1620,6 +1637,7 @@
 "2020/03/04","Kepulauan Bangka Belitung",0,0,0
 "2020/03/03","Kepulauan Bangka Belitung",0,0,0
 "2020/03/02","Kepulauan Bangka Belitung",0,0,0
+"2020/05/31","Kepulauan Riau",197,102,15
 "2020/05/30","Kepulauan Riau",196,102,14
 "2020/05/29","Kepulauan Riau",178,97,14
 "2020/05/28","Kepulauan Riau",175,89,13
@@ -1710,6 +1728,7 @@
 "2020/03/04","Kepulauan Riau",0,0,0
 "2020/03/03","Kepulauan Riau",0,0,0
 "2020/03/02","Kepulauan Riau",0,0,0
+"2020/05/31","Lampung",133,71,10
 "2020/05/30","Lampung",132,67,10
 "2020/05/29","Lampung",131,55,10
 "2020/05/28","Lampung",118,48,10
@@ -1800,6 +1819,7 @@
 "2020/03/04","Lampung",0,0,0
 "2020/03/03","Lampung",0,0,0
 "2020/03/02","Lampung",0,0,0
+"2020/05/31","Maluku",223,36,8
 "2020/05/30","Maluku",215,35,8
 "2020/05/29","Maluku",215,35,8
 "2020/05/28","Maluku",188,34,8
@@ -1890,6 +1910,7 @@
 "2020/03/04","Maluku",0,0,0
 "2020/03/03","Maluku",0,0,0
 "2020/03/02","Maluku",0,0,0
+"2020/05/31","Maluku Utara",153,27,11
 "2020/05/30","Maluku Utara",146,27,7
 "2020/05/29","Maluku Utara",139,21,7
 "2020/05/28","Maluku Utara",128,21,6
@@ -1980,6 +2001,7 @@
 "2020/03/04","Maluku Utara",0,0,0
 "2020/03/03","Maluku Utara",0,0,0
 "2020/03/02","Maluku Utara",0,0,0
+"2020/05/31","Nusa Tenggara Barat",636,291,10
 "2020/05/30","Nusa Tenggara Barat",594,279,10
 "2020/05/29","Nusa Tenggara Barat",590,276,10
 "2020/05/28","Nusa Tenggara Barat",562,273,10
@@ -2068,25 +2090,3 @@
 "2020/03/06","Nusa Tenggara Barat",0,0,0
 "2020/03/05","Nusa Tenggara Barat",0,0,0
 "2020/03/04","Nusa Tenggara Barat",0,0,0
-"2020/03/03","Nusa Tenggara Barat",0,0,0
-"2020/03/02","Nusa Tenggara Barat",0,0,0
-"2020/05/30","Nusa Tenggara Timur",91,12,1
-"2020/05/29","Nusa Tenggara Timur",90,12,1
-"2020/05/28","Nusa Tenggara Timur",85,9,1
-"2020/05/27","Nusa Tenggara Timur",85,9,1
-"2020/05/26","Nusa Tenggara Timur",85,7,1
-"2020/05/25","Nusa Tenggara Timur",82,6,1
-"2020/05/24","Nusa Tenggara Timur",79,6,1
-"2020/05/23","Nusa Tenggara Timur",79,6,1
-"2020/05/22","Nusa Tenggara Timur",79,6,1
-"2020/05/21","Nusa Tenggara Timur",79,6,1
-"2020/05/20","Nusa Tenggara Timur",76,6,1
-"2020/05/19","Nusa Tenggara Timur",71,6,1
-"2020/05/18","Nusa Tenggara Timur",68,6,1
-"2020/05/17","Nusa Tenggara Timur",59,6,1
-"2020/05/16","Nusa Tenggara Timur",47,2,1
-"2020/05/15","Nusa Tenggara Timur",19,1,1
-"2020/05/14","Nusa Tenggara Timur",19,1,1
-"2020/05/13","Nusa Tenggara Timur",19,1,0
-"2020/05/12","Nusa Tenggara Timur",16,1,0
-"2020/05/11","Nusa Tenggara Timur",12,1,0
