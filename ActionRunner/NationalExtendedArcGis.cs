@@ -53,7 +53,6 @@ namespace com.github.erlange.inacovid
 
         public static List<CsvFieldArcGis> GetDailyListExt(JObject jsonObject)
         {
-            var oDaily = jsonObject["features"].Children();
             var sb = new StringBuilder();
             sb.Append("{");
             sb.AppendFormat(@"""{0}""", DiConfirmed);
@@ -89,41 +88,43 @@ namespace com.github.erlange.inacovid
             sb.AppendFormat(@"""{0}""", TracMonitored);
             sb.Append(":{}");
             sb.Append("}");
+            
+            var oDaily = jsonObject["features"].Children();
 
             //var oDailyCases = JObject.Parse(@"{""DiConfirmed"":{}, ""DiCured"":{},""DiDead"":{},""DiHosp"":{},""Confirmed"":{}, ""Cured"":{},""Dead"":{},""Hosp"":{}}");
             var oDailyCases = JObject.Parse(sb.ToString());
             var fields = new List<CsvFieldArcGis>();
 
             var daily = from dd in oDaily["attributes"]
-                        where dd[Confirmed].ToString() != ""
-                        && dd[Confirmed].ToString() != "null"
-                        && dd[Confirmed].ToString() != null
+                        //where dd[Confirmed].ToString() != ""
+                        //&& dd[Confirmed].ToString() != "null"
+                        //&& dd[Confirmed].ToString() != null
                         orderby dd[Dd] ascending
                         select dd;
 
             foreach (var d in daily)
             {
                 DateTime dt = DateTime.Parse(d[Dd].ToString());
-                oDailyCases[DiConfirmed][dt.ToString(fmt)] = d[DiConfirmed].ToString();
-                oDailyCases[DiCured][dt.ToString(fmt)] = d[DiCured].ToString();
-                oDailyCases[DiDead][dt.ToString(fmt)] = d[DiDead].ToString();
-                oDailyCases[DiHosp][dt.ToString(fmt)] = d[DiHosp].ToString();
+                //oDailyCases[DiConfirmed][dt.ToString(fmt)] = d[DiConfirmed].ToString();
+                //oDailyCases[DiCured][dt.ToString(fmt)] = d[DiCured].ToString();
+                //oDailyCases[DiDead][dt.ToString(fmt)] = d[DiDead].ToString();
+                //oDailyCases[DiHosp][dt.ToString(fmt)] = d[DiHosp].ToString();
 
-                oDailyCases[Confirmed][dt.ToString(fmt)] = d[Confirmed].ToString();
-                oDailyCases[Cured][dt.ToString(fmt)] = d[Cured].ToString();
-                oDailyCases[Dead][dt.ToString(fmt)] = d[Dead].ToString();
-                oDailyCases[Hosp][dt.ToString(fmt)] = d[Hosp].ToString();
-                
-                oDailyCases[PctCured][dt.ToString(fmt)] = d[PctCured].ToString();
-                oDailyCases[PctDead][dt.ToString(fmt)] = d[PctDead].ToString();
-                oDailyCases[PctHosp][dt.ToString(fmt)] = d[PctHosp].ToString();
-                
-                oDailyCases[SpecTotal][dt.ToString(fmt)] = d[SpecTotal].ToString();
-                oDailyCases[SpecConfirmed][dt.ToString(fmt)] = d[SpecConfirmed].ToString();
-                oDailyCases[SpecNeg][dt.ToString(fmt)] = d[SpecNeg].ToString();
-                
-                oDailyCases[TracObserved][dt.ToString(fmt)] = d[TracObserved].ToString();
-                oDailyCases[TracMonitored][dt.ToString(fmt)] = d[TracMonitored].ToString();
+                //oDailyCases[Confirmed][dt.ToString(fmt)] = d[Confirmed].ToString();
+                //oDailyCases[Cured][dt.ToString(fmt)] = d[Cured].ToString();
+                //oDailyCases[Dead][dt.ToString(fmt)] = d[Dead].ToString();
+                //oDailyCases[Hosp][dt.ToString(fmt)] = d[Hosp].ToString();
+
+                //oDailyCases[PctCured][dt.ToString(fmt)] = d[PctCured].ToString();
+                //oDailyCases[PctDead][dt.ToString(fmt)] = d[PctDead].ToString();
+                //oDailyCases[PctHosp][dt.ToString(fmt)] = d[PctHosp].ToString();
+
+                //oDailyCases[SpecTotal][dt.ToString(fmt)] = d[SpecTotal].ToString();
+                //oDailyCases[SpecConfirmed][dt.ToString(fmt)] = d[SpecConfirmed].ToString();
+                //oDailyCases[SpecNeg][dt.ToString(fmt)] = d[SpecNeg].ToString();
+
+                //oDailyCases[TracObserved][dt.ToString(fmt)] = d[TracObserved].ToString();
+                //oDailyCases[TracMonitored][dt.ToString(fmt)] = d[TracMonitored].ToString();
                 fields.Add(new CsvFieldArcGis
                 {
                     Location = "National",
@@ -139,11 +140,11 @@ namespace com.github.erlange.inacovid
                     PctCured = double.Parse(d[PctCured].ToString()),
                     PctDead = double.Parse(d[PctDead].ToString()),
                     PctHosp = double.Parse(d[PctDead].ToString()),
-                    SpecTotal = d[SpecTotal].ToString() == "" ? (int?)null : Convert.ToInt32(d[SpecTotal].ToString()),
-                    SpecConfirmed = d[SpecConfirmed].ToString() == "" ? (int?)null : Convert.ToInt32(d[SpecConfirmed].ToString()),
-                    SpecNeg = d[SpecNeg].ToString() == "" ? (int?)null : Convert.ToInt32(d[SpecNeg].ToString()),
-                    TracObserved = d[TracObserved].ToString() == "" ? (int?)null : Convert.ToInt32(d[TracObserved].ToString()),
-                    TracMonitored = d[TracMonitored].ToString() == "" ? (int?)null : Convert.ToInt32(d[TracMonitored].ToString())
+                    SpecTotal = d[SpecTotal] == null ? (int?)null : d[SpecTotal].ToString() == "" ? (int?)null : Convert.ToInt32(d[SpecTotal].ToString()),
+                    SpecConfirmed = d[SpecConfirmed] == null ? (int?)null : d[SpecConfirmed].ToString() == "" ? (int?)null : Convert.ToInt32(d[SpecConfirmed].ToString()),
+                    SpecNeg = d[SpecNeg] == null ? (int?)null : d[SpecNeg].ToString() == "" ? (int?)null : Convert.ToInt32(d[SpecNeg].ToString()),
+                    TracObserved = d[TracObserved] == null ? (int?)null : d[TracObserved].ToString() == "" ? (int?)null : Convert.ToInt32(d[TracObserved].ToString()),
+                    TracMonitored = d[TracMonitored] == null ? (int?)null : d[TracMonitored].ToString() == "" ? (int?)null : Convert.ToInt32(d[TracMonitored].ToString())
                 });
             }
             return fields;

@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Linq;
+using System.Threading.Tasks.Sources;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 
 namespace com.github.erlange.inacovid
 {
@@ -19,8 +22,9 @@ namespace com.github.erlange.inacovid
 
         public static async Task Process()
         {
-            string fileName= "basic.minified.json";
-            string fileNameCsv= "basic.csv";
+            string fileName = "basic.minified.json";
+            string fileNameCsv = "basic.csv";
+            string fileNameCsvExt = "basic.ext.csv";
             string appDir = System.AppDomain.CurrentDomain.BaseDirectory;
             string relDir = Utils.LocalEndPoints["PathToJson"];
             //string fullPath = Path.Combine(appDir, relDir, fileName);
@@ -31,6 +35,13 @@ namespace com.github.erlange.inacovid
             JObject jResult = await GetBasicJson();
             await File.WriteAllTextAsync(fullPath, JsonConvert.SerializeObject(jResult, Formatting.None));
             await File.WriteAllTextAsync(fullPathCsv, await GetBasicCsvMerged());
+            
+            // Added calculated & running total fields
+            var recsNatl = await GetBasicCsvNatl();
+            var recsProv = await GetBasicCsvProv();
+            recsNatl.AddRange(recsProv);
+            await File.WriteAllTextAsync(fileNameCsvExt, await GetBasicCsvMergedExt(recsNatl));
+            
             Log.Information("Basic data done.");
         }
 
@@ -51,6 +62,47 @@ namespace com.github.erlange.inacovid
             foreach (var fld in recsNatl)
             {
                 sb.AppendFormat("\"{0:yyyy/MM/dd}\",\"{1}\",{2},{3},{4}", fld.Date, fld.Location, fld.Confirmed, fld.Cured, fld.Deaths);
+                sb.AppendLine();
+            }
+            return sb.ToString();
+        }
+
+        public static async Task<string> GetBasicCsvMergedExt(List<CsvField> records)
+        {
+
+            var sortedRecs = from r in records
+                       orderby r.Location,  r.Date ascending
+                       select r;
+
+            var groupedRecs = from r0 in sortedRecs
+                              join r1 in sortedRecs
+                              on
+                              new { r0.Location, colB = r0.Date }
+                              equals new { r1.Location, colB = r1.Date.AddDays(1) }
+                              select new
+                              {
+                                  r0.Location,
+                                  r0.Date,
+                                  r0.Confirmed,
+                                  r0.Cured,
+                                  r0.Deaths,
+                                  Hosp = r0.Confirmed - r0.Cured - r0.Deaths,
+                                  DI_Confirmed = r0.Confirmed - r1.Confirmed,
+                                  DI_Cured = r0.Cured - r1.Cured,
+                                  DI_Deaths = r0.Deaths - r1.Deaths,
+                                  DI_Hosp = (r0.Confirmed - r0.Cured - r0.Deaths) - (r1.Confirmed - r1.Cured - r1.Deaths)
+                              };
+
+            Console.WriteLine("records.Count(): ", records.Count());
+            Console.WriteLine($"groupedRecs.Count(): {groupedRecs.Count()}");
+
+            var sb = new System.Text.StringBuilder();
+            sb.Append("\"Date\",\"Location\",\"Confirmed\",\"Cured\",\"Deaths\",\"Hosp\"");
+            sb.AppendLine(",\"DI_Confirmed\",\"DI_Cured\",\"DI_Deaths\",\"DI_Hosp\"");
+            foreach (var fld in groupedRecs)
+            {
+                sb.AppendFormat("\"{0:yyyy/MM/dd}\",\"{1}\",{2},{3},{4},{5}", fld.Date, fld.Location, fld.Confirmed, fld.Cured, fld.Deaths, fld.Hosp);
+                sb.AppendFormat(",{0},{1},{2},{3}", fld.DI_Confirmed, fld.DI_Cured, fld.DI_Deaths, fld.DI_Hosp);
                 sb.AppendLine();
             }
             return sb.ToString();
