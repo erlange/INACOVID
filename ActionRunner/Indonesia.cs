@@ -31,6 +31,7 @@ namespace com.github.erlange.inacovid
             //string fullPathCsv = Path.Combine(appDir, Utils.LocalEndPoints["PathToCsv"], fileNameCsv);
             string fullPath = Utils.GetAbsdir(fileName, relDir);
             string fullPathCsv = Utils.GetAbsdir(fileNameCsv, Utils.LocalEndPoints["PathToCsv"]);
+            string fullPathCsvExt = Utils.GetAbsdir(fileNameCsvExt, Utils.LocalEndPoints["PathToCsv"]);
 
             JObject jResult = await GetBasicJson();
             await File.WriteAllTextAsync(fullPath, JsonConvert.SerializeObject(jResult, Formatting.None));
@@ -40,7 +41,7 @@ namespace com.github.erlange.inacovid
             var recsNatl = await GetBasicCsvNatl();
             var recsProv = await GetBasicCsvProv();
             recsNatl.AddRange(recsProv);
-            await File.WriteAllTextAsync(fileNameCsvExt, await GetBasicCsvMergedExt(recsNatl));
+            await File.WriteAllTextAsync(fullPathCsvExt, await GetBasicCsvMergedExt(recsNatl));
             
             Log.Information("Basic data done.");
         }
