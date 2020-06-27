@@ -96,7 +96,7 @@ namespace com.github.erlange.inacovid
             var fields = new List<CsvFieldArcGis>();
 
             var daily = from dd in oDaily["attributes"]
-                        //where dd[Confirmed].ToString() != ""
+                        where Utils.ParseInt(dd[Confirmed]) != null
                         //&& dd[Confirmed].ToString() != "null"
                         //&& dd[Confirmed].ToString() != null
                         orderby dd[Dd] ascending
@@ -129,17 +129,17 @@ namespace com.github.erlange.inacovid
                 {
                     Location = "National",
                     Date = dt,
-                    DiConfirmed = int.Parse(d[DiConfirmed].ToString()),
-                    DiCured = int.Parse(d[DiCured].ToString()),
-                    DiDeaths = int.Parse(d[DiDead].ToString()),
-                    DiHosp = int.Parse(d[DiHosp].ToString()),
-                    Confirmed = int.Parse(d[Confirmed].ToString()),
-                    Cured = int.Parse(d[Cured].ToString()),
-                    Deaths = int.Parse(d[Dead].ToString()),
-                    Hosp = int.Parse(d[Hosp].ToString()),
-                    PctCured = double.Parse(d[PctCured].ToString()),
-                    PctDead = double.Parse(d[PctDead].ToString()),
-                    PctHosp = double.Parse(d[PctDead].ToString()),
+                    DiConfirmed = Utils.ParseInt(d[DiConfirmed]),
+                    DiCured = Utils.ParseInt(d[DiCured]),
+                    DiDeaths = Utils.ParseInt(d[DiDead]),
+                    DiHosp = Utils.ParseInt(d[DiHosp]),
+                    Confirmed = Utils.ParseInt(d[Confirmed]),
+                    Cured = Utils.ParseInt(d[Cured]),
+                    Deaths = Utils.ParseInt(d[Dead]),
+                    Hosp = Utils.ParseInt(d[Hosp]),
+                    PctCured = Utils.ParseDouble(d[PctCured]),
+                    PctDead = d[PctDead]==null? (double?)null : d[PctDead].ToString()==""? (double?)null : double.Parse(d[PctDead].ToString()),
+                    PctHosp = d[PctHosp]==null? (double?)null : d[PctHosp].ToString() == "" ? (double?)null : double.Parse(d[PctHosp].ToString()),
                     SpecTotal = d[SpecTotal] == null ? (int?)null : d[SpecTotal].ToString() == "" ? (int?)null : Convert.ToInt32(d[SpecTotal].ToString()),
                     SpecConfirmed = d[SpecConfirmed] == null ? (int?)null : d[SpecConfirmed].ToString() == "" ? (int?)null : Convert.ToInt32(d[SpecConfirmed].ToString()),
                     SpecNeg = d[SpecNeg] == null ? (int?)null : d[SpecNeg].ToString() == "" ? (int?)null : Convert.ToInt32(d[SpecNeg].ToString()),
@@ -299,14 +299,14 @@ namespace com.github.erlange.inacovid
     {
         public string Location { get; set; }
         public DateTime Date { get; set; }
-        public int DiConfirmed { get; set; }
-        public int DiCured { get; set; }
-        public int DiDeaths { get; set; }
-        public int DiHosp { get; set; }
-        public int Confirmed { get; set; }
-        public int Cured { get; set; }
-        public int Deaths { get; set; }
-        public int Hosp { get; set; }
+        public int? DiConfirmed { get; set; }
+        public int? DiCured { get; set; }
+        public int? DiDeaths { get; set; }
+        public int? DiHosp { get; set; }
+        public int? Confirmed { get; set; }
+        public int? Cured { get; set; }
+        public int? Deaths { get; set; }
+        public int? Hosp { get; set; }
         public double? PctCured { get; set; }
         public double? PctDead { get; set; }
         public double? PctHosp { get; set; }

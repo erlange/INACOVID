@@ -124,5 +124,14 @@ namespace com.github.erlange.inacovid
             DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
             return origin.AddSeconds(timestamp);
         }
+
+        public static int? ParseInt(object number)
+        {
+            return number == null ? (int?)null : number.ToString() == "" ? (int?)null : Convert.ToInt32(number.ToString());
+        }
+        public static double? ParseDouble(object number)
+        {
+            return number == null ? (double?)null : number.ToString() == "" ? (double?)null : Convert.ToDouble(number.ToString());
+        }
     }
 }
