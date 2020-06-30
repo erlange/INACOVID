@@ -100,33 +100,45 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 
 </tbody>
 </table>
+<br>
 
 ### Charts
 ---
 These charts are plotted regularly based on the scraped data. You can find some `.py` files to generate the charts in the [📁ActionRunner](https://github.com/erlange/INACOVID/tree/master/ActionRunner) folder.
+<br>
+
 #### Impacts on Indonesia Provinces
 ---
 ![Cases by Provinces](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inaprovinces.png)
+
 Script: [CreatePlot-Provinces.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Provinces.py)
+<br>
 #### Demographics
 ---
 
 ![Indonesia Covid-19 Cases by Genders and Age](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inagender.png)
-Script: [CreatePlot-Age.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Age.py)
 
+Script: [CreatePlot-Age.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Age.py)
+<br>
 #### Medical Conditions
 ---
 
 ![Comorbidities](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inacomorbid.png)
+
 Script: [CreatePlot-Comorbid.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Comorbid.py)
+<br>
 ![Symptoms](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inasymptoms.png)
+
 Script: [CreatePlot-Symptoms.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Symptoms.py)
+<br>
 
 #### Medical Facilities
 ---
 
 ![Medical Facilities](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inahosp.png)
+
 Script: [CreatePlot-Hospitals.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Hospitals.py)
+<br>
 
 ### Scrapers
 ---
