@@ -7,8 +7,21 @@
 
 Independent effort of providing up-to-the-minute time-series reports in JSON and CSV format for analytical purposes.
 
-### Datasets
-Datasets are automatically scheduled to refresh every hour at the 11th minute as specified in the [Action workflow](https://github.com/erlange/INACOVID/actions) of this repo including the below chart, however if there is no update from the data sources then the data on this repo will not change.
+## Table of Contents
+* [**Dataset**](#dataset)
+* [**Charts**](#charts)
+  * [Impacts on Indonesia Provinces](#impacts-on-indonesia-provinces)
+  * [Demographics](#demographics)
+  * [Medical Conditions](#medical-conditions)
+  * [Medical Facilities](#medical-facilities)
+* [**Scrapers**](#scrapers)
+* [**Workflows**](#workflow)
+* [**Data Sources**](#data-sources)
+* [**Contributing**](#submit-bugs)
+
+
+### Dataset
+The data are automatically scheduled to refresh every hour at the 11th minute as specified in the [Action workflow](https://github.com/erlange/INACOVID/actions) of this repo including the below chart, however if there is no update from the data sources then the data on this repo will not change.
 
 
 The data files are stored in the [data](https://github.com/erlange/INACOVID/tree/master/data) folder categorised in tabular format (CSV) and JSON respectively.
@@ -90,32 +103,36 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 
 ### Charts
 ---
-Charts are plotted periodically based on the scraped data.  
+These charts are plotted regularly based on the scraped data. You can find some `.py` files to generate the charts in the [📁ActionRunner](https://github.com/erlange/INACOVID/tree/master/ActionRunner) folder.
 #### Impacts on Indonesia Provinces
 ---
 ![Cases by Provinces](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inaprovinces.png)
-
+Script: [CreatePlot-Provinces.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Provinces.py)
 #### Demographics
 ---
 
 ![Indonesia Covid-19 Cases by Genders and Age](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inagender.png)
+Script: [CreatePlot-Age.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Age.py)
 
 #### Medical Conditions
 ---
 
 ![Comorbidities](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inacomorbid.png)
+Script: [CreatePlot-Comorbid.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Comorbid.py)
 ![Symptoms](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inasymptoms.png)
+Script: [CreatePlot-Symptoms.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Symptoms.py)
 
 #### Medical Facilities
 ---
 
 ![Medical Facilities](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inahosp.png)
+Script: [CreatePlot-Hospitals.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Hospitals.py)
 
 ### Scrapers
 ---
 The scripts to gather the data are all in the [📁ActionRunner](https://github.com/erlange/INACOVID/tree/master/ActionRunner) folder, written mostly in C# designed to run on the latest version .NET Core.  Some files however are in `.py` python format to plot the chart.
 
-### Workflow
+### Workflows
 ---
 All the data scraping processes are located in the [📁.github/workflows](https://github.com/erlange/INACOVID/tree/master/.github/workflows)  folder automated by this repo  [Actions](https://github.com/erlange/INACOVID/actions). 
 
@@ -127,5 +144,5 @@ The data sources are from the [Official Government Site](https://covid19.go.id/p
 
 ### Submit Bugs
 ---
-Just open an [issue](https://github.com/erlange/INACOVID/issues/new). Any inputs are welcome.
+Just open an issue [here](https://github.com/erlange/INACOVID/issues/new). All contributions and inputs are welcome.
 
