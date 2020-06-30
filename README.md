@@ -7,14 +7,11 @@
 
 Independent effort of providing up-to-the-minute time-series reports in JSON and CSV format for analytical purposes.
 
+### Datasets
 Datasets are automatically scheduled to refresh every hour at the 11th minute as specified in the [Action workflow](https://github.com/erlange/INACOVID/actions) of this repo including the below chart, however if there is no update from the data sources then the data on this repo will not change.
 
-The data sources are from the [Official Government Site](https://covid19.go.id/peta-sebaran) and the [ArcGIS Covid dashboard of Indonesia.](https://inacovid19.maps.arcgis.com/apps/opsdashboard/index.html#/81a3572883014c0088a62e1f320c97e1)
 
-
-### Datasets
-
-The data files are stored in the [data](https://github.com/erlange/INACOVID/tree/master/data) folder categorised in tabular format (CSV) and JSON respectfully.
+The data files are stored in the [data](https://github.com/erlange/INACOVID/tree/master/data) folder categorised in tabular format (CSV) and JSON respectively.
 
 <table>
 <thead>
@@ -121,6 +118,12 @@ The scripts to gather the data are all in the [📁ActionRunner](https://github.
 ### Workflow
 ---
 All the data scraping processes are located in the [📁.github/workflows](https://github.com/erlange/INACOVID/tree/master/.github/workflows)  folder automated by this repo  [Actions](https://github.com/erlange/INACOVID/actions). 
+
+
+### Data Sources
+---
+The data sources are from the [Official Government Site](https://covid19.go.id/peta-sebaran) and the [ArcGIS Covid dashboard of Indonesia.](https://inacovid19.maps.arcgis.com/apps/opsdashboard/index.html#/81a3572883014c0088a62e1f320c97e1)
+
 
 ### Submit Bugs
 ---
