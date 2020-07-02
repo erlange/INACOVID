@@ -75,10 +75,16 @@ namespace com.github.erlange.inacovid
                 }
                 catch (WebException wex)
                 {
-                    string s = new StreamReader(wex.Response.GetResponseStream()).ReadToEnd();
+                    //string s = new StreamReader(wex.Response.GetResponseStream()).ReadToEnd();
                     JsonString = "-failed-";
-                    Console.WriteLine("ERROR WebException: " + s);
+                    Console.WriteLine("ERROR WebException: " + wex.ToString());
                     throw wex;
+                }
+                catch (System.Net.Sockets.SocketException sex)
+                {
+                    JsonString = "-failed-";
+                    Console.WriteLine("ERROR SocketException: " + sex.ToString());
+                    throw sex;
                 }
                 catch (Exception ex)
                 {

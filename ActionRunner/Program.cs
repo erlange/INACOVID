@@ -74,7 +74,7 @@ namespace com.github.erlange.inacovid
 
                 Console.WriteLine("Getting hospital data...");
                 await HospitalRef.Process();
-                
+
                 Log.Information(Utils.Delim);
             }
             catch (Exception ex)
