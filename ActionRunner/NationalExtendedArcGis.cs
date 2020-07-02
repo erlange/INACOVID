@@ -295,27 +295,5 @@ namespace com.github.erlange.inacovid
 
 
     }
-    public class CsvFieldArcGis
-    {
-        public string Location { get; set; }
-        public DateTime Date { get; set; }
-        public int? DiConfirmed { get; set; }
-        public int? DiCured { get; set; }
-        public int? DiDeaths { get; set; }
-        public int? DiHosp { get; set; }
-        public int? Confirmed { get; set; }
-        public int? Cured { get; set; }
-        public int? Deaths { get; set; }
-        public int? Hosp { get; set; }
-        public double? PctCured { get; set; }
-        public double? PctDead { get; set; }
-        public double? PctHosp { get; set; }
-        public int? SpecTotal { get; set; }
-        public int? SpecConfirmed { get; set; }
-        public int? SpecNeg { get; set; }
-        public int? TracObserved { get; set; }
-        public int? TracMonitored { get; set; }
-
-    }
 
 }

@@ -194,19 +194,5 @@ namespace com.github.erlange.inacovid
 
 
     }
-    public class CsvFieldExt
-    {
-        public string Location { get; set; }
-        public DateTime Date { get; set; }
-        public int DiConfirmed { get; set; }
-        public int DiCured { get; set; }
-        public int DiDeaths { get; set; }
-        public int DiHosp { get; set; }
-        public int Confirmed { get; set; }
-        public int Cured { get; set; }
-        public int Deaths { get; set; }
-        public int Hosp { get; set; }
-
-    }
 
 }

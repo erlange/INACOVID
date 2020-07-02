@@ -41,7 +41,7 @@ namespace com.github.erlange.inacovid
             var recsNatl = await GetBasicCsvNatl();
             var recsProv = await GetBasicCsvProv();
             recsNatl.AddRange(recsProv);
-            await File.WriteAllTextAsync(fullPathCsvExt, await GetBasicCsvMergedExt(recsNatl));
+            await File.WriteAllTextAsync(fullPathCsvExt, GetBasicCsvMergedExt(recsNatl));
             
             Log.Information("Basic data done.");
         }
@@ -68,7 +68,7 @@ namespace com.github.erlange.inacovid
             return sb.ToString();
         }
 
-        public static async Task<string> GetBasicCsvMergedExt(List<CsvField> records)
+        public static string GetBasicCsvMergedExt(List<CsvField> records)
         {
 
             var sortedRecs = from r in records
@@ -279,13 +279,4 @@ namespace com.github.erlange.inacovid
 
     }
 
-    public class CsvField
-    {
-        public string Location { get; set; }
-        public DateTime Date { get; set; }
-        public int Confirmed { get; set; }
-        public int Cured { get; set; }
-        public int Deaths { get; set; }
-
-    }
 }
