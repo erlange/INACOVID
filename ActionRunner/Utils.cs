@@ -76,12 +76,14 @@ namespace com.github.erlange.inacovid
                 catch (WebException wex)
                 {
                     string s = new StreamReader(wex.Response.GetResponseStream()).ReadToEnd();
+                    JsonString = "-failed-";
                     Console.WriteLine("ERROR WebException: " + s);
                     throw wex;
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine("ERROR: " + ex.Message);
+                    JsonString = "-failed-";
                     throw ex;
                 }
 
