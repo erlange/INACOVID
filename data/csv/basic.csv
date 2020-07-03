@@ -122,6 +122,9 @@
 "2020/03/04","National",2,0,0
 "2020/03/03","National",2,0,0
 "2020/03/02","National",2,0,0
+"2020/07/02","Aceh",86,31,3
+"2020/07/01","Aceh",86,31,3
+"2020/06/30","Aceh",80,26,3
 "2020/06/29","Aceh",79,25,2
 "2020/06/28","Aceh",79,25,2
 "2020/06/27","Aceh",77,22,2
@@ -242,6 +245,9 @@
 "2020/03/04","Aceh",0,0,0
 "2020/03/03","Aceh",0,0,0
 "2020/03/02","Aceh",0,0,0
+"2020/07/02","Bali",1640,875,16
+"2020/07/01","Bali",1527,860,15
+"2020/06/30","Bali",1493,798,14
 "2020/06/29","Bali",1444,783,13
 "2020/06/28","Bali",1414,771,13
 "2020/06/27","Bali",1369,751,11
@@ -362,6 +368,9 @@
 "2020/03/04","Bali",0,0,0
 "2020/03/03","Bali",0,0,0
 "2020/03/02","Bali",0,0,0
+"2020/07/02","Banten",1474,882,79
+"2020/07/01","Banten",1466,660,79
+"2020/06/30","Banten",1453,639,79
 "2020/06/29","Banten",1444,635,79
 "2020/06/28","Banten",1438,628,79
 "2020/06/27","Banten",1432,611,79
@@ -482,6 +491,9 @@
 "2020/03/04","Banten",0,0,0
 "2020/03/03","Banten",0,0,0
 "2020/03/02","Banten",0,0,0
+"2020/07/02","Bengkulu",130,91,12
+"2020/07/01","Bengkulu",129,90,12
+"2020/06/30","Bengkulu",125,89,12
 "2020/06/29","Bengkulu",125,89,11
 "2020/06/28","Bengkulu",125,89,10
 "2020/06/27","Bengkulu",125,89,10
@@ -602,6 +614,9 @@
 "2020/03/04","Bengkulu",0,0,0
 "2020/03/03","Bengkulu",0,0,0
 "2020/03/02","Bengkulu",0,0,0
+"2020/07/02","Daerah Istimewa Yogyakarta",320,269,8
+"2020/07/01","Daerah Istimewa Yogyakarta",314,264,8
+"2020/06/30","Daerah Istimewa Yogyakarta",313,263,8
 "2020/06/29","Daerah Istimewa Yogyakarta",306,261,8
 "2020/06/28","Daerah Istimewa Yogyakarta",306,260,8
 "2020/06/27","Daerah Istimewa Yogyakarta",304,257,8
@@ -722,6 +737,9 @@
 "2020/03/04","Daerah Istimewa Yogyakarta",0,0,0
 "2020/03/03","Daerah Istimewa Yogyakarta",0,0,0
 "2020/03/02","Daerah Istimewa Yogyakarta",0,0,0
+"2020/07/02","DKI Jakarta",11823,6871,638
+"2020/07/01","DKI Jakarta",11637,6680,632
+"2020/06/30","DKI Jakarta",11424,6512,632
 "2020/06/29","DKI Jakarta",11237,6118,625
 "2020/06/28","DKI Jakarta",11114,5865,625
 "2020/06/27","DKI Jakarta",10994,5610,624
@@ -842,6 +860,9 @@
 "2020/03/04","DKI Jakarta",2,0,0
 "2020/03/03","DKI Jakarta",2,0,0
 "2020/03/02","DKI Jakarta",2,0,0
+"2020/07/02","Gorontalo",256,222,11
+"2020/07/01","Gorontalo",249,213,10
+"2020/06/30","Gorontalo",249,210,10
 "2020/06/29","Gorontalo",243,195,8
 "2020/06/28","Gorontalo",243,195,8
 "2020/06/27","Gorontalo",243,195,8
@@ -962,6 +983,9 @@
 "2020/03/04","Gorontalo",0,0,0
 "2020/03/03","Gorontalo",0,0,0
 "2020/03/02","Gorontalo",0,0,0
+"2020/07/02","Jambi",117,77,0
+"2020/07/01","Jambi",117,77,0
+"2020/06/30","Jambi",117,69,0
 "2020/06/29","Jambi",117,69,0
 "2020/06/28","Jambi",117,69,0
 "2020/06/27","Jambi",117,69,0
@@ -1082,6 +1106,9 @@
 "2020/03/04","Jambi",0,0,0
 "2020/03/03","Jambi",0,0,0
 "2020/03/02","Jambi",0,0,0
+"2020/07/02","Jawa Barat",3344,1665,177
+"2020/07/01","Jawa Barat",3276,1622,177
+"2020/06/30","Jawa Barat",3218,1607,176
 "2020/06/29","Jawa Barat",3134,1522,175
 "2020/06/28","Jawa Barat",3091,1520,175
 "2020/06/27","Jawa Barat",3064,1513,175
@@ -1202,6 +1229,9 @@
 "2020/03/04","Jawa Barat",0,0,0
 "2020/03/03","Jawa Barat",0,0,0
 "2020/03/02","Jawa Barat",0,0,0
+"2020/07/02","Jawa Tengah",4159,1357,170
+"2020/07/01","Jawa Tengah",4006,1259,160
+"2020/06/30","Jawa Tengah",3833,1159,150
 "2020/06/29","Jawa Tengah",3680,1109,150
 "2020/06/28","Jawa Tengah",3482,1066,150
 "2020/06/27","Jawa Tengah",3294,1052,150
@@ -1322,6 +1352,9 @@
 "2020/03/04","Jawa Tengah",0,0,0
 "2020/03/03","Jawa Tengah",0,0,0
 "2020/03/02","Jawa Tengah",0,0,0
+"2020/07/02","Jawa Timur",12695,4391,948
+"2020/07/01","Jawa Timur",12321,4199,926
+"2020/06/30","Jawa Timur",12136,4012,893
 "2020/06/29","Jawa Timur",11805,3891,863
 "2020/06/28","Jawa Timur",11508,3720,831
 "2020/06/27","Jawa Timur",11178,3619,813
@@ -1442,6 +1475,9 @@
 "2020/03/04","Jawa Timur",0,0,0
 "2020/03/03","Jawa Timur",0,0,0
 "2020/03/02","Jawa Timur",0,0,0
+"2020/07/02","Kalimantan Barat",336,271,4
+"2020/07/01","Kalimantan Barat",336,271,4
+"2020/06/30","Kalimantan Barat",321,268,4
 "2020/06/29","Kalimantan Barat",321,263,4
 "2020/06/28","Kalimantan Barat",321,259,4
 "2020/06/27","Kalimantan Barat",321,251,4
@@ -1562,6 +1598,9 @@
 "2020/03/04","Kalimantan Barat",0,0,0
 "2020/03/03","Kalimantan Barat",0,0,0
 "2020/03/02","Kalimantan Barat",0,0,0
+"2020/07/02","Kalimantan Selatan",3337,840,190
+"2020/07/01","Kalimantan Selatan",3223,789,190
+"2020/06/30","Kalimantan Selatan",3148,766,189
 "2020/06/29","Kalimantan Selatan",3042,728,186
 "2020/06/28","Kalimantan Selatan",3003,723,182
 "2020/06/27","Kalimantan Selatan",2930,643,178
@@ -1682,6 +1721,9 @@
 "2020/03/04","Kalimantan Selatan",0,0,0
 "2020/03/03","Kalimantan Selatan",0,0,0
 "2020/03/02","Kalimantan Selatan",0,0,0
+"2020/07/02","Kalimantan Tengah",946,384,55
+"2020/07/01","Kalimantan Tengah",931,384,55
+"2020/06/30","Kalimantan Tengah",894,384,55
 "2020/06/29","Kalimantan Tengah",881,384,53
 "2020/06/28","Kalimantan Tengah",834,335,53
 "2020/06/27","Kalimantan Tengah",822,335,53
@@ -1802,6 +1844,9 @@
 "2020/03/04","Kalimantan Tengah",0,0,0
 "2020/03/03","Kalimantan Tengah",0,0,0
 "2020/03/02","Kalimantan Tengah",0,0,0
+"2020/07/02","Kalimantan Timur",531,414,7
+"2020/07/01","Kalimantan Timur",525,400,7
+"2020/06/30","Kalimantan Timur",518,385,7
 "2020/06/29","Kalimantan Timur",510,376,7
 "2020/06/28","Kalimantan Timur",503,375,7
 "2020/06/27","Kalimantan Timur",494,364,7
@@ -1922,6 +1967,9 @@
 "2020/03/04","Kalimantan Timur",0,0,0
 "2020/03/03","Kalimantan Timur",0,0,0
 "2020/03/02","Kalimantan Timur",0,0,0
+"2020/07/02","Kalimantan Utara",206,165,2
+"2020/07/01","Kalimantan Utara",206,159,2
+"2020/06/30","Kalimantan Utara",206,157,2
 "2020/06/29","Kalimantan Utara",204,154,2
 "2020/06/28","Kalimantan Utara",201,154,2
 "2020/06/27","Kalimantan Utara",201,151,2
@@ -2042,6 +2090,9 @@
 "2020/03/04","Kalimantan Utara",0,0,0
 "2020/03/03","Kalimantan Utara",0,0,0
 "2020/03/02","Kalimantan Utara",0,0,0
+"2020/07/02","Kepulauan Bangka Belitung",155,136,2
+"2020/07/01","Kepulauan Bangka Belitung",155,134,2
+"2020/06/30","Kepulauan Bangka Belitung",152,133,2
 "2020/06/29","Kepulauan Bangka Belitung",152,132,2
 "2020/06/28","Kepulauan Bangka Belitung",149,131,2
 "2020/06/27","Kepulauan Bangka Belitung",149,131,2
@@ -2071,54 +2122,3 @@
 "2020/06/03","Kepulauan Bangka Belitung",62,28,1
 "2020/06/02","Kepulauan Bangka Belitung",50,28,1
 "2020/06/01","Kepulauan Bangka Belitung",46,28,1
-"2020/05/31","Kepulauan Bangka Belitung",46,27,1
-"2020/05/30","Kepulauan Bangka Belitung",45,27,1
-"2020/05/29","Kepulauan Bangka Belitung",42,27,1
-"2020/05/28","Kepulauan Bangka Belitung",42,27,1
-"2020/05/27","Kepulauan Bangka Belitung",42,27,1
-"2020/05/26","Kepulauan Bangka Belitung",39,27,1
-"2020/05/25","Kepulauan Bangka Belitung",39,27,1
-"2020/05/24","Kepulauan Bangka Belitung",39,27,1
-"2020/05/23","Kepulauan Bangka Belitung",39,26,1
-"2020/05/22","Kepulauan Bangka Belitung",36,26,1
-"2020/05/21","Kepulauan Bangka Belitung",36,24,1
-"2020/05/20","Kepulauan Bangka Belitung",35,24,1
-"2020/05/19","Kepulauan Bangka Belitung",29,24,1
-"2020/05/18","Kepulauan Bangka Belitung",29,24,1
-"2020/05/17","Kepulauan Bangka Belitung",29,23,1
-"2020/05/16","Kepulauan Bangka Belitung",29,7,1
-"2020/05/15","Kepulauan Bangka Belitung",29,7,1
-"2020/05/14","Kepulauan Bangka Belitung",29,7,1
-"2020/05/13","Kepulauan Bangka Belitung",29,7,1
-"2020/05/12","Kepulauan Bangka Belitung",29,7,1
-"2020/05/11","Kepulauan Bangka Belitung",29,6,1
-"2020/05/10","Kepulauan Bangka Belitung",29,6,1
-"2020/05/09","Kepulauan Bangka Belitung",28,6,1
-"2020/05/08","Kepulauan Bangka Belitung",28,6,1
-"2020/05/07","Kepulauan Bangka Belitung",28,4,1
-"2020/05/06","Kepulauan Bangka Belitung",28,4,1
-"2020/05/05","Kepulauan Bangka Belitung",28,4,1
-"2020/05/04","Kepulauan Bangka Belitung",20,4,1
-"2020/05/03","Kepulauan Bangka Belitung",20,4,1
-"2020/05/02","Kepulauan Bangka Belitung",19,4,1
-"2020/05/01","Kepulauan Bangka Belitung",19,4,1
-"2020/04/30","Kepulauan Bangka Belitung",10,2,1
-"2020/04/29","Kepulauan Bangka Belitung",10,2,1
-"2020/04/28","Kepulauan Bangka Belitung",10,2,1
-"2020/04/27","Kepulauan Bangka Belitung",10,2,1
-"2020/04/26","Kepulauan Bangka Belitung",10,2,1
-"2020/04/25","Kepulauan Bangka Belitung",9,2,1
-"2020/04/24","Kepulauan Bangka Belitung",9,2,1
-"2020/04/23","Kepulauan Bangka Belitung",8,2,1
-"2020/04/22","Kepulauan Bangka Belitung",8,2,1
-"2020/04/21","Kepulauan Bangka Belitung",8,2,1
-"2020/04/20","Kepulauan Bangka Belitung",7,1,1
-"2020/04/19","Kepulauan Bangka Belitung",7,0,1
-"2020/04/18","Kepulauan Bangka Belitung",6,0,1
-"2020/04/17","Kepulauan Bangka Belitung",6,0,1
-"2020/04/16","Kepulauan Bangka Belitung",6,0,1
-"2020/04/15","Kepulauan Bangka Belitung",5,0,1
-"2020/04/14","Kepulauan Bangka Belitung",4,0,1
-"2020/04/13","Kepulauan Bangka Belitung",4,0,1
-"2020/04/12","Kepulauan Bangka Belitung",4,0,1
-"2020/04/11","Kepulauan Bangka Belitung",4,0,1
