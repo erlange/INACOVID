@@ -1,4 +1,5 @@
 "Date","Location","Confirmed","Cured","Deaths"
+"2020/07/15","National",80094,39050,3797
 "2020/07/14","National",78572,37636,3710
 "2020/07/13","National",76981,36689,3656
 "2020/07/12","National",75699,35638,3606
@@ -942,6 +943,7 @@
 "2020/03/04","DKI Jakarta",2,0,0
 "2020/03/03","DKI Jakarta",2,0,0
 "2020/03/02","DKI Jakarta",2,0,0
+"2020/07/13","Gorontalo",363,238,17
 "2020/07/12","Gorontalo",359,230,17
 "2020/07/11","Gorontalo",345,230,17
 "2020/07/10","Gorontalo",316,228,17
@@ -2133,4 +2135,3 @@
 "2020/03/18","Kalimantan Timur",1,0,0
 "2020/03/17","Kalimantan Timur",0,0,0
 "2020/03/16","Kalimantan Timur",0,0,0
-"2020/03/15","Kalimantan Timur",0,0,0
