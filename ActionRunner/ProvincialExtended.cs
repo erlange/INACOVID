@@ -45,14 +45,17 @@ namespace com.github.erlange.inacovid
 
             string urlProvExt = Utils.ApiEndPoints["ProvExt"];
             var recs = GetDailyListExt(await Utils.GetJsonObj(urlProvExt.Replace("[]", inputprovNm)));
+            Log.Information("Getting data: " + urlProvExt);
             string s = ListToCsv(recs);
             string loc = Utils.GetAbsdir("ext.prov.csv", Utils.LocalEndPoints["PathToCsv"]);
             await File.WriteAllTextAsync(loc, s);
+            Log.Information("   Saved to: " + loc);
         }
 
         public static async Task ProcessOne(string[] provinces)
         {
             string urlProvExt = Utils.ApiEndPoints["ProvExt"];
+            //Log.Information("Getting data: " + urlProvExt);
             string loc = Utils.GetAbsdir("ext.prov.csv", Utils.LocalEndPoints["PathToCsv"]);
             string locJson = Utils.GetAbsdir("ext.prov.json", Utils.LocalEndPoints["PathToJson"]);
             File.Delete(loc);
@@ -81,6 +84,8 @@ namespace com.github.erlange.inacovid
                 }
             }
             await File.WriteAllTextAsync(locJson, JsonConvert.SerializeObject(o));
+            //Log.Information("   Saved to: " + loc);
+            //Log.Information("   Saved to: " + locJson);
         }
 
         public static JObject BuildJson(List<CsvFieldExt> list)

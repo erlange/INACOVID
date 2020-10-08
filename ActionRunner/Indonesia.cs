@@ -35,14 +35,17 @@ namespace com.github.erlange.inacovid
 
             JObject jResult = await GetBasicJson();
             await File.WriteAllTextAsync(fullPath, JsonConvert.SerializeObject(jResult, Formatting.None));
+            //Log.Information("   Saved to: " + fullPath);
             await File.WriteAllTextAsync(fullPathCsv, await GetBasicCsvMerged());
-            
+            //Log.Information("   Saved to: " + fullPathCsv);
+
             // Added calculated & running total fields
             var recsNatl = await GetBasicCsvNatl();
             var recsProv = await GetBasicCsvProv();
             recsNatl.AddRange(recsProv);
             await File.WriteAllTextAsync(fullPathCsvExt, GetBasicCsvMergedExt(recsNatl));
-            
+            Log.Information("   Saved to: " + fullPathCsvExt);
+
             Log.Information("Basic data done.");
         }
 
@@ -131,6 +134,7 @@ namespace com.github.erlange.inacovid
             var jRoot = root["National"];
 
             string sJson = await Utils.DownloadJsonStringAsync(urlNatl);
+            //Log.Information("Getting data: " + urlNatl);
 
             JObject obj = (JObject)JsonConvert.DeserializeObject(sJson);
 

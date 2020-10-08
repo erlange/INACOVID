@@ -43,6 +43,7 @@ namespace com.github.erlange.inacovid
         {
 
             string urlProvCat = Utils.ApiEndPoints["ProvExt"];
+            //Log.Information("Getting data: " + urlProvCat);
             string loc = Utils.GetAbsdir(CsvFile, Utils.LocalEndPoints["PathToCsv"]);
             //string locJson = Utils.GetAbsdir("ext.prov.json", Utils.LocalEndPoints["PathToJson"]);
             File.Delete(loc);
@@ -72,6 +73,8 @@ namespace com.github.erlange.inacovid
                 }
             }
             //await File.WriteAllTextAsync(locJson, JsonConvert.SerializeObject(o));
+            //Log.Information("   Saved to: " + loc);
+
         }
 
 

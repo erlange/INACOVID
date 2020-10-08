@@ -31,7 +31,7 @@ namespace com.github.erlange.inacovid
          
             var j = BuildJson(recs);
             await File.WriteAllTextAsync(locJson, JsonConvert.SerializeObject(j));
-            Console.WriteLine("Hospital data  done.");
+            Log.Information("Hospital data  done.");
 
         }
 

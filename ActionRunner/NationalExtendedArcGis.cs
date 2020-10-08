@@ -41,14 +41,17 @@ namespace com.github.erlange.inacovid
         {
             string urlNatlExt = Utils.ApiEndPoints["Natl"];
             var recs = GetDailyListExt(await Utils.GetJsonObj(urlNatlExt));
+            //Log.Information("Getting data: " + urlNatlExt);
             string sCsv = ListToCsv(recs);
             string sJson = JsonConvert.SerializeObject(BuildJson(recs, false));
             string fCsv = Utils.GetAbsdir("arcgis.natl.csv", Utils.LocalEndPoints["PathToCsv"]);
             string fJson = Utils.GetAbsdir("arcgis.natl.json", Utils.LocalEndPoints["PathToJson"]);
             await File.WriteAllTextAsync(fCsv, sCsv);
+            //Log.Information("   Saved to: " + fCsv);
             await File.WriteAllTextAsync(fJson, sJson);
-            Console.WriteLine("National data extended (ArcGis version) done.");
-            Console.WriteLine(Utils.Delim);
+            //Log.Information("   Saved to: " + fJson);
+            Log.Information("National data extended (ArcGis version) done.");
+            Log.Information(Utils.Delim);
         }
 
         public static List<CsvFieldArcGis> GetDailyListExt(JObject jsonObject)

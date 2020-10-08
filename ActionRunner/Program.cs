@@ -69,10 +69,10 @@ namespace com.github.erlange.inacovid
                 o1.Merge(o2, new JsonMergeSettings() { MergeArrayHandling = MergeArrayHandling.Merge });
                 File.WriteAllText(f3, JsonConvert.SerializeObject(o1));
 
-                Console.WriteLine("Merging data done.");
+                Log.Information("Merging data done.");
                 Log.Information(Utils.Delim);
 
-                Console.WriteLine("Getting hospital data...");
+                Log.Information("Getting hospital data...");
                 await HospitalRef.Process();
 
                 Log.Information(Utils.Delim);

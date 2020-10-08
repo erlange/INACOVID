@@ -34,11 +34,13 @@ namespace com.github.erlange.inacovid
         {
             string urlNatlCat= Utils.ApiEndPoints["NatlExtD"];
             var recs = GetDailyListCat(await Utils.GetJsonObj(urlNatlCat));
+            //Log.Information("Getting data: " + urlNatlCat);
             string s = ListToCsv(recs);
             string loc = Utils.GetAbsdir(CsvFile, Utils.LocalEndPoints["PathToCsv"]);
             await File.WriteAllTextAsync(loc, s);
-            Console.WriteLine(Utils.Delim);
-            Console.WriteLine("Categorical data done.");
+            //Log.Information("   Saved to: " + loc);
+            Log.Information("Categorical data done.");
+            Log.Information(Utils.Delim);
         }
 
         public static List<CsvFieldCat> GetDailyListCat(JObject jsonObject)

@@ -33,12 +33,16 @@ namespace com.github.erlange.inacovid
         {
             string urlNatlExt = Utils.ApiEndPoints["NatlExt"];
             var recs = GetDailyListExt(await Utils.GetJsonObj(urlNatlExt));
+            //Log.Information("Getting data: " + urlNatlExt);
+
             string sCsv = ListToCsv(recs);
             string sJson = JsonConvert.SerializeObject(BuildJson(recs, false));
             string fCsv = Utils.GetAbsdir("ext.natl.csv", Utils.LocalEndPoints["PathToCsv"]);
             string fJson = Utils.GetAbsdir("ext.natl.json", Utils.LocalEndPoints["PathToJson"]);
             await File.WriteAllTextAsync(fCsv, sCsv);
+            //Log.Information("   Saved to: " + fCsv);
             await File.WriteAllTextAsync(fJson, sJson);
+            //Log.Information("   Saved to: " + fJson);
             Console.WriteLine("National data extended done.");
             Console.WriteLine(Utils.Delim);
         }
