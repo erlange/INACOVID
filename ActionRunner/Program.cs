@@ -52,10 +52,10 @@ namespace com.github.erlange.inacovid
             {
                 Log.Information("Collecting data...");
 
-                await Indonesia.Process();
+                //await Indonesia.Process();
                 await NationalExtended.Process();
                 await ProvincialExtended.Process();
-                await NationalExtendedArcGis.Process();
+                //await NationalExtendedArcGis.Process();
                 await Categorical.Process();
                 await CategoryProvincial.Process();
 
