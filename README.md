@@ -34,29 +34,6 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 <td ><b>Description</b></td>
 </thead>
 <tbody>
-<tr>
-<td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
-<td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/arcgis.natl.csv>📄arcgis.natl.csv</a></td>
-<td rowspan=2>ArcGIS version of national level time-series data
-</td>
-</tr>
-<tr>
-<td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
-<td><a href=https://github.com/erlange/INACOVID/blob/master/data/json/arcgis.natl.json>📜arcgis.natl.json</a></td>
-</td>
-</tr>
-
-<tr>
-<td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
-<td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/basic.csv>📄basic.csv</a></td>
-<td rowspan=2>Basic version of national and state/provincial level time-series data
-</td>
-</tr>
-<tr>
-<td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
-<td><a href=https://github.com/erlange/INACOVID/blob/master/data/json/basic.minified.json>📜basic.minified.json</a></td>
-</td>
-</tr>
 
 <tr>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
@@ -93,6 +70,30 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 <td><a href=https://github.com/erlange/INACOVID/blob/master/data/json/hospitals.json>📜hospitals.json</a></td>
 </td>
 </tr>
+<tr>
+<td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
+<td>⛔arcgis.natl.csv</td>
+<td rowspan=2>(⛔ Obsolete. Use the BNPB version instead) ArcGIS version of national level time-series data
+</td>
+</tr>
+<tr>
+<td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
+<td>⛔arcgis.natl.json</td>
+</td>
+</tr>
+
+<tr>
+<td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
+<td>⛔basic.csv</td>
+<td rowspan=2>(⛔ Obsolete. Use the BNPB version instead) Basic version of national and state/provincial level time-series data
+</td>
+</tr>
+<tr>
+<td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
+<td>⛔basic.minified.json</td>
+</td>
+</tr>
+
 
 <tr>
 <td colspan=3>*BNPB (Badan Nasional Penanggulangan Bencana) is the Indonesian government/national institution for disaster recovery</td>
