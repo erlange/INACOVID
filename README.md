@@ -151,7 +151,7 @@ All the data scraping processes are located in the [📁.github/workflows](https
 
 ### Data Sources
 ---
-The data sources are from the [Official Government Site](https://covid19.go.id/peta-sebaran) and the [ArcGIS Covid dashboard of Indonesia.](https://inacovid19.maps.arcgis.com/apps/opsdashboard/index.html#/81a3572883014c0088a62e1f320c97e1)
+The data sources are from the [Official Government Site](https://covid19.go.id/peta-sebaran)
 
 
 ### Submit Bugs
