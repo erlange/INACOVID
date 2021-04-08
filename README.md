@@ -50,7 +50,7 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 <tr>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
 <td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/ext.prov.csv>📄ext.prov.csv</a></td>
-<td rowspan=2>BNPB version of state/provincial level time-series data
+<td rowspan=2>BNPB version of provincial level time-series data
 </td>
 </tr>
 <tr>
@@ -61,8 +61,21 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 
 <tr>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
+<td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/vax.csv>vax.csv</a></td>
+<td rowspan=2>Vaccination time-series data
+</td>
+</tr>
+<tr>
+<td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
+<td><a href=https://github.com/erlange/INACOVID/blob/master/data/json/vax.json>📜vax.json</a></td>
+</td>
+</tr>
+
+
+<tr>
+<td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
 <td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/hospitals.csv>📄hospitals.csv</a></td>
-<td rowspan=2>Local hospital contacts and addresses
+<td rowspan=2>Local hospital data
 </td>
 </tr>
 <tr>
@@ -85,7 +98,7 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 <tr>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
 <td>⛔basic.csv</td>
-<td rowspan=2>(⛔ Obsolete. Use the BNPB version instead) Basic version of national and state/provincial level time-series data
+<td rowspan=2>(⛔ Obsolete. Use the BNPB version instead) Basic version of national and provincial level time-series data
 </td>
 </tr>
 <tr>

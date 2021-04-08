@@ -14,6 +14,8 @@ using System.Text;
 
 namespace com.github.erlange.inacovid
 {
+
+
     class NationalExtended
     {
         static readonly string DiConfirmed = Utils.DictNatlExt["Daily-DI-Confirmed"];

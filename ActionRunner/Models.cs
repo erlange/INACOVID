@@ -76,4 +76,20 @@ namespace com.github.erlange.inacovid
         public string propinsi { get; set; }
     }
 
+    public class CsvFieldVax
+    {
+        public DateTime Date { get; set; }
+        public int SpecPcrTcm { get; set; }
+        public int SpecAntigen { get; set; }
+        public int PplAntigen { get; set; }
+        public int PplPcrTcm { get; set; }
+        public int CummSpecPcrTcm { get; set; }
+        public int CummSpecAntigen { get; set; }
+        public int CummPplAntigen { get; set; }
+        public int CummPplPcrTcm { get; set; }
+        public int PplVax1 { get; set; }
+        public int PplVax2 { get; set; }
+        public int CummPplVax1 { get; set; }
+        public int CummPplVax2 { get; set; }
+    }
 }

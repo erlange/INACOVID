@@ -53,11 +53,13 @@ namespace com.github.erlange.inacovid
                 Log.Information("Collecting data...");
 
                 //await Indonesia.Process();
+                //await NationalExtendedArcGis.Process();
+
                 await NationalExtended.Process();
                 await ProvincialExtended.Process();
-                //await NationalExtendedArcGis.Process();
                 await Categorical.Process();
                 await CategoryProvincial.Process();
+                await Vax.Process();
 
                 string p = Utils.LocalEndPoints["PathToJson"];
                 string f1 = Utils.GetAbsdir("ext.natl.json", p);
