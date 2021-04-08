@@ -1,6 +1,8 @@
 ﻿import pandas as pd
+import matplotlib as mpl
 from matplotlib import pyplot as plt
 from matplotlib import dates as mdates
+from matplotlib.ticker import (AutoMinorLocator, MultipleLocator, MaxNLocator)
 import datetime
 
 c_Confirmed = "#2c347c"
@@ -21,15 +23,21 @@ latest_update = latest.sort_values("Confirmed", ascending=True).tail(1).iloc[0,0
 fig, axs = plt.subplots(1, 1, sharex=True, figsize=(6,6))
 axs.barh(latest["Location"], latest["Cured"] + latest["Deaths"] + latest["Hospitalised"], color = c_b, label = "Active Cases")
 axs.barh(latest["Location"], latest["Cured"] + latest["Deaths"], color = c_y, label = "Recovered")
-axs.barh(latest["Location"], latest["Deaths"], color = c_r, label = "Deaths")
+axs.barh(latest["Location"], latest["Deaths"], color = c_r, label = "Death")
 axs.legend()
 axs.grid(axis="x")
 axs.set_title("Impact on Provinces - Top 20")
+myFmtY = mpl.ticker.StrMethodFormatter("{x:,.0F}")
+axs.xaxis.set_major_formatter(myFmtY)
+axs.xaxis.set_major_locator(MultipleLocator(25000))
 
+dt_latest_update = pd.to_datetime(latest_update)
 plt.gcf().text(0.05, 0.97, "Last updated", color="#888888", fontsize=10, family="Arial", weight="bold", bbox=dict(facecolor="none", edgecolor="none",  boxstyle='square,pad=.7'))
-plt.gcf().text(0.05, 0.93, f"{latest_update: %Y-%m-%d}", color="#888888", fontsize=16, family="Arial", weight="bold", bbox=dict(facecolor="none", edgecolor="none",  boxstyle='square,pad=.7'))
+plt.gcf().text(0.05, 0.93, f"{dt_latest_update: %Y-%b-%d}", color="#888888", fontsize=16, family="Arial", weight="bold", bbox=dict(facecolor="none", edgecolor="none",  boxstyle='square,pad=.7'))
 
-fig.subplots_adjust(hspace=0.2, top=0.92, left=0.42, bottom=0.06, right=0.97)
+fig.subplots_adjust(hspace=0.2, top=0.92, left=0.42, bottom=0.14, right=0.97)
+plt.xticks(rotation=90)
+
 # plt.show()
 
 plt.savefig("data/plot/inaprovinces.png")

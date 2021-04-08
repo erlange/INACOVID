@@ -1,4 +1,6 @@
 ﻿import pandas as pd
+import matplotlib as mpl
+from matplotlib.ticker import (AutoMinorLocator, MultipleLocator, MaxNLocator)
 from matplotlib import pyplot as plt
 from matplotlib import dates as mdates
 import datetime
@@ -27,7 +29,13 @@ axs.barh(dfg.index, dfg["tempat_tidur"] , color = c_b, label = "Bedding Capacity
 axs.grid(axis="x")
 axs.set_title("Hospital Bedding Capacity by Provinces")
 
-fig.subplots_adjust(hspace=0.2, top=0.92, left=0.42, bottom=0.06, right=0.97)
+myFmtY = mpl.ticker.StrMethodFormatter("{x:,.0F}")
+axs.xaxis.set_major_formatter(myFmtY)
+axs.xaxis.set_major_locator(MultipleLocator(5000))
+
+fig.subplots_adjust(hspace=0.2, top=0.92, left=0.42, bottom=0.12, right=0.97)
+plt.xticks(rotation=90)
+plt.margins(y=0)
 # plt.show()
 
 plt.savefig("data/plot/inahosp.png")

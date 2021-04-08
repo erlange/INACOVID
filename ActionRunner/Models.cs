@@ -81,14 +81,22 @@ namespace com.github.erlange.inacovid
         public DateTime Date { get; set; }
         public int SpecPcrTcm { get; set; }
         public int SpecAntigen { get; set; }
+        public int SpecTotal { get; set; }
+        public double SpecTotalAvg7d { get; set; }
         public int PplAntigen { get; set; }
         public int PplPcrTcm { get; set; }
+        public int PplTotal { get; set; }
+        public double PplTotalAvg7d { get; set; }
         public int CummSpecPcrTcm { get; set; }
         public int CummSpecAntigen { get; set; }
+        public int CummSpecTotal { get; set; }
         public int CummPplAntigen { get; set; }
         public int CummPplPcrTcm { get; set; }
+        public int CummPplTotal { get; set; }
         public int PplVax1 { get; set; }
+        public int PplVax1Avg7d { get; set; }
         public int PplVax2 { get; set; }
+        public double PplVax2Avg7d { get; set; }
         public int CummPplVax1 { get; set; }
         public int CummPplVax2 { get; set; }
     }

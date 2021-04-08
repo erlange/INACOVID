@@ -61,7 +61,7 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 
 <tr>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
-<td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/vax.csv>vax.csv</a></td>
+<td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/vax.csv>📄vax.csv</a></td>
 <td rowspan=2>Vaccination time-series data
 </td>
 </tr>
