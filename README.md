@@ -9,7 +9,7 @@
 Independent effort of providing up-to-the-minute time-series reports in JSON and CSV format for analytical purposes.
 
 ## Table of Contents
-* [**Dataset**](#dataset)
+* [**Dataset**](#dataset-and-downloadables)
 * [**Charts**](#charts)
   * [Impacts on Indonesia Provinces](#impacts-on-indonesia-provinces)
   * [Demographics](#demographics)
@@ -21,7 +21,7 @@ Independent effort of providing up-to-the-minute time-series reports in JSON and
 * [**Contributing**](#submit-bugs)
 
 
-### Dataset
+### Dataset and Downloadables
 The data are automatically scheduled to refresh every hour at the 11th minute as specified in the [Action workflow](https://github.com/erlange/INACOVID/actions) of this repo including the below chart, however if there is no update from the data sources then the data on this repo will not change.
 
 
@@ -36,73 +36,73 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 </thead>
 <tbody>
 
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
 <td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/ext.natl.csv>📄ext.natl.csv</a></td>
 <td rowspan=2>BNPB version of national level time-series data
 </td>
 </tr>
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
 <td><a href=https://github.com/erlange/INACOVID/blob/master/data/json/ext.natl.json>📜ext.natl.json</a></td>
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
 <td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/ext.prov.csv>📄ext.prov.csv</a></td>
 <td rowspan=2>BNPB version of provincial level time-series data
 </td>
 </tr>
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
 <td><a href=https://github.com/erlange/INACOVID/blob/master/data/json/ext.prov.json>📜ext.prov.json</a></td>
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
 <td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/vax.csv>📄vax.csv</a></td>
 <td rowspan=2>Vaccination time-series data
 </td>
 </tr>
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
 <td><a href=https://github.com/erlange/INACOVID/blob/master/data/json/vax.json>📜vax.json</a></td>
 </td>
 </tr>
 
 
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
 <td><a href=https://github.com/erlange/INACOVID/blob/master/data/csv/hospitals.csv>📄hospitals.csv</a></td>
 <td rowspan=2>Local hospital data
 </td>
 </tr>
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
 <td><a href=https://github.com/erlange/INACOVID/blob/master/data/json/hospitals.json>📜hospitals.json</a></td>
 </td>
 </tr>
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
 <td>⛔arcgis.natl.csv</td>
 <td rowspan=2>(⛔ Obsolete. Use the BNPB version instead) ArcGIS version of national level time-series data
 </td>
 </tr>
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
 <td>⛔arcgis.natl.json</td>
 </td>
 </tr>
 
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/csv>📁data/csv</a></td>
 <td>⛔basic.csv</td>
 <td rowspan=2>(⛔ Obsolete. Use the BNPB version instead) Basic version of national and provincial level time-series data
 </td>
 </tr>
-<tr>
+<tr valign=top>
 <td><a href=https://github.com/erlange/INACOVID/tree/master/data/json>📁data/json</a></td>
 <td>⛔basic.minified.json</td>
 </td>
