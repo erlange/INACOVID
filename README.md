@@ -2,8 +2,9 @@
 
 ## Indonesia COVID-19 (INACOVID) Data Repository in CSV and JSON Format
 
-![Indonesia Covid-19 Chart](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inachart.png)
+![Indonesia Covid-19 Cases](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inachart.png)
 
+![Indonesia Covid-19 Vaccination Statistics](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/vax.png)
 
 Independent effort of providing up-to-the-minute time-series reports in JSON and CSV format for analytical purposes.
 
@@ -13,7 +14,7 @@ Independent effort of providing up-to-the-minute time-series reports in JSON and
   * [Impacts on Indonesia Provinces](#impacts-on-indonesia-provinces)
   * [Demographics](#demographics)
   * [Medical Conditions](#medical-conditions)
-  * [Medical Facilities](#medical-facilities)
+  * [Hospital Beddings](#medical-facilities)
 * [**Scrapers**](#scrapers)
 * [**Workflows**](#workflow)
 * [**Data Sources**](#data-sources)
