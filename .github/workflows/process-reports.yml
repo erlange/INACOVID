@@ -37,6 +37,7 @@ jobs:
     - name: Plot Indonesia charts
       run: |
           python ActionRunner/createplot.py
+          python ActionRunner/CreatePlot-Vax.py
           python ActionRunner/CreatePlot-Age.py        
           python ActionRunner/CreatePlot-Comorbid.py        
           python ActionRunner/CreatePlot-Provinces.py
