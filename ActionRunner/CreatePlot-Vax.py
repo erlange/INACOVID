@@ -122,20 +122,20 @@ dt_last_updated = pd.to_datetime(last_updated)
 plt.gcf().text(0.84, 0.918, f"{dt_last_updated:%Y-%b-%d}", color="#888888", fontsize=14, family="Arial", weight="bold", bbox=dict(facecolor="none", edgecolor="none",  boxstyle='square,pad=.7'))
 plt.gcf().text(0.84, 0.955, "Last Updated", color="#888888", fontsize=8,  family="Arial", weight="bold")
 
-plt.gcf().text(0.036, 0.920, "{:,}".format(LastSpecTotalCum), color="#ffffff", fontsize=18, family="Arial", weight="bold", bbox=dict(facecolor=cc[0], edgecolor=cc[0],  boxstyle='square, pad=.7'))
+plt.gcf().text(0.036, 0.918, "{:,}".format(LastSpecTotalCum), color="#ffffff", fontsize=18, family="Arial", weight="bold", bbox=dict(facecolor=cc[0], edgecolor=cc[0],  boxstyle='square, pad=.7'))
 plt.gcf().text(0.036, 0.955, "Specimens Tested", color="#ffffff", fontsize=10,  family="Arial", weight="bold")
 plt.gcf().text(0.036, 0.89, '+' + f"{LastSpecTotal:,}", color="#ffffff", fontsize=10,  family="Arial", weight="bold")
 
-plt.gcf().text(0.24, 0.920, f"{LastPplTotalCum:,}", color="#ffffff", fontsize=18,  family="Arial", weight="bold", bbox=dict(facecolor=cc[1], edgecolor=cc[1],  boxstyle='square,pad=.7'))
+plt.gcf().text(0.24, 0.918, f"{LastPplTotalCum:,}", color="#ffffff", fontsize=18,  family="Arial", weight="bold", bbox=dict(facecolor=cc[1], edgecolor=cc[1],  boxstyle='square,pad=.7'))
 plt.gcf().text(0.24, 0.955, "People Tested", color="#ffffff", fontsize=10,  family="Arial", weight="bold")
 plt.gcf().text(0.24, 0.89, '+' + f"{LastPplTotal:,}", color="#ffffff", fontsize=10,  family="Arial", weight="bold")
 # plt.gcf().text(0.51, 0.89, f"{latest_recov/100:.1%}", color="#ffffff", fontsize=10,  family="Arial", weight="bold")
 
-plt.gcf().text(0.43, 0.920, f"{LastVax1Cum:,}", color="#ffffff", fontsize=18,  family="Arial", weight="bold", bbox=dict(facecolor=cc[4], edgecolor=cc[4],  boxstyle='square,pad=.7'))
+plt.gcf().text(0.43, 0.918, f"{LastVax1Cum:,}", color="#ffffff", fontsize=18,  family="Arial", weight="bold", bbox=dict(facecolor=cc[4], edgecolor=cc[4],  boxstyle='square,pad=.7'))
 plt.gcf().text(0.43, 0.955, "Vaccine 1st Dose", color="#ffffff", fontsize=10,  family="Arial", weight="bold")
 plt.gcf().text(0.43, 0.89, '+' + f"{LastVax1:,}", color="#ffffff", fontsize=10,  family="Arial", weight="bold")
 
-plt.gcf().text(0.62, 0.920, f"{LastVax2Cum:,}", color="#ffffff", fontsize=18,  family="Arial", weight="bold", bbox=dict(facecolor=cc[5], edgecolor=cc[5],  boxstyle='square,pad=.7'))
+plt.gcf().text(0.62, 0.918, f"{LastVax2Cum:,}", color="#ffffff", fontsize=18,  family="Arial", weight="bold", bbox=dict(facecolor=cc[5], edgecolor=cc[5],  boxstyle='square,pad=.7'))
 plt.gcf().text(0.62, 0.955, "Vaccine 2nd Dose", color="#ffffff", fontsize=10,  family="Arial", weight="bold")
 plt.gcf().text(0.62, 0.89, '+' + f"{LastVax2:,}", color="#ffffff", fontsize=10,  family="Arial", weight="bold")
 
