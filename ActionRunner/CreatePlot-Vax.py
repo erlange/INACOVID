@@ -13,7 +13,7 @@ d = d_raw.tail(720)
 d = d.iloc[1:]
 
 # fig.subplots_adjust(hspace=0.46, top=0.85, bottom=0)
-fig, axs = plt.subplots(4, 1, sharex=True, figsize=(8,12))
+fig, axs = plt.subplots(4, 1, sharex=True, figsize=(8,8))
 
 x = d["Date"]
 x = pd.to_datetime(d["Date"])
