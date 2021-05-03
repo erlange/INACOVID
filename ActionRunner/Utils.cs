@@ -101,11 +101,13 @@ namespace com.github.erlange.inacovid
         {
             //string urlProvAll = Utils.ApiEndPoints["ProvAll"];
             string urlProvAll = Utils.ApiEndPoints["Prov"];
-            JObject o = await Utils.GetJsonObj(urlProvAll);
+            JArray o = await Utils.GetJsonArray(urlProvAll);
             var li = new List<string>();
 
-            foreach (var p in o["features"].Children())
-                li.Add(p["attributes"]["Provinsi"].ToString());
+            //foreach (var p in o["features"].Children())
+            //    li.Add(p["attributes"]["Provinsi"].ToString());
+            foreach(var p in o.Children())
+                li.Add(p["nm_1"].ToString());
 
             return li.Distinct().Select(x => x).ToList();
         }

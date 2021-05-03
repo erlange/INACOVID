@@ -65,11 +65,36 @@ namespace com.github.erlange.inacovid
                 string f1 = Utils.GetAbsdir("ext.natl.json", p);
                 string f2 = Utils.GetAbsdir("ext.prov.json", p);
                 string f3 = Utils.GetAbsdir("ext.merge.json", p);
+                string f4 = Utils.GetAbsdir("all.min.json", p);
 
                 JObject o1 = await Utils.GetJsonObj(f1);
                 JObject o2 = await Utils.GetJsonObj(f2);
                 o1.Merge(o2, new JsonMergeSettings() { MergeArrayHandling = MergeArrayHandling.Merge });
-                File.WriteAllText(f3, JsonConvert.SerializeObject(o1));
+                string f3s = JsonConvert.SerializeObject(o1);
+                File.WriteAllText(f3, f3s);
+                System.Text.StringBuilder sb = new System.Text.StringBuilder(f3s);
+
+                sb.Replace(Utils.DictNatlExt["Daily-Hosp"], "Hosp_T");
+                sb.Replace(Utils.DictNatlExt["Daily-Dead"], "Dead_T");
+                sb.Replace(Utils.DictNatlExt["Daily-Cured"], "Cured_T");
+                sb.Replace(Utils.DictNatlExt["Daily-Confirmed"], "Confirmed_T");
+                sb.Replace(Utils.DictNatlExt["Daily-DI-Hosp"], "Hosp");
+                sb.Replace(Utils.DictNatlExt["Daily-DI-Dead"], "Dead");
+                sb.Replace(Utils.DictNatlExt["Daily-DI-Cured"], "Cured");
+                sb.Replace(Utils.DictNatlExt["Daily-DI-Confirmed"], "Confirmed");
+
+                sb.Replace(Utils.DictProvExt["Daily-Hosp"], "Hosp_T");
+                sb.Replace(Utils.DictProvExt["Daily-Dead"], "Dead_T");
+                sb.Replace(Utils.DictProvExt["Daily-Cured"], "Cured_T");
+                sb.Replace(Utils.DictProvExt["Daily-Confirmed"], "Confirmed_T");
+                sb.Replace(Utils.DictProvExt["Daily-DI-Hosp"], "Hosp");
+                sb.Replace(Utils.DictProvExt["Daily-DI-Dead"], "Dead");
+                sb.Replace(Utils.DictProvExt["Daily-DI-Cured"], "Cured");
+                sb.Replace(Utils.DictProvExt["Daily-DI-Confirmed"], "Confirmed");
+
+                Log.Information("Writing minified files for web");
+                Log.Information(Utils.Delim);
+                File.WriteAllText(f4, sb.ToString());
 
                 Log.Information("Merging data done.");
                 Log.Information(Utils.Delim);

@@ -1,0 +1,172 @@
+[
+  {
+    "id": 11,
+    "nm": "Aceh (NAD)",
+    "nm_1": "ACEH"
+  },
+  {
+    "id": 12,
+    "nm": "Sumatera Utara",
+    "nm_1": "SUMATERA_UTARA"
+  },
+  {
+    "id": 13,
+    "nm": "Sumatera Barat",
+    "nm_1": "SUMATERA_BARAT"
+  },
+  {
+    "id": 14,
+    "nm": "Riau",
+    "nm_1": "RIAU"
+  },
+  {
+    "id": 15,
+    "nm": "Jambi",
+    "nm_1": "JAMBI"
+  },
+  {
+    "id": 16,
+    "nm": "Sumatera Selatan",
+    "nm_1": "SUMATERA_SELATAN"
+  },
+  {
+    "id": 17,
+    "nm": "Bengkulu",
+    "nm_1": "BENGKULU"
+  },
+  {
+    "id": 18,
+    "nm": "Lampung",
+    "nm_1": "LAMPUNG"
+  },
+  {
+    "id": 19,
+    "nm": "Kepulauan Bangka Belitung",
+    "nm_1": "KEPULAUAN_BANGKA_BELITUNG"
+  },
+  {
+    "id": 21,
+    "nm": "Kepulauan Riau",
+    "nm_1": "KEPULAUAN_RIAU"
+  },
+  {
+    "id": 31,
+    "nm": "DKI Jakarta",
+    "nm_1": "DKI_JAKARTA"
+  },
+  {
+    "id": 32,
+    "nm": "Jawa Barat",
+    "nm_1": "JAWA_BARAT"
+  },
+  {
+    "id": 33,
+    "nm": "Jawa Tengah",
+    "nm_1": "JAWA_TENGAH"
+  },
+  {
+    "id": 34,
+    "nm": "DI Yogyakarta",
+    "nm_1": "DAERAH_ISTIMEWA_YOGYAKARTA"
+  },
+  {
+    "id": 35,
+    "nm": "Jawa Timur",
+    "nm_1": "JAWA_TIMUR"
+  },
+  {
+    "id": 36,
+    "nm": "Banten",
+    "nm_1": "BANTEN"
+  },
+  {
+    "id": 51,
+    "nm": "Bali",
+    "nm_1": "BALI"
+  },
+  {
+    "id": 52,
+    "nm": "Nusa Tenggara Barat (NTB)",
+    "nm_1": "NUSA_TENGGARA_BARAT"
+  },
+  {
+    "id": 53,
+    "nm": "Nusa Tenggara Timur (NTT)",
+    "nm_1": "NUSA_TENGGARA_TIMUR"
+  },
+  {
+    "id": 61,
+    "nm": "Kalimantan Barat",
+    "nm_1": "KALIMANTAN_BARAT"
+  },
+  {
+    "id": 62,
+    "nm": "Kalimantan Tengah",
+    "nm_1": "KALIMANTAN_TENGAH"
+  },
+  {
+    "id": 63,
+    "nm": "Kalimantan Selatan",
+    "nm_1": "KALIMANTAN_SELATAN"
+  },
+  {
+    "id": 64,
+    "nm": "Kalimantan Timur",
+    "nm_1": "KALIMANTAN_TIMUR"
+  },
+  {
+    "id": 65,
+    "nm": "Kalimantan Utara",
+    "nm_1": "KALIMANTAN_UTARA"
+  },
+  {
+    "id": 71,
+    "nm": "Sulawesi Utara",
+    "nm_1": "SULAWESI_UTARA"
+  },
+  {
+    "id": 72,
+    "nm": "Sulawesi Tengah",
+    "nm_1": "SULAWESI_TENGAH"
+  },
+  {
+    "id": 73,
+    "nm": "Sulawesi Selatan",
+    "nm_1": "SULAWESI_SELATAN"
+  },
+  {
+    "id": 74,
+    "nm": "Sulawesi Tenggara",
+    "nm_1": "SULAWESI_TENGGARA"
+  },
+  {
+    "id": 75,
+    "nm": "Gorontalo",
+    "nm_1": "GORONTALO"
+  },
+  {
+    "id": 76,
+    "nm": "Sulawesi Barat",
+    "nm_1": "SULAWESI_BARAT"
+  },
+  {
+    "id": 81,
+    "nm": "Maluku",
+    "nm_1": "MALUKU"
+  },
+  {
+    "id": 82,
+    "nm": "Maluku Utara",
+    "nm_1": "MALUKU_UTARA"
+  },
+  {
+    "id": 91,
+    "nm": "Papua",
+    "nm_1": "PAPUA"
+  },
+  {
+    "id": 92,
+    "nm": "Papua Barat",
+    "nm_1": "PAPUA_BARAT"
+  }
+]
