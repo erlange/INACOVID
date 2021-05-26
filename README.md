@@ -2,6 +2,10 @@
 
 ## Indonesia COVID-19 (INACOVID) Data Repository in CSV and JSON Format
 
+[Live Demo:](https://erlange.github.io/INACOVID/)
+https://erlange.github.io/INACOVID/
+
+
 ![Indonesia Covid-19 Cases](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inachart.png)
 
 ![Indonesia Covid-19 Vaccination Statistics](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/vax.png)
