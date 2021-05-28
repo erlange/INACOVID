@@ -7,14 +7,11 @@ import {  CommonModule } from '@angular/common';
   template: `
     <div style="width:100%;position:relative">
       <span style="font-size:0.67rem">{{CaseTitle}}</span>
-      <span style="float:right;font-size:0.67rem" *ngIf="DailyNum">
-        <i [class]="setArrowClassName(DailyNum)"></i>
-        {{DailyNum | number:'': this.Lang }}
-      </span>
       <div style="position:relative;font-size:1.28rem" *ngIf="TotalNum">
         {{TotalNum | number:'': this.Lang }}
-        <div style="float:right;" >
-            <i [class]="IconClassName" style="opacity:0.1;font-size:2rem"></i>
+        <div style="font-size:0.67rem"  *ngIf="DailyNum">
+          <i [class]="setArrowClassName(DailyNum)"></i>
+          {{DailyNum | number:'': this.Lang }}
         </div>
       </div>
     </div>

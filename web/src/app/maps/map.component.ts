@@ -25,6 +25,7 @@ import { formatNumber } from '@angular/common';
                 Accent="primary"
                 [CaseTitle]="i18n.CONFIRMED[Lang] | uppercase"
                 [TotalNum]="LatestCase.ConfirmedCum"
+                [DailyNum]="LatestCase.Confirmed"
                 [Lang]="Lang">
               </app-info-panel-sm>
             </div>
@@ -33,6 +34,7 @@ import { formatNumber } from '@angular/common';
                 Accent="primary"
                 [CaseTitle]="i18n.ACTIVE[Lang] | uppercase"
                 [TotalNum]="LatestCase.ActiveCum"
+                [DailyNum]="LatestCase.Active"
                 [Lang]="Lang">
               </app-info-panel-sm>
             </div>
@@ -41,6 +43,7 @@ import { formatNumber } from '@angular/common';
                 Accent="primary"
                 [CaseTitle]="i18n.RECOVERED[Lang] | uppercase"
                 [TotalNum]="LatestCase.CuredCum"
+                [DailyNum]="LatestCase.Cured"
                 [Lang]="Lang">
               </app-info-panel-sm>
             </div>
@@ -49,6 +52,7 @@ import { formatNumber } from '@angular/common';
                 Accent="primary"
                 [CaseTitle]="i18n.DEATHS[Lang] | uppercase"
                 [TotalNum]="LatestCase.DeadCum"
+                [DailyNum]="LatestCase.Dead"
                 [Lang]="Lang">
               </app-info-panel-sm>
             </div>

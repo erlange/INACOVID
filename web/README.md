@@ -1,26 +1,29 @@
-# AngularV10Boilerplate
+# Web for INACOVID
 
+This folder is the repo for the INACOVID web interface on https://erlange.github.io/INACOVID
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.3.
 
+## Installation
+From this directory run:
+```
+npm i
+```
+Wait until the packages are fully downloaded, then run:
+```
+npm start
+```
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Navigate to `http://localhost:4211/`. The port can be configured in the [package.json](https://github.com/erlange/INACOVID/blob/master/web/package.json#L6) file. The app will automatically reload if you change any of the source files.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+ng build --prod --base-href /INACOVID/ --aot
+```
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Make sure the `--base-href` corresponds to the `baseHref` property in the [environments.prod.ts](https://github.com/erlange/INACOVID/blob/master/web/src/environments/environment.prod.ts#L3) file
 
 ## Further help
 

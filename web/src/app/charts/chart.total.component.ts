@@ -227,6 +227,94 @@ export class ChartCumComponent implements OnInit, OnChanges, OnDestroy {
           0 : dt.ConfirmedCum.find(j => j.CaseDate === k.CaseDate).CaseCount) ).map(n => parseFloat(n.toFixed(2)))
         }, ];
     }
+
+    if (type === 'GROWTH_RATE') {
+      opts.legendData = [i18n.CONFIRMED[lang], i18n.RECOVERED[lang], i18n.DEATHS[lang]];
+
+      const activeCum = dt.ConfirmedCum.map(k => k.CaseCount - dt.CuredCum.find(l => l.CaseDate === k.CaseDate).CaseCount
+                      - dt.DeadCum.find(l => l.CaseDate === k.CaseDate).CaseCount );
+
+      opts.series = [
+        {
+          name: i18n.DEATHS[lang],
+          type: 'line',
+          data: dt.DeadCum.map((n, i) => dt.DeadCum[i - 1] === undefined ? 0
+              : (n.CaseCount - dt.DeadCum[i - 1].CaseCount) / n.CaseCount * 100 ).map(n => parseFloat(n.toFixed(2))),
+        },
+        {
+          name: i18n.RECOVERED[lang],
+          type: 'line',
+          data: dt.CuredCum.map((n, i) => dt.CuredCum[i - 1] === undefined ? 0
+              : (n.CaseCount - dt.CuredCum[i - 1].CaseCount) / n.CaseCount * 100 ).map(n => parseFloat(n.toFixed(2))),
+        },
+        {
+          name: i18n.CONFIRMED[lang],
+          type: 'line',
+          data: dt.ConfirmedCum.map((n, i) => dt.ConfirmedCum[i - 1] === undefined ? 0
+              : (n.CaseCount - dt.ConfirmedCum[i - 1].CaseCount) / n.CaseCount * 100 ).map(n => parseFloat(n.toFixed(2))),
+        },
+      ];
+    }
+
+    if (type === 'DOUBLING_TIME') {
+      opts.legendData = [i18n.CONFIRMED[lang], i18n.RECOVERED[lang], i18n.DEATHS[lang]];
+
+      const activeCum = dt.ConfirmedCum.map(k => k.CaseCount - dt.CuredCum.find(l => l.CaseDate === k.CaseDate).CaseCount
+                      - dt.DeadCum.find(l => l.CaseDate === k.CaseDate).CaseCount );
+
+      const activeGrowthRate = activeCum.map((n, i) => activeCum[i - 1] === undefined ? 0
+                              : (n - activeCum[i - 1]) / n * 100 );
+
+      const confirmedGrowthRate = dt.ConfirmedCum.map((n, i) => dt.ConfirmedCum[i - 1] === undefined ? 0
+                              : (n.CaseCount - dt.ConfirmedCum[i - 1].CaseCount) / n.CaseCount * 100 );
+
+      const deadGrowthRate = dt.DeadCum.map((n, i) =>  dt.DeadCum[i - 1] === undefined ? 0
+                              : (n.CaseCount - dt.DeadCum[i - 1].CaseCount) / n.CaseCount * 100 );
+
+      const curedGrowthRate = dt.CuredCum.map((n, i) => dt.CuredCum[i - 1] === undefined ? 0
+                              : (n.CaseCount - dt.CuredCum[i - 1].CaseCount) / n.CaseCount * 100 );
+
+      opts.series = [
+        {
+          name: i18n.DEATHS[lang],
+          type: 'line',
+          data: deadGrowthRate.map(n => Math.log(1 + (n / 100)) === 0 ? NaN
+              : Math.log(2) / Math.log(1 + (n / 100))).map(n => parseFloat(n.toFixed(2))),
+        },
+        {
+          name: i18n.RECOVERED[lang],
+          type: 'line',
+          data: curedGrowthRate.map(n => Math.log(1 + (n / 100)) === 0 ? NaN
+              : Math.log(2) / Math.log(1 + (n / 100))).map(n => parseFloat(n.toFixed(2))),
+        },
+        {
+          name: i18n.CONFIRMED[lang],
+          type: 'line',
+          data: confirmedGrowthRate.map(n => Math.log(1 + (n / 100)) === 0 ? NaN
+              : Math.log(2) / Math.log(1 + (n / 100))).map(n => parseFloat(n.toFixed(2))),
+        },
+      ];
+    }
+    if (type === 'ESTIMATED_R0') {
+      const incubationTime = 5;
+      const infectiousPeriod = 5;
+      const confirmedGrowthRate = dt.ConfirmedCum.map((n, i) => dt.ConfirmedCum[i - 1] === undefined ? 0
+                              : (n.CaseCount - dt.ConfirmedCum[i - 1].CaseCount) / n.CaseCount  );
+
+      opts.legendData = [i18n.ESTIMATED_R0[lang]];
+      opts.series = [
+        {
+          name: i18n.ESTIMATED_R0[lang],
+          type: 'line',
+
+          data: confirmedGrowthRate.map(n =>
+            // based on SEIR model
+            // R0 = (1 + lambda * incubationTime) * (1 + lambda * infectiousPeriod)
+            (1 + Math.log(n + 1) * incubationTime) * (1 + Math.log(n + 1) * infectiousPeriod) ).map(n => parseFloat(n.toFixed(2))),
+        },
+      ];
+    }
+
     return opts;
   }
 

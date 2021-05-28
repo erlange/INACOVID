@@ -32,6 +32,7 @@ interface IChartTypeOptions{
         <div class="col-6" style="text-align:center;">
           <app-info-panel-sm
             [TotalNum] = "this.TotalPeople"
+            [DailyNum] = "this.LatestPeople"
             [CaseTitle] = "this.TotalPeopleStr"
             [Lang] = "this.Lang"
           >
@@ -40,6 +41,7 @@ interface IChartTypeOptions{
         <div class="col-6"  style="text-align:center;">
           <app-info-panel-sm
             [TotalNum] = "this.TotalSpecimen"
+            [DailyNum] = "this.LatestSpecimen"
             [CaseTitle] = "this.TotalSpecimenStr"
             [Lang] = "this.Lang"
           >

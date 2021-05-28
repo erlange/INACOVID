@@ -31,6 +31,7 @@ interface IChartTypeOptions{
         <div class="col-6" style="text-align:center;">
           <app-info-panel-sm
             [TotalNum] = "this.TotalVax1"
+            [DailyNum] = "this.LatestVax1"
             [CaseTitle] = "this.TotalVax1Str"
             [Lang] = "this.Lang"
           >
@@ -39,6 +40,7 @@ interface IChartTypeOptions{
         <div class="col-6"  style="text-align:center;">
           <app-info-panel-sm
             [TotalNum] = "this.TotalVax2"
+            [DailyNum] = "this.LatestVax2"
             [CaseTitle] = "this.TotalVax2Str"
             [Lang] = "this.Lang"
           >
@@ -84,6 +86,9 @@ export class ChartVaxComponent implements OnChanges, OnDestroy {
   TotalVax1Str: string;
   TotalVax2: number;
   TotalVax2Str: string;
+  LatestVax1: number;
+  LatestVax2: number;
+
 
   @Input() SelectedData: IDataVax;
   @Input() Lang: string;
@@ -106,6 +111,8 @@ export class ChartVaxComponent implements OnChanges, OnDestroy {
     this.TotalVax2 = this.SelectedData.Dose2Cum[count].CaseCount;
     this.TotalVax1Str = i18n.VAX_DOSE1[this.Lang];
     this.TotalVax2Str = i18n.VAX_DOSE2[this.Lang];
+    this.LatestVax1 = this.SelectedData.Dose1[count].CaseCount;
+    this.LatestVax2 = this.SelectedData.Dose2[count].CaseCount;
 
     this.themeSubscription = this.themeSvc.getJsTheme().subscribe(config => {
 
