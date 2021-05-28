@@ -21,8 +21,10 @@ Independent effort of providing up-to-the-minute time-series reports in JSON and
   * [Hospital Beddings](#medical-facilities)
 * [**Scrapers**](#scrapers)
 * [**Workflows**](#workflow)
+* [**Website**](#website)
 * [**Data Sources**](#data-sources)
 * [**Contributing**](#submit-bugs)
+* [**License**](#license)
 
 
 ### Dataset and Downloadables
@@ -161,12 +163,16 @@ Script: [CreatePlot-Hospitals.py](https://github.com/erlange/INACOVID/blob/maste
 
 ### Scrapers
 ---
-The scripts to gather the data are all in the [📁ActionRunner](https://github.com/erlange/INACOVID/tree/master/ActionRunner) folder, written mostly in C# designed to run on the latest version .NET Core.  Some files however are in `.py` python format to plot the chart.
+The scripts to gather the data are all in the       [📁ActionRunner](https://github.com/erlange/INACOVID/tree/master/ActionRunner) folder, written mostly in C# designed to run on the latest version .NET Core.  Some files however are in `.py` python format to plot the chart.
 
 ### Workflows
 ---
-All the data scraping processes are located in the [📁.github/workflows](https://github.com/erlange/INACOVID/tree/master/.github/workflows)  folder automated by this repo  [Actions](https://github.com/erlange/INACOVID/actions). 
+The data scraping tasks are automated by Github Actions and are located in the [📁.github/workflows](https://github.com/erlange/INACOVID/tree/master/.github/workflows)  folder scheduled by the [Actions](https://github.com/erlange/INACOVID/actions) in this repository.
 
+
+### Website
+---
+The interactive website for this repository is hosted on Github Pages, available at https://erlange.github.io/INACOVID/. Developed using [Angular](https://angular.io) Framework, the source code resides in the [/web/](https://github.com/erlange/INACOVID/tree/master/web) folder.
 
 ### Data Sources
 ---
@@ -177,3 +183,6 @@ The data sources are from the [Official Government Site](https://covid19.go.id/p
 ---
 Just open an issue [here](https://github.com/erlange/INACOVID/issues/new). All contributions and inputs are welcome.
 
+### License
+---
+This project is developed by me and is open-source under  MIT License.

@@ -94,26 +94,27 @@ export function FillTopoData(caseData: Model.IData[], json): void {
 }
 
 export function getLatest(caseData: Model.IData[], loc: string): Model.ILatestCase {
-  const target = {} as Model.ILatestCase;
+  const result = {} as Model.ILatestCase;
   const selectedData: Model.IData = caseData.find(m => m.Location === loc);
   const latest = selectedData.ConfirmedCum.length - 1;
   const prev = latest - 1;
 
-  target.LatestDate = selectedData.ConfirmedCum[latest].CaseDate;
-  target.Confirmed = selectedData.Confirmed[latest].CaseCount;
-  target.Cured = selectedData.Cured[latest].CaseCount;
-  target.Dead = selectedData.Dead[latest].CaseCount;
-  target.ConfirmedCum = selectedData.ConfirmedCum[latest].CaseCount;
-  target.CuredCum = selectedData.CuredCum[latest].CaseCount;
-  target.DeadCum = selectedData.DeadCum[latest].CaseCount;
-  target.ActiveCum = target.ConfirmedCum - target.CuredCum - target.DeadCum;
-  target.Active = target.ActiveCum
+  result.LatestDate = selectedData.ConfirmedCum[latest].CaseDate;
+  result.Confirmed = selectedData.Confirmed[latest].CaseCount;
+  result.Cured = selectedData.Cured[latest].CaseCount;
+  result.Dead = selectedData.Dead[latest].CaseCount;
+  result.ConfirmedCum = selectedData.ConfirmedCum[latest].CaseCount;
+  result.CuredCum = selectedData.CuredCum[latest].CaseCount;
+  result.DeadCum = selectedData.DeadCum[latest].CaseCount;
+  result.ActiveCum = result.ConfirmedCum - result.CuredCum - result.DeadCum;
+  result.Active = result.ActiveCum
                 - (selectedData.ConfirmedCum[prev].CaseCount
                   - selectedData.CuredCum[prev].CaseCount
                   - selectedData.DeadCum[prev].CaseCount);
 
-  return target;
+  return result;
 }
+
 
 // https://stackoverflow.com/questions/19981713/html5-js-chart-with-moving-average#63348486
 export function movingAvg(array: Array<number>, countBefore: number, countAfter: number): number[] {

@@ -108,15 +108,13 @@
     <div class="row">
       <ng-container *ngIf="this.SelectedDataVax !== undefined">
         <div class="col-xxxl-3 col-md-6">
-        <app-chart-vax Accent="success" [SelectedData]="this.SelectedDataVax" [Lang]="this.Lang" ></app-chart-vax>
-      </div>
-      <div class="col-xxxl-3 col-md-6">
-        <app-chart-test Accent="success" [SelectedData]="this.SelectedDataVax" [Lang]="this.Lang" ></app-chart-test>
-      </div>
-    </ng-container>
-  </div>
-
-
+          <app-chart-vax Accent="success" [SelectedData]="this.SelectedDataVax" [Lang]="this.Lang" ></app-chart-vax>
+        </div>
+        <div class="col-xxxl-3 col-md-6">
+          <app-chart-test Accent="success" [SelectedData]="this.SelectedDataVax" [Lang]="this.Lang" ></app-chart-test>
+        </div>
+      </ng-container>
+    </div>
   </nb-layout-column>
 
   <nb-layout-footer >

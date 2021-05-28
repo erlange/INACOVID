@@ -27,17 +27,39 @@ interface IChartTypeOptions{
     </nb-card-header>
 
     <nb-card-body *ngIf="SelectedData; else loading">
-      <div class="d-flex justify-content-center">
-          <select class="form-control form-control-sm" style="width:auto;padding:0px 28px;" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
-            <option *ngFor="let i = index; let chartType of this.ChartTypes" [value]="chartType.Value" [selected]="chartType.Value === this.SelectedChartType" >{{chartType.DisplayText}}</option>
-          </select>
+    <div class="row">
+        <div class="col-6" style="text-align:center;">
+          <app-info-panel-sm
+            [TotalNum] = "this.TotalVax1"
+            [CaseTitle] = "this.TotalVax1Str"
+            [Lang] = "this.Lang"
+          >
+          </app-info-panel-sm>
+        </div>
+        <div class="col-6"  style="text-align:center;">
+          <app-info-panel-sm
+            [TotalNum] = "this.TotalVax2"
+            [CaseTitle] = "this.TotalVax2Str"
+            [Lang] = "this.Lang"
+          >
+          </app-info-panel-sm>
+        </div>
       </div>
+      <br />
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <select class="form-control form-control-sm" style="width:auto;padding:0px 28px;" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
+              <option *ngFor="let i = index; let chartType of this.ChartTypes" [value]="chartType.Value" [selected]="chartType.Value === this.SelectedChartType" >{{chartType.DisplayText}}</option>
+            </select>
+        </div>
+      </div>
+
     <div echarts
         [options]="options"
         [initOpts]="this.initOpts"
         class="demo-chart"
         (chartInit)="onChartInit($event)"
-        style="height: 224px;overflow:hidden">
+        style="height: 278px;overflow:hidden">
       </div>
     </nb-card-body>
   </nb-card>
@@ -58,6 +80,11 @@ export class ChartVaxComponent implements OnChanges, OnDestroy {
   ChartTypes: IChartType[];
   ChartsInstance;
 
+  TotalVax1: number;
+  TotalVax1Str: string;
+  TotalVax2: number;
+  TotalVax2Str: string;
+
   @Input() SelectedData: IDataVax;
   @Input() Lang: string;
   @Input() Accent: string;
@@ -73,6 +100,13 @@ export class ChartVaxComponent implements OnChanges, OnDestroy {
   }
 
   setOptions(): void{
+    const count = this.SelectedData.Dose1Cum.length - 1;
+
+    this.TotalVax1 = this.SelectedData.Dose1Cum[count].CaseCount;
+    this.TotalVax2 = this.SelectedData.Dose2Cum[count].CaseCount;
+    this.TotalVax1Str = i18n.VAX_DOSE1[this.Lang];
+    this.TotalVax2Str = i18n.VAX_DOSE2[this.Lang];
+
     this.themeSubscription = this.themeSvc.getJsTheme().subscribe(config => {
 
       const echarts: any = config.variables.echarts;
@@ -119,7 +153,7 @@ export class ChartVaxComponent implements OnChanges, OnDestroy {
           top: 12
         },
         grid: {
-            top: 55,
+            top: 75,
             left: '3%',
             right: '4%',
             bottom: '20%',

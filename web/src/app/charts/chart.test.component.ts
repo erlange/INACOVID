@@ -28,12 +28,34 @@ interface IChartTypeOptions{
     </nb-card-header>
 
     <nb-card-body>
-      <div class="d-flex justify-content-center">
-          <select class="form-control form-control-sm" style="width:auto" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
-            <option *ngFor="let i = index; let chartType of this.ChartTypes" [value]="chartType.Value" [selected]="chartType.Value === this.SelectedChartType" >{{chartType.DisplayText}}</option>
-          </select>
+      <div class="row">
+        <div class="col-6" style="text-align:center;">
+          <app-info-panel-sm
+            [TotalNum] = "this.TotalPeople"
+            [CaseTitle] = "this.TotalPeopleStr"
+            [Lang] = "this.Lang"
+          >
+          </app-info-panel-sm>
+        </div>
+        <div class="col-6"  style="text-align:center;">
+          <app-info-panel-sm
+            [TotalNum] = "this.TotalSpecimen"
+            [CaseTitle] = "this.TotalSpecimenStr"
+            [Lang] = "this.Lang"
+          >
+          </app-info-panel-sm>
+        </div>
       </div>
-      <div echarts [options]="options" [initOpts]="this.initOpts" class="demo-chart" style="height: 224px;overflow:hidden"></div>
+      <br />
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <select class="form-control form-control-sm" style="width:auto" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
+              <option *ngFor="let i = index; let chartType of this.ChartTypes" [value]="chartType.Value" [selected]="chartType.Value === this.SelectedChartType" >{{chartType.DisplayText}}</option>
+            </select>
+        </div>
+      </div>
+
+      <div echarts [options]="options" [initOpts]="this.initOpts" class="demo-chart" style="height: 278px;overflow:hidden"></div>
     </nb-card-body>
   </nb-card>
   `,
@@ -45,18 +67,38 @@ export class ChartTestComponent implements OnChanges, OnDestroy {
   Title: string;
   axisLabelColor: string;
   themeSubscription: Subscription;
+  ChartTypes: IChartType[];
+  SelectedChartType = 'TESTED_PEOPLE';
+
+  TotalPeopleStr: string;
+  TotalSpecimenStr: string;
+  TotalPeople: number;
+  TotalSpecimen: number;
+  LatestPeople: number;
+  LatestSpecimen: number;
 
   @Input() Accent: string;
   @Input() SelectedData: IDataVax;
   @Input() Lang: string;
-  ChartTypes: IChartType[];
-  SelectedChartType = 'TESTED_PEOPLE';
 
   initOpts = {
     locale: 'en'
   };
 
+  constructor(private themeSvc: NbThemeService){
+  }
+
   setOptions(): void{
+    const count = this.SelectedData.PplAntigenCum.length - 1;
+
+    this.LatestPeople = this.SelectedData.PplAntigen[count].CaseCount + this.SelectedData.PplPcrTcm[count].CaseCount;
+    this.TotalPeople = this.SelectedData.PplAntigenCum[count].CaseCount + this.SelectedData.PplPcrTcmCum[count].CaseCount;
+    this.LatestSpecimen = this.SelectedData.SpecAntigen[count].CaseCount + this.SelectedData.SpecPcrTcm[count].CaseCount;
+    this.TotalSpecimen = this.SelectedData.SpecAntigenCum[count].CaseCount + this.SelectedData.SpecPcrTcmCum[count].CaseCount;
+
+    this.TotalPeopleStr = i18n.TESTED_PEOPLE[this.Lang];
+    this.TotalSpecimenStr = i18n.TESTED_SPECIMEN[this.Lang];
+
     this.themeSubscription = this.themeSvc.getJsTheme().subscribe(config => {
 
       const echarts: any = config.variables.echarts;
@@ -103,7 +145,7 @@ export class ChartTestComponent implements OnChanges, OnDestroy {
           top: 12,
         },
         grid: {
-          top: 55,
+          top: 75,
           left: '3%',
           right: '4%',
           bottom: '20%',
@@ -216,7 +258,6 @@ export class ChartTestComponent implements OnChanges, OnDestroy {
     return opts;
   }
 
-  constructor(private themeSvc: NbThemeService){}
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
   }

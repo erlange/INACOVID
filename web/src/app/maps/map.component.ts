@@ -20,7 +20,7 @@ import { formatNumber } from '@angular/common';
       <nb-card-body>
         <div  *ngIf="LatestCase && Lang && CurrentLoc !== 'Nasional'" class="container-fluid ">
           <div class="row">
-            <div class="col-3" style="padding-right: 5px;padding-left: 5px">
+            <div class="col-3" style="padding-right: 5px;padding-left: 5px;text-align: center;">
               <app-info-panel-sm
                 Accent="primary"
                 [CaseTitle]="i18n.CONFIRMED[Lang] | uppercase"
@@ -28,7 +28,7 @@ import { formatNumber } from '@angular/common';
                 [Lang]="Lang">
               </app-info-panel-sm>
             </div>
-            <div class="col-3" style="padding-right: 5px;padding-left: 5px">
+            <div class="col-3" style="padding-right: 5px; padding-left: 5px; text-align: center;">
               <app-info-panel-sm
                 Accent="primary"
                 [CaseTitle]="i18n.ACTIVE[Lang] | uppercase"
@@ -36,7 +36,7 @@ import { formatNumber } from '@angular/common';
                 [Lang]="Lang">
               </app-info-panel-sm>
             </div>
-            <div class="col-3" style="padding-right: 5px;padding-left: 5px">
+            <div class="col-3" style="padding-right: 5px; padding-left: 5px; text-align: center;">
               <app-info-panel-sm
                 Accent="primary"
                 [CaseTitle]="i18n.RECOVERED[Lang] | uppercase"
@@ -44,7 +44,7 @@ import { formatNumber } from '@angular/common';
                 [Lang]="Lang">
               </app-info-panel-sm>
             </div>
-            <div class="col-3" style="padding-right: 5px;padding-left: 5px">
+            <div class="col-3" style="padding-right: 5px; padding-left: 5px; text-align: center;">
               <app-info-panel-sm
                 Accent="primary"
                 [CaseTitle]="i18n.DEATHS[Lang] | uppercase"

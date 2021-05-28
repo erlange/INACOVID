@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, } from '@angular/core';
 import { i18n } from './../data/data.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-about',
@@ -7,6 +8,7 @@ import { i18n } from './../data/data.model';
   <div style="width:400px">
     <nb-card accent="primary">
       <nb-card-header size="small">
+        <img src="{{urlLogo}}" width="36" height="36" />
         {{Title}}
       </nb-card-header>
       <nb-card-body>
@@ -19,6 +21,7 @@ import { i18n } from './../data/data.model';
 export class AboutPanelComponent implements OnInit {
   Title: string;
   About: string;
+  urlLogo = window.location.origin + environment.baseHref + '/assets/img/logo-36.png';
   @Input() Lang: string;
 
   ngOnInit(): void {
