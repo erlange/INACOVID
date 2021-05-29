@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+// this is our just created themes.scss file, make sure the path to the file is correct
+@import 'themes';
+
+// framework component styles
+@import '~@nebular/theme/styles/globals';
+
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/grid';
+
+@mixin ngx-layout() {
+  @include media-breakpoint-down(is) {
+
+        
+    // .row {
+    //   margin-left: -10px;
+    //   margin-right: -10px;
+    // }
+  }
+}
+
+@mixin nb-overrides() {
+  nb-select.size-medium button {
+    padding: 0.4375rem 2.2rem 0.4375rem 1.125rem !important;
+
+    nb-icon {
+      right: 0.41rem !important;
+    }
+  }
+}
+
+// install the framework and custom global styles
+@include nb-install() {
+
+  // framework global styles
+  @include nb-theme-global();
+
+  @include ngx-layout();
+
+  @include nb-overrides();
+};
+
