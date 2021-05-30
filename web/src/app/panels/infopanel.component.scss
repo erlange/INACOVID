@@ -1,0 +1,21 @@
+@import './../../themes';
+
+@include nb-install-component() {
+  nb-card {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    // height: 100%;
+      // height: 6rem;
+    overflow: hidden;
+    box-shadow: rgba($color: #000000, $alpha: 0.5);
+
+    nb-card-body {
+      position: relative;
+      padding: 5px 10px 5px 10px;
+      overflow: hidden;
+      // margin: 20px 10px 10px 10px;
+    }
+  }
+}
+
