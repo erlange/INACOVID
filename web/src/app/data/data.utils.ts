@@ -95,7 +95,7 @@ export function FillTopoData(caseData: Model.IData[], json): void {
 
 export function getLatest(caseData: Model.IData[], loc: string): Model.ILatestCase {
   const result = {} as Model.ILatestCase;
-  const selectedData: Model.IData = caseData.find(m => m.Location === loc);
+  const selectedData: Model.IData = caseData.find(m => m.Location.toUpperCase() === loc.toUpperCase());
   const latest = selectedData.ConfirmedCum.length - 1;
   const prev = latest - 1;
 

@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, OnDestroy,  } from '@angular/core';
-import { i18n, IChartType, GetVaxChartTypes, IDataVax} from './../data/data.model';
+import { Component, Input, OnChanges, OnDestroy, ViewChild, ElementRef,  } from '@angular/core';
+import { i18n, IChartType, IDataVax, GetVaxTestChartTypes} from './../data/data.model';
 import { NbThemeService } from '@nebular/theme';
 import * as Utils from './../data/data.utils';
 import { formatDate } from '@angular/common';
@@ -18,7 +18,7 @@ interface IChartTypeOptions{
 
 
 @Component({
-  selector: 'app-chart-vax',
+  selector: 'app-chart-vax2',
   styleUrls: ['chart.case.component.scss'],
   template: `
   <nb-card [accent]="Accent">
@@ -48,9 +48,21 @@ interface IChartTypeOptions{
         </div>
       </div>
       <br />
+
+
       <div class="row">
         <div class="col-12 d-flex justify-content-center">
-            <select class="form-control form-control-sm pointer" style="width:auto;padding:0px 28px;" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
+          <label class="radio-inline pointer">
+            <input #optV1 type="radio" name="optVax" id="optV1" value="1" (change)="onOptChange()" >{{this.TotalVax1Str}}
+          </label>&nbsp;&nbsp;&nbsp;
+          <label class="radio-inline pointer">
+            <input #optV2 type="radio" name="optVax" id="optV2" value="2" checked  (change)="onOptChange()">{{this.TotalVax2Str}}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <select #optChartType class="form-control form-control-sm pointer" style="width:auto;padding:0px 28px;" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onOptChange()">
               <option *ngFor="let i = index; let chartType of this.ChartTypes" [value]="chartType.Value" [selected]="chartType.Value === this.SelectedChartType" >{{chartType.DisplayText}}</option>
             </select>
         </div>
@@ -72,13 +84,13 @@ interface IChartTypeOptions{
   `,
   styles: [],
 })
-export class ChartVaxComponent implements OnChanges, OnDestroy {
+export class ChartVax2Component implements OnChanges, OnDestroy {
   options: any = {};
   ChartTypeOptions: IChartTypeOptions;
   Title: string;
   axisLabelColor: string;
   themeSubscription: Subscription;
-  SelectedChartType = 'VAX_DOSE2';
+  SelectedChartType = 'DAILY';
   ChartTypes: IChartType[];
   ChartsInstance;
 
@@ -88,11 +100,16 @@ export class ChartVaxComponent implements OnChanges, OnDestroy {
   TotalVax2Str: string;
   LatestVax1: number;
   LatestVax2: number;
-
+  optVaxMode = 2;
 
   @Input() SelectedData: IDataVax;
   @Input() Lang: string;
   @Input() Accent: string;
+
+  @ViewChild ('optV1') optV1: ElementRef<HTMLInputElement>;
+  @ViewChild ('optV2') optV2: ElementRef<HTMLInputElement>;
+  @ViewChild ('optChartType') optChartType: ElementRef<HTMLSelectElement>;
+
 
   initOpts = {
     locale: 'en'
@@ -152,7 +169,7 @@ export class ChartVaxComponent implements OnChanges, OnDestroy {
             }
         },
         legend: {
-          data: this.setChartTypeOptions(this.SelectedChartType, this.Lang).legendData,
+          data: this.setChartTypeOptions(this.SelectedChartType, this.optVaxMode, this.Lang).legendData,
           textStyle: {
             color: echarts.textColor,
           },
@@ -203,7 +220,7 @@ export class ChartVaxComponent implements OnChanges, OnDestroy {
             // end: 10
         }],
 
-        series: this.setChartTypeOptions(this.SelectedChartType, this.Lang).series,
+        series: this.setChartTypeOptions(this.SelectedChartType, this.optVaxMode , this.Lang).series,
       };
     });
   }
@@ -211,46 +228,114 @@ export class ChartVaxComponent implements OnChanges, OnDestroy {
   ngOnChanges(): void {
     if (this.SelectedData !== undefined){
       this.setOptions();
-      this.ChartTypes = GetVaxChartTypes(this.Lang);
+      this.ChartTypes = GetVaxTestChartTypes(this.Lang);
       this.Title = i18n.VAX_DOSE[this.Lang] ;
     }
   }
 
-  onChartTypeChange(selectedValue: string): void{
-    this.SelectedChartType = selectedValue;
-    this.setOptions();
-  }
-
-  setChartTypeOptions(type: string, lang: string): IChartTypeOptions {
+  setChartTypeOptions(type: string, mode: number, lang: string): IChartTypeOptions {
     const dt: IDataVax = this.SelectedData;
     const opts: IChartTypeOptions = { legendData: [], series: [] };
-    if (type === 'VAX_DOSE1') {
-      opts.legendData = [i18n.VAX_DOSE1[lang], i18n.MOVING_AVERAGE_7[lang]];
-      opts.series = [{
+
+    const v1GrowthRate = dt.Dose1Cum.map((n, i) => dt.Dose1Cum[i - 1] ===  undefined ? 0
+                        : (n.CaseCount - dt.Dose1Cum[i - 1].CaseCount) / dt.Dose1Cum[i - 1].CaseCount * 100);
+    const v2GrowthRate = dt.Dose2Cum.map((n, i) => dt.Dose2Cum[i - 1] ===  undefined ? 0
+                        : (n.CaseCount - dt.Dose2Cum[i - 1].CaseCount) / dt.Dose2Cum[i - 1].CaseCount * 100);
+    const v1Doubling = v1GrowthRate.map(n => Math.log(1 + (n / 100)) === 0 ? NaN
+                      : Math.log(2) / Math.log(1 + (n / 100)));
+    const v2Doubling = v2GrowthRate.map(n => Math.log(1 + (n / 100)) === 0 ? NaN
+                      : Math.log(2) / Math.log(1 + (n / 100)));
+
+
+    if (mode === 1) {
+      if (type === 'DAILY') {
+        opts.legendData = [i18n.VAX_DOSE1[lang], i18n.MOVING_AVERAGE_7[lang]];
+        opts.series = [{
+            name: i18n.VAX_DOSE1[lang],
+            type: 'bar',
+            data: dt.Dose1.map(k => k.CaseCount)
+          },
+          {
+            name: i18n.MOVING_AVERAGE_7[lang],
+            type: 'line',
+            data: Utils.movingAvg(dt.Dose1.map(k => k.CaseCount), 7, 0).map(n => Math.round(n))
+          }, ];
+      }
+      if (type === 'CUMULATIVE') {
+        opts.legendData = [i18n.VAX_DOSE1[lang]];
+        opts.series = [{
           name: i18n.VAX_DOSE1[lang],
           type: 'bar',
-          data: dt.Dose1.map(k => k.CaseCount)
-        },
-        {
-          name: i18n.MOVING_AVERAGE_7[lang],
-          type: 'line',
-          data: Utils.movingAvg(dt.Dose1.map(k => k.CaseCount), 7, 0).map(n => Math.round(n))
+          data: dt.Dose1Cum.map(k => k.CaseCount)
         }, ];
+      }
+      if (type === 'GROWTH_RATE') {
+        opts.legendData = [i18n.GROWTH_RATE_PCT[lang]];
+        opts.series = [{
+          name: i18n.GROWTH_RATE_PCT[lang],
+          type: 'line',
+          data: v1GrowthRate.map(n => parseFloat(n.toFixed(2))),
+        }, ];
+      }
+      if (type === 'DOUBLING_TIME') {
+        opts.legendData = [i18n.DOUBLING_TIME_DAY[lang]];
+        opts.series = [{
+          name: i18n.DOUBLING_TIME_DAY[lang],
+          type: 'line',
+          data: v1Doubling.map(n => parseFloat(n.toFixed(2))),
+        }, ];
+      }
     }
-    if (type === 'VAX_DOSE2') {
-      opts.legendData = [i18n.VAX_DOSE2[lang], i18n.MOVING_AVERAGE_7[lang]];
-      opts.series = [{
+    if (mode === 2) {
+      if (type === 'DAILY') {
+        opts.legendData = [i18n.VAX_DOSE2[lang]];
+        opts.series = [{
+            name: i18n.VAX_DOSE2[lang],
+            type: 'bar',
+            data: dt.Dose2.map(k => k.CaseCount)
+          },
+          {
+            name: i18n.MOVING_AVERAGE_7[lang],
+            type: 'line',
+            data: Utils.movingAvg(dt.Dose2.map(k => k.CaseCount), 7, 0).map(n => Math.round(n))
+          }, ];
+      }
+      if (type === 'CUMULATIVE') {
+        opts.legendData = [i18n.VAX_DOSE2[lang]];
+        opts.series = [{
           name: i18n.VAX_DOSE2[lang],
           type: 'bar',
-          data: dt.Dose2.map(k => k.CaseCount)
-        },
-        {
-          name: i18n.MOVING_AVERAGE_7[lang],
-          type: 'line',
-          data: Utils.movingAvg(dt.Dose2.map(k => k.CaseCount), 7, 0).map(n => Math.round(n))
+          data: dt.Dose2Cum.map(k => k.CaseCount)
         }, ];
+      }
+      if (type === 'GROWTH_RATE') {
+        opts.legendData = [i18n.GROWTH_RATE_PCT[lang]];
+        opts.series = [{
+          name: i18n.GROWTH_RATE_PCT[lang],
+          type: 'line',
+          data: v2GrowthRate.map(n => parseFloat(n.toFixed(2))),
+        }, ];
+      }
+      if (type === 'DOUBLING_TIME') {
+        opts.legendData = [i18n.DOUBLING_TIME_DAY[lang]];
+        opts.series = [{
+          name: i18n.DOUBLING_TIME_DAY[lang],
+          type: 'line',
+          data: v2Doubling.map(n => parseFloat(n.toFixed(2))),
+        }, ];
+      }
     }
+
     return opts;
+  }
+
+  onOptChange(): void{
+    this.SelectedChartType = this.optChartType.nativeElement.value;
+    this.optVaxMode = parseInt ((this.optV1.nativeElement.checked && this.optV1.nativeElement.value)
+                      || (this.optV2.nativeElement.checked && this.optV2.nativeElement.value), 10);
+    console.log('this.optVaxMode', this.optVaxMode);
+    console.log('this.SelectedChartType', this.SelectedChartType);
+    this.setOptions();
   }
 
   ngOnDestroy(): void {

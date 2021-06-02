@@ -32,7 +32,7 @@ interface IChartTypeOptions{
 
     <nb-card-body *ngIf="isDataReady;else loading">
       <div class="d-flex justify-content-center">
-        <select class="form-control form-control-sm" style="width: 200px" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
+        <select class="form-control form-control-sm pointer" style="width: 200px" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
           <option *ngFor="let i = index; let chartType of this.ChartTypes" [value]="chartType.Value" [selected]="chartType.Value === this.SelectedChartType" >{{chartType.DisplayText}}</option>
         </select>
         <!-- <nb-select formControlName="mySelected"  #select [placeholder]="Placeholder" size="tiny" (selectedChange)="this.onChartTypeChange($event)"  [(selected)]="SelectedChartType" appearance="hero">
@@ -169,6 +169,7 @@ export class ChartCaseComponent implements OnChanges, OnDestroy {
         series: this.setChartTypeOptions(this.SelectedChartType, this.Lang).series,
       };
     });
+    this.isDataReady = true;
   }
 
   ngOnChanges(): void {
@@ -177,7 +178,6 @@ export class ChartCaseComponent implements OnChanges, OnDestroy {
       this.ChartTypes = GetChartTypes(this.Lang);
       this.Title = i18n.DAILY_CASES[this.Lang] + ' - ' + this.SelectedData.Location;
       this.Title = this.Title.toUpperCase();
-      this.isDataReady = true;
     }
   }
 

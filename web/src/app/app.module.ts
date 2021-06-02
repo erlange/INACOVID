@@ -24,6 +24,8 @@ import { ChartCatgComponent } from './charts/chart.catg.component';
 import { ChartAgeComponent } from './charts/chart.age.component';
 import { ChartProvComponent } from './charts/chart.prov.component';
 import { ChartHospComponent } from './charts/chart.hosp.component';
+import { ChartVax2Component } from './charts/chart.vax2.component';
+import { ChartTest2Component } from './charts/chart.test2.component';
 import { InfoPanelComponent } from './panels/infopanel.component';
 import { SmallInfoPanelComponent } from './panels/small.infopanel.component';
 import { LoadingPanelComponent } from './panels/loadingpanel.component';
@@ -50,6 +52,7 @@ registerLocaleData(localeZh);
     MapComponent,
     ChartCaseComponent, ChartCumComponent, ChartVaxComponent, ChartTestComponent,
     ChartCatgComponent, ChartAgeComponent, ChartProvComponent, ChartHospComponent,
+    ChartVax2Component, ChartTest2Component,
     InfoPanelComponent, SmallInfoPanelComponent, LoadingPanelComponent, AboutPanelComponent, LocationPanelComponent,
     SafeHtmlPipe,
   ],

@@ -51,7 +51,7 @@ interface IChartTypeOptions{
       <br />
       <div class="row">
         <div class="col-12 d-flex justify-content-center">
-            <select class="form-control form-control-sm" style="width:auto" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
+            <select class="form-control form-control-sm pointer" style="width:auto" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
               <option *ngFor="let i = index; let chartType of this.ChartTypes" [value]="chartType.Value" [selected]="chartType.Value === this.SelectedChartType" >{{chartType.DisplayText}}</option>
             </select>
         </div>

@@ -20,7 +20,7 @@ import { formatNumber } from '@angular/common';
         </span>
       </nb-card-header>
       <nb-card-body>
-        <div  *ngIf="LatestCase && Lang && CurrentLoc !== 'Nasional'" class="container-fluid ">
+        <div  *ngIf="LatestCase && Lang " class="container-fluid ">
           <div class="row">
             <div class="col-3" style="padding-right: 5px;padding-left: 5px;text-align: center;">
               <app-info-panel-sm
@@ -79,7 +79,7 @@ export class MapComponent implements OnDestroy, OnInit, OnChanges {
   @Input() topo: any;
   @Input() caseData: Model.IData[];
   @Input() LatestCase: Model.ILatestCase;
-  @Input() CurrentLoc: string;
+  @Input() CurrentLoc = 'Nasional';
   @Output() selectedLocation: EventEmitter<string> = new EventEmitter();
   @Output() HeaderClick: EventEmitter<string> = new EventEmitter();
   @ViewChild('tooltip') tooltip: ElementRef<HTMLDivElement>;
@@ -116,6 +116,7 @@ export class MapComponent implements OnDestroy, OnInit, OnChanges {
 
   ngOnInit(): void {
     this.layers = [this.createTopoLayer(this.topo)];
+    this.LatestCase = Utils.getLatest(this.caseData, this.CurrentLoc);
     this.i18n = Model.i18n;
   }
 
@@ -135,9 +136,11 @@ export class MapComponent implements OnDestroy, OnInit, OnChanges {
   private setLocationBounds(location: string): void{
     this.map.fitBounds( this.caseData.find(f => f.Location.toLowerCase() === location.toLowerCase()).MapBounds );
     // this.map.flyToBounds( this.caseData.find(f => f.Location.toLowerCase() === location.toLowerCase()).MapBounds );
-    if (this.caseData && this.Lang && location.toLowerCase() !== 'nasional' ) {
-      this.LatestCase = Utils.getLatest(this.caseData, location.toUpperCase());
-    }
+
+    this.LatestCase = Utils.getLatest(this.caseData, location);
+    // if (this.caseData && this.Lang && location.toLowerCase() !== 'nasional' ) {
+    //   this.LatestCase = Utils.getLatest(this.caseData, location.toUpperCase());
+    // }
 
   }
 
@@ -188,7 +191,8 @@ export class MapComponent implements OnDestroy, OnInit, OnChanges {
           layer.getTooltip().unbindTooltip();
           // this.map.flyToBounds(featureLayer.getBounds());
           // L.map().getBounds().getCenter()
-          this.map.flyTo(featureLayer.getBounds().getCenter());
+          // this.map.flyTo(featureLayer.getBounds().getCenter());
+          // this.map.flyToBounds(featureLayer.getBounds());
           this.selectedLocation.emit(featureLayer.feature.properties.NAME_1);
         }); // this.zone.run(() => {
       });

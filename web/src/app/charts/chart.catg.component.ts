@@ -28,7 +28,7 @@ interface IChartTypeOptions{
 
     <nb-card-body *ngIf="SelectedData;else loading">
       <div class="d-flex justify-content-center">
-        <select class="form-control form-control-sm" style="width: 200px" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
+        <select class="form-control form-control-sm pointer" style="width: 200px" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
           <option *ngFor="let i = index; let chartType of this.ChartTypes" [value]="chartType.Value" [selected]="chartType.Value === this.SelectedChartType" >{{chartType.DisplayText}}</option>
         </select>
         <!-- <select class="form-control form-control-sm" style="width: 200px" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">

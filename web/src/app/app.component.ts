@@ -40,9 +40,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   urlLogo = window.location.origin + environment.baseHref + '/assets/img/logo-36.png';
   private destroy$: Subject<void> = new Subject<void>();
-  private dataSubs1: Subscription;
-  private dataSubs2: Subscription;
-  private dataSubs3: Subscription;
+  private caseSubs: Subscription;
+  private vaxSubs: Subscription;
+  private hospSubs: Subscription;
+  private catgSubs: Subscription;
 
   constructor(private titleSvc: Title,
               private themeSvc: NbThemeService,
@@ -54,7 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.themeSvc.onThemeChange().subscribe((theme: any) => {
     });
 
-    this.dataSubs1 = this.svc.getCase$().subscribe( ([casesRaw, mapTopoRaw]) => {
+    this.caseSubs = this.svc.getCase$().subscribe( ([casesRaw, mapTopoRaw]) => {
       this.MapTopo = mapTopoRaw;
       this.Cases = Utils.transformData(casesRaw);
       Utils.FillTopoData(this.Cases, this.MapTopo);
@@ -62,19 +63,25 @@ export class AppComponent implements OnInit, OnDestroy {
       this.LatestCase = Utils.getLatest(this.Cases, 'Nasional');
       this.isError = svc.isError;
       this.i18n = i18n;
+      console.log('err', this.isError);
+
     });
 
-    this.dataSubs2 = this.svc.getRest$().subscribe( ([vaxRaw, catgRaw, catgProvRaw]) => {
+    this.vaxSubs = this.svc.getVax$().subscribe( vaxRaw => {
       this.SelectedDataVax = Utils.transformDataVax(vaxRaw);
+      this.onSelectLocation('Nasional');
+    });
+
+    this.catgSubs = this.svc.getCatg$().subscribe( ([ catgRaw, catgProvRaw]) => {
       this.HealthConditions = [...Utils.getDataCat(catgRaw), ...Utils.getDataCat(catgProvRaw)];
       this.onSelectLocation('Nasional');
     });
 
-    this.dataSubs3 = this.svc.getHospitals$().subscribe( hospRaw => {
+    this.hospSubs = this.svc.getHospitals$().subscribe( hospRaw => {
        this.Hospitals = Utils.GetHospitalData(hospRaw);
     });
-
     this.isDataComplete = !this.isError;
+    // console.log('this.svc.isError', this.svc.isError);
 
   }
 
@@ -99,6 +106,9 @@ export class AppComponent implements OnInit, OnDestroy {
     this.Title = i18n.TITLE[this.Lang];
     this.titleSvc.setTitle(i18n.TITLE[this.Lang]);
 
+    // this.svc.isError$.subscribe(err => {
+    //   this.isError = err.valueOf();
+    // });
   }
 
   onSelectLocation(input: string): void{
@@ -134,15 +144,14 @@ export class AppComponent implements OnInit, OnDestroy {
         Lang: this.Lang,
       },
       closeOnEsc }).onClose.subscribe(m => m && this.onSelectLocation(m));
-      // .onClose.subscribe(n => n);
   }
 
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
-    this.dataSubs1.unsubscribe();
-    this.dataSubs2.unsubscribe();
-    this.dataSubs3.unsubscribe();
+    this.caseSubs.unsubscribe();
+    this.vaxSubs.unsubscribe();
+    this.catgSubs.unsubscribe();
+    this.hospSubs.unsubscribe();
   }
-
 }

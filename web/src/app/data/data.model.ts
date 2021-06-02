@@ -183,8 +183,15 @@ export const i18n = {
     zh: '新增死亡',
     id: 'Kasus Meninggal Baru',
   },
-  CUMULATIVE: {
+  TOTAL: {
     en: 'Total',
+    es: 'Total',
+    fr: 'Total',
+    zh: '全部的',
+    id: 'Total',
+  },
+  CUMULATIVE: {
+    en: 'Cumulative',
     es: 'Total',
     fr: 'Total',
     zh: '累积',
@@ -202,7 +209,7 @@ export const i18n = {
     es: 'Diario',
     fr: 'Journalier',
     zh: '新增',
-    id: 'Kasus Harian',
+    id: 'Harian',
   },
   DAILY_CASES: {
     en: 'Daily Cases',
@@ -272,8 +279,23 @@ export const i18n = {
     es: 'Tiempo en Duplicarse',
     fr: 'Temps de Duplication',
     zh: '病例倍增时间',
-    id: 'Penggandaan Waktu',
+    id: 'Waktu Penggandaan',
   },
+  GROWTH_RATE_PCT: {
+    en: 'Growth Rate (%)',
+    es: 'Tasa de crecimiento (%)',
+    fr: 'Taux de croissance (%)',
+    zh: '增长率 (%)',
+    id: 'Laju Pertumbuhan (%)',
+  },
+  DOUBLING_TIME_DAY: {
+    en: 'Doubling Time (day)',
+    es: 'Tiempo en Duplicarse (día)',
+    fr: 'Temps de Duplication (jour)',
+    zh: '倍增时间（天）',
+    id: 'Waktu Penggandaan (hari)',
+  },
+
   ESTIMATED_R0: {
     en: 'Estimated R₀',
     es: 'R₀ Estimado',
@@ -295,6 +317,21 @@ export const i18n = {
     zh: '标本测试 (PCR)',
     id: 'Spesimen Diperiksa (PCR)',
   },
+  PCR: {
+    en: 'PCR',
+    es: 'PCR',
+    fr: 'PCR',
+    zh: 'PCR',
+    id: 'PCR',
+  },
+  ANTIGEN: {
+    en: 'Antigen',
+    es: 'Antígeno',
+    fr: 'Antigène',
+    zh: '抗原',
+    id: 'Antigen',
+  },
+
   TESTED_SPECIMEN_ANTIGEN: {
     en: 'Specimens Tested (Antigen)',
     es: 'Muestras probadas (Antígeno)',
@@ -485,3 +522,13 @@ export function GetAgeChartTypes(lang: string): IChartType[] {
     {DisplayText: i18n.GENDER[lang], Value: 'jenis_kelamin'},
   ];
 }
+
+export function GetVaxTestChartTypes(lang: string): IChartType[] {
+  return [
+    {DisplayText: i18n.DAILY[lang], Value: 'DAILY'},
+    {DisplayText: i18n.CUMULATIVE[lang], Value: 'CUMULATIVE'},
+    {DisplayText: i18n.GROWTH_RATE[lang], Value: 'GROWTH_RATE'},
+    {DisplayText: i18n.DOUBLING_TIME[lang], Value: 'DOUBLING_TIME'},
+    ];
+}
+

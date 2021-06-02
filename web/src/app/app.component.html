@@ -37,7 +37,8 @@
     </div>  
 </nb-layout-header>
 
-  <nb-layout-column *ngIf="SelectedData;">
+<nb-layout-column *ngIf="SelectedData; else loading">
+    
     <div class="row" *ngIf="LatestCase && Lang" >
       <div class="col-xxxl-4 col-md-3 col-sm-6">
         <app-info-panel 
@@ -117,7 +118,7 @@
     </div>
   </div>
 
-    <div class="row">
+    <!-- <div class="row">
       <ng-container *ngIf="this.SelectedDataVax !== undefined">
         <div class="col-xxxl-3 col-md-6">
           <app-chart-vax Accent="success" [SelectedData]="this.SelectedDataVax" [Lang]="this.Lang" ></app-chart-vax>
@@ -126,7 +127,7 @@
           <app-chart-test Accent="success" [SelectedData]="this.SelectedDataVax" [Lang]="this.Lang" ></app-chart-test>
         </div>
       </ng-container>
-    </div>
+    </div> -->
 
     <div class="row">
       <ng-container *ngIf="this.Cases">
@@ -139,7 +140,20 @@
       </ng-container>
     </div>
 
+    <div class="row">
+      <ng-container *ngIf="this.SelectedDataVax !== undefined">
+        <div class="col-xxxl-3 col-md-6">
+          <app-chart-vax2 Accent="success" [SelectedData]="this.SelectedDataVax" [Lang]="this.Lang" ></app-chart-vax2>
+        </div>
+        <div class="col-xxxl-3 col-md-6">
+          <app-chart-test2 Accent="success" [SelectedData]="this.SelectedDataVax" [Lang]="this.Lang" ></app-chart-test2>
+        </div>
+      </ng-container>
+    </div>
+  
   </nb-layout-column>
+
+
 
   <nb-layout-footer >
     &copy; 2020 &nbsp;
@@ -157,12 +171,16 @@
   </nb-layout-footer>
 </nb-layout>
 
-
 <ng-template #loading >
   <app-loading ></app-loading>
 </ng-template>
-<ng-template *ngIf="isError" #error >
+<!-- <ng-template *ngIf="isError" #error >
   <div>
     An Error Occured.<br />Please reload the page
   </div>
-</ng-template>
+</ng-template> -->
+<ng-container *ngIf="isError" #error >
+  <div>
+    An Error Occured.<br />Please reload the page
+  </div>
+</ng-container>

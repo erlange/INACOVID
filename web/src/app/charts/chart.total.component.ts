@@ -29,7 +29,7 @@ interface IChartTypeOptions{
     </nb-card-header>
     <nb-card-body *ngIf="SelectedData; else loading">
       <div class="d-flex justify-content-center">
-        <select class="form-control form-control-sm" style="width:auto" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
+        <select class="form-control form-control-sm pointer" style="width:auto" aria-label=".form-select-sm example" [value]="this.SelectedChartType" (change)="this.onChartTypeChange($event.target.value)">
           <option *ngFor="let i = index; let chartType of this.ChartTypes" [value]="chartType.Value" [selected]="chartType.Value === this.SelectedChartType" >{{chartType.DisplayText}}</option>
         </select>
       </div>
@@ -243,20 +243,21 @@ export class ChartCumComponent implements OnInit, OnChanges, OnDestroy {
         {
           name: i18n.DEATHS[lang],
           type: 'line',
-          data: dt.DeadCum.map((n, i) => dt.DeadCum[i - 1] === undefined ? 0
-              : (n.CaseCount - dt.DeadCum[i - 1].CaseCount) / n.CaseCount * 100 ).map(n => parseFloat(n.toFixed(2))),
+          data: dt.DeadCum.map((n, i) => dt.DeadCum[i - 1] === undefined ? 0 : dt.DeadCum[i - 1].CaseCount === 0 ? 0
+              : (n.CaseCount - dt.DeadCum[i - 1].CaseCount) / dt.DeadCum[i - 1].CaseCount * 100 ).map(n => parseFloat(n.toFixed(2))),
         },
         {
           name: i18n.RECOVERED[lang],
           type: 'line',
-          data: dt.CuredCum.map((n, i) => dt.CuredCum[i - 1] === undefined ? 0
-              : (n.CaseCount - dt.CuredCum[i - 1].CaseCount) / n.CaseCount * 100 ).map(n => parseFloat(n.toFixed(2))),
+          data: dt.CuredCum.map((n, i) => dt.CuredCum[i - 1] === undefined ? 0 : dt.CuredCum[i - 1].CaseCount === 0 ? 0
+              : (n.CaseCount - dt.CuredCum[i - 1].CaseCount) / dt.CuredCum[i - 1].CaseCount * 100 ).map(n => parseFloat(n.toFixed(2))),
         },
         {
           name: i18n.CONFIRMED[lang],
           type: 'line',
-          data: dt.ConfirmedCum.map((n, i) => dt.ConfirmedCum[i - 1] === undefined ? 0
-              : (n.CaseCount - dt.ConfirmedCum[i - 1].CaseCount) / n.CaseCount * 100 ).map(n => parseFloat(n.toFixed(2))),
+          data: dt.ConfirmedCum.map((n, i) => dt.ConfirmedCum[i - 1] === undefined ? 0 : dt.ConfirmedCum[i - 1].CaseCount === 0 ? 0
+              // tslint:disable-next-line: max-line-length
+              : (n.CaseCount - dt.ConfirmedCum[i - 1].CaseCount) / dt.ConfirmedCum[i - 1].CaseCount * 100 ).map(n => parseFloat(n.toFixed(2))),
         },
       ];
     }
@@ -267,17 +268,15 @@ export class ChartCumComponent implements OnInit, OnChanges, OnDestroy {
       const activeCum = dt.ConfirmedCum.map(k => k.CaseCount - dt.CuredCum.find(l => l.CaseDate === k.CaseDate).CaseCount
                       - dt.DeadCum.find(l => l.CaseDate === k.CaseDate).CaseCount );
 
-      const activeGrowthRate = activeCum.map((n, i) => activeCum[i - 1] === undefined ? 0
-                              : (n - activeCum[i - 1]) / n * 100 );
+      // tslint:disable-next-line: max-line-length
+      const confirmedGrowthRate = dt.ConfirmedCum.map((n, i) => dt.ConfirmedCum[i - 1] === undefined ? 0 : dt.ConfirmedCum[i - 1].CaseCount === 0 ? 0
+                              : (n.CaseCount - dt.ConfirmedCum[i - 1].CaseCount) / dt.ConfirmedCum[i - 1].CaseCount * 100 );
 
-      const confirmedGrowthRate = dt.ConfirmedCum.map((n, i) => dt.ConfirmedCum[i - 1] === undefined ? 0
-                              : (n.CaseCount - dt.ConfirmedCum[i - 1].CaseCount) / n.CaseCount * 100 );
+      const deadGrowthRate = dt.DeadCum.map((n, i) =>  dt.DeadCum[i - 1] === undefined ? 0 :  dt.DeadCum[i - 1].CaseCount === 0 ? 0
+                              : (n.CaseCount - dt.DeadCum[i - 1].CaseCount) / dt.DeadCum[i - 1].CaseCount * 100 );
 
-      const deadGrowthRate = dt.DeadCum.map((n, i) =>  dt.DeadCum[i - 1] === undefined ? 0
-                              : (n.CaseCount - dt.DeadCum[i - 1].CaseCount) / n.CaseCount * 100 );
-
-      const curedGrowthRate = dt.CuredCum.map((n, i) => dt.CuredCum[i - 1] === undefined ? 0
-                              : (n.CaseCount - dt.CuredCum[i - 1].CaseCount) / n.CaseCount * 100 );
+      const curedGrowthRate = dt.CuredCum.map((n, i) => dt.CuredCum[i - 1] === undefined ? 0 : dt.CuredCum[i - 1].CaseCount === 0 ? 0
+                              : (n.CaseCount - dt.CuredCum[i - 1].CaseCount) / dt.CuredCum[i - 1].CaseCount * 100 );
 
       opts.series = [
         {
@@ -303,8 +302,9 @@ export class ChartCumComponent implements OnInit, OnChanges, OnDestroy {
     if (type === 'ESTIMATED_R0') {
       const incubationTime = 5;
       const infectiousPeriod = 5;
-      const confirmedGrowthRate = dt.ConfirmedCum.map((n, i) => dt.ConfirmedCum[i - 1] === undefined ? 0
-                              : (n.CaseCount - dt.ConfirmedCum[i - 1].CaseCount) / n.CaseCount  );
+      // tslint:disable-next-line: max-line-length
+      const confirmedGrowthRate = dt.ConfirmedCum.map((n, i) => dt.ConfirmedCum[i - 1] === undefined ? 0 : dt.ConfirmedCum[i - 1].CaseCount === 0 ? 0
+                              : (n.CaseCount - dt.ConfirmedCum[i - 1].CaseCount) / dt.ConfirmedCum[i - 1].CaseCount  );
 
       opts.legendData = [i18n.ESTIMATED_R0[lang]];
       opts.series = [
