@@ -78,9 +78,9 @@ export class ChartHospComponent implements OnChanges, OnDestroy {
       this.initOpts.locale = lang;
 
       this.options = {
-        animation: false,
+        animation: true,
         animationDuration: (idx: number) => {
-          return idx * 100;
+          return idx * 10;
         },
         title: {
             // text: i18n.DAILY_CASES[this.Lang],

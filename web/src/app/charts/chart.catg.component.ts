@@ -22,7 +22,7 @@ interface IChartTypeOptions{
   template: `
   <nb-card [accent]="Accent">
     <nb-card-header>
-      <span *ngIf="SelectedData" (click)="onHeaderClick()" class="pointer"><i class="fas fa-bars"></i> {{Title}}</span>
+      <span *ngIf="SelectedData" (click)="onHeaderClick()" class="headprov"><i class="fas fa-bars"></i> {{Title}}</span>
       <!-- <span *ngIf="SelectedData && Title" (click)="onHeaderClick()" > {{Title}}</span> -->
     </nb-card-header>
 
@@ -74,9 +74,9 @@ export class ChartCatgComponent implements OnChanges, OnDestroy {
       const dt: IDataCategory[] = this.SelectedData.sort((m, n) => m.Confirmed - m.Confirmed);
       this.initOpts.locale = this.Lang;
       this.options = {
-        animation: false,
+        animation: true,
         animationDuration: (idx: number) => {
-          return idx * 100;
+          return idx;
         },
         title: {
             // text: i18n.DAILY_CASES[this.Lang],

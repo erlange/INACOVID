@@ -124,9 +124,9 @@ export class ChartTest2Component implements OnChanges, OnDestroy {
       const dt: IDataVax = this.SelectedData;
       this.initOpts.locale = this.Lang;
       this.options = {
-        animation: false,
+        animation: true,
         animationDuration: (idx: number) => {
-          return idx * 100;
+          return idx * 3;
         },
         title: {
           // text: i18n.VAX_DOSE[this.Lang],

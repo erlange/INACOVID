@@ -26,7 +26,7 @@ interface IChartTypeOptions{
       <!-- <div align="center">
         <button nbButton *ngIf="SelectedData" (click)="onHeaderClick()" shape="semi-round"  size="small" status="primary">{{ Title }}</button>
       </div> -->
-      <span *ngIf="SelectedData" (click)="onHeaderClick()" class="pointer"><i class="fas fa-bars"></i> {{Title}}</span>
+      <span *ngIf="SelectedData" (click)="onHeaderClick()" class="headprov"><i class="fas fa-bars"></i> {{Title}}</span>
       <ng-content></ng-content>
     </nb-card-header>
 
@@ -82,9 +82,9 @@ export class ChartCaseComponent implements OnChanges, OnDestroy {
       const dt: IData = this.SelectedData;
       this.initOpts.locale = this.Lang;
       this.options = {
-        animation: false,
+        animation: true,
         animationDuration: (idx: number) => {
-          return idx * 100;
+          return idx;
         },
         title: {
             // text: i18n.DAILY_CASES[this.Lang],

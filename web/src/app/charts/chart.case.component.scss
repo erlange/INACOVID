@@ -24,4 +24,9 @@
   }
 }
 
-.pointer {cursor: pointer;}
+.pointer { cursor: pointer; }
+.headprov { cursor: pointer; }
+.headprov:hover {
+  text-decoration: underline;
+  color: #3366ff;
+} 

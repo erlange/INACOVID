@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --port 4211",
     "build": "ng build",
+    "build-prod": "ng build --prod --base-href /INACOVID/ --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

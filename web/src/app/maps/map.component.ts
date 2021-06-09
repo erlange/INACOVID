@@ -12,7 +12,7 @@ import { formatNumber } from '@angular/common';
   template: `
     <nb-card [accent]="Accent">
       <nb-card-header>
-      <span (click)="onHeaderClick()" class="pointer"><i class="fas fa-bars"></i> {{this.CurrentLoc}}</span>
+      <span (click)="onHeaderClick()" class="headprov"><i class="fas fa-bars"></i> {{this.CurrentLoc}}</span>
         <!-- <span (click)="onHeaderClick()">{{this.CurrentLoc}}</span> -->
         <span style="float:right">
           <!-- <button nbButton status="info" size="tiny" class="btn btn-sm btn-info"  (click)="onMapToggle(true)" >Show/Hide </button> -->

@@ -24,7 +24,7 @@ interface IChartTypeOptions{
   template: `
   <nb-card [accent]="Accent">
     <nb-card-header>
-      <span *ngIf="SelectedData" (click)="onHeaderClick()" class="pointer"><i class="fas fa-bars"></i> {{Title}}</span>
+      <span *ngIf="SelectedData" (click)="onHeaderClick()" class="headprov"><i class="fas fa-bars"></i> {{Title}}</span>
       <!-- <span *ngIf="SelectedData" (click)="onHeaderClick()">{{Title}}</span> -->
     </nb-card-header>
     <nb-card-body *ngIf="SelectedData; else loading">
@@ -81,9 +81,9 @@ export class ChartCumComponent implements OnInit, OnChanges, OnDestroy {
       const dt: IData = this.SelectedData;
       this.initOpts.locale = this.Lang;
       this.options = {
-        animation: false,
+        animation: true,
         animationDuration: (idx: number) => {
-          return idx * 100;
+          return idx * 2;
         },
         title: {
             // text: i18n.CUMULATIVE_CASES[this.Lang],
