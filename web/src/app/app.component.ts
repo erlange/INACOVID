@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { formatDate } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { NbThemeService, NbMediaBreakpointsService, NbMediaBreakpoint, NbDialogService } from '@nebular/theme';
 import { map, takeUntil } from 'rxjs/operators';
@@ -34,9 +35,9 @@ export class AppComponent implements OnInit, OnDestroy {
   Hospitals: IHospital[] = [] as IHospital[];
   breakpoint: NbMediaBreakpoint = { name: '', width: 0 };
   breakpoints: any;
-  isDataComplete = false;
   isError = false;
   i18n;
+  private LatestUpd: Date;
 
   urlLogo = window.location.origin + environment.baseHref + '/assets/img/logo-36.png';
   private destroy$: Subject<void> = new Subject<void>();
@@ -44,12 +45,14 @@ export class AppComponent implements OnInit, OnDestroy {
   private vaxSubs: Subscription;
   private hospSubs: Subscription;
   private catgSubs: Subscription;
+  private latestUpdSubs: Subscription;
 
   constructor(private titleSvc: Title,
               private themeSvc: NbThemeService,
               private breakpointSvc: NbMediaBreakpointsService,
               private dialogSvc: NbDialogService,
               private svc: Svc.DataService){
+
     this.breakpoints = this.breakpointSvc.getBreakpointsMap();
 
     this.themeSvc.onThemeChange().subscribe((theme: any) => {
@@ -61,10 +64,9 @@ export class AppComponent implements OnInit, OnDestroy {
       Utils.FillTopoData(this.Cases, this.MapTopo);
       this.onSelectLocation('Nasional');
       this.LatestCase = Utils.getLatest(this.Cases, 'Nasional');
-      this.isError = svc.isError;
       this.i18n = i18n;
-      console.log('err', this.isError);
-
+    }, err => {
+      this.isError = true;
     });
 
     this.vaxSubs = this.svc.getVax$().subscribe( vaxRaw => {
@@ -80,9 +82,10 @@ export class AppComponent implements OnInit, OnDestroy {
     this.hospSubs = this.svc.getHospitals$().subscribe( hospRaw => {
        this.Hospitals = Utils.GetHospitalData(hospRaw);
     });
-    this.isDataComplete = !this.isError;
-    // console.log('this.svc.isError', this.svc.isError);
 
+    this.latestUpdSubs = this.svc.getLatestUpd$().subscribe( raw => {
+      this.LatestUpd = new Date(Date.parse (raw[0].commit.committer.date));
+    });
   }
 
   ngOnInit(): void {
@@ -106,9 +109,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.Title = i18n.TITLE[this.Lang];
     this.titleSvc.setTitle(i18n.TITLE[this.Lang]);
 
-    // this.svc.isError$.subscribe(err => {
-    //   this.isError = err.valueOf();
-    // });
   }
 
   onSelectLocation(input: string): void{
@@ -136,6 +136,10 @@ export class AppComponent implements OnInit, OnDestroy {
       closeOnEsc });
   }
 
+  reload(): void {
+    location.reload();
+  }
+
   openLocationDialog(closeOnEsc: boolean): void {
     this.dialogSvc.open(LocationPanelComponent, {
       context: {
@@ -146,6 +150,12 @@ export class AppComponent implements OnInit, OnDestroy {
       closeOnEsc }).onClose.subscribe(m => m && this.onSelectLocation(m));
   }
 
+  getLatestUpdate(): string {
+    if (this.LatestUpd){
+      return i18n.LATEST_UPDATE[this.Lang] + ': ' + formatDate(this.LatestUpd, 'long', this.Lang );
+    }
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
@@ -153,5 +163,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.vaxSubs.unsubscribe();
     this.catgSubs.unsubscribe();
     this.hospSubs.unsubscribe();
+    this.latestUpdSubs.unsubscribe();
   }
 }

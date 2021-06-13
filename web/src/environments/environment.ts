@@ -9,7 +9,8 @@ export const environment = {
   urlVax: 'http://localhost:8028/covid/inacovid/vax.json',
   urlCatg: 'http://localhost:8028/covid/inacovid/cat.natl.csv',
   urlCatgProv: 'http://localhost:8028/covid/inacovid/cat.prov.csv',
-  urlHosp: 'http://localhost:8028/covid/inacovid/hospitals.json'
+  urlHosp: 'http://localhost:8028/covid/inacovid/hospitals.json',
+  urlLatestUpd: 'https://api.github.com/repos/erlange/inacovid/commits?path=data/json/all.min.json'
 };
 
 /*

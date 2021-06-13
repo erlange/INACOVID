@@ -16,7 +16,7 @@ import { formatNumber } from '@angular/common';
         <!-- <span (click)="onHeaderClick()">{{this.CurrentLoc}}</span> -->
         <span style="float:right">
           <!-- <button nbButton status="info" size="tiny" class="btn btn-sm btn-info"  (click)="onMapToggle(true)" >Show/Hide </button> -->
-          <button nbButton status="primary" size="tiny" class="btn btn-sm btn-info"  (click)="resetZoom()" >Reset Zoom</button>
+          <!-- <button nbButton status="primary" size="tiny" class="btn btn-sm btn-info"  (click)="resetZoom()" >Reset Zoom</button> -->
         </span>
       </nb-card-header>
       <nb-card-body>
@@ -67,8 +67,14 @@ import { formatNumber } from '@angular/common';
             [leafletOptions]="options"
             [leafletLayers]="layers"
             (leafletMapReady)="mapReady($event)"
-            style="height: 328px;overflow:hidden; background:transparent"
-          ></div>
+            style="height: 328px;overflow:hidden; background:transparent">
+
+            <button nbButton status="primary" size="tiny"
+            class="leaflet-top leaflet-left; "
+            style="pointer-events:auto;position:absolute;top:10px;right:10px;"
+            (click)="resetZoom()" >Reset Zoom</button>
+
+        </div>
       </nb-card-body>
     </nb-card>
   `
@@ -134,14 +140,8 @@ export class MapComponent implements OnDestroy, OnInit, OnChanges {
   }
 
   private setLocationBounds(location: string): void{
-    this.map.fitBounds( this.caseData.find(f => f.Location.toLowerCase() === location.toLowerCase()).MapBounds );
-    // this.map.flyToBounds( this.caseData.find(f => f.Location.toLowerCase() === location.toLowerCase()).MapBounds );
-
     this.LatestCase = Utils.getLatest(this.caseData, location);
-    // if (this.caseData && this.Lang && location.toLowerCase() !== 'nasional' ) {
-    //   this.LatestCase = Utils.getLatest(this.caseData, location.toUpperCase());
-    // }
-
+    this.map.flyToBounds( this.caseData.find(f => f.Location.toLowerCase() === location.toLowerCase()).MapBounds, {duration: .65} );
   }
 
   private createTopoLayer(topojson: any): L.GeoJSON {
@@ -155,16 +155,16 @@ export class MapComponent implements OnDestroy, OnInit, OnChanges {
         // dashArray: '3',
         className: 'back',
         fillOpacity: 1,
-        fillColor: Utils.getColor2(feature.properties.CONFIRMEDCUM)
+        fillColor: Utils.getColor2(feature.properties.CONFIRMEDCUM),
       }),
       onEachFeature: (feature: Feature, layer: L.FeatureGroup) => {
+        layer.bindTooltip('', {sticky: true});
         this.onEachFeature(feature, layer);
         const loc = this.caseData.filter(f => f.Location.toLowerCase() === feature.properties.NAME_1.toLowerCase());
         if (loc.length !== 0) {
           loc[0]
             .MapBounds = layer.getBounds();
         }
-        layer.bindTooltip('<div></div>', {sticky: true});
       }
     });
 
@@ -188,11 +188,7 @@ export class MapComponent implements OnDestroy, OnInit, OnChanges {
         // zone tells Angular for change detection from 3rd party components
         this.zone.run(() => {
           const featureLayer = e.target;
-          layer.getTooltip().unbindTooltip();
-          // this.map.flyToBounds(featureLayer.getBounds());
-          // L.map().getBounds().getCenter()
-          // this.map.flyTo(featureLayer.getBounds().getCenter());
-          // this.map.flyToBounds(featureLayer.getBounds());
+          layer.setStyle({className: 'back', weight: 1, fillColor: Utils.getColor2(feature.properties.CONFIRMEDCUM) });
           this.selectedLocation.emit(featureLayer.feature.properties.NAME_1);
         }); // this.zone.run(() => {
       });
@@ -200,7 +196,7 @@ export class MapComponent implements OnDestroy, OnInit, OnChanges {
       layer.on('mouseout', (e) => {
         // this.zone.run(() => {
           this.tooltip.nativeElement.style.visibility = 'hidden';
-          layer.setStyle({className: 'back', weight: 1, fillColor: Utils.getColor2(feature.properties.CONFIRMEDCUM) });
+          layer.setStyle({className: 'back', weight: 1, fillColor: Utils.getColor2(feature.properties.CONFIRMEDCUM)  });
         // }); // this.zone.run(() => {
 
       });
@@ -228,19 +224,18 @@ export class MapComponent implements OnDestroy, OnInit, OnChanges {
             // const tooltipX = e.originalEvent.clientX - e.originalEvent.pageX + e.originalEvent.layerX;
             // const tooltipY = e.originalEvent.clientY - e.originalEvent.pageY + e.originalEvent.layerY;
 
-            const tooltipX = e.originalEvent.offsetX + 20;
-            const tooltipY = e.originalEvent.offsetY + 20;
+            // const tooltipX = e.originalEvent.offsetX + 20;
+            // const tooltipY = e.originalEvent.offsetY + 20;
 
-            const tooltip: HTMLDivElement = this.tooltip.nativeElement;
-            const style: CSSStyleDeclaration = tooltip.style;
+            // const tooltip: HTMLDivElement = this.tooltip.nativeElement;
+            // const style: CSSStyleDeclaration = tooltip.style;
+            // this.tooltip.nativeElement.className = 'detail';
+            // style.position = 'absolute';
+            // style.backgroundColor = '#303030';
+            // style.color = '#eee';
+            // style.padding = '5px';
 
-            this.tooltip.nativeElement.className = 'detail';
-            style.position = 'absolute';
-            style.backgroundColor = '#303030';
-            style.color = '#eee';
-            style.padding = '5px';
-
-            this.tooltip.nativeElement.innerHTML = label;
+            // this.tooltip.nativeElement.innerHTML = label;
 
             layer.setStyle( {className: 'detail', weight: 2, fillColor: Utils.getColor(feature.properties.CONFIRMEDCUM)  });
 
@@ -255,7 +250,7 @@ export class MapComponent implements OnDestroy, OnInit, OnChanges {
 
           }
           if (!L.Browser.ie && !L.Browser.opera12 && !L.Browser.edge) {
-            // e.bringToFront();
+            layer.bringToFront();
           }
 
         // }); // this.zone.run(() => {

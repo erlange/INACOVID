@@ -9,39 +9,27 @@ import { catchError, retry, timeout, delay } from 'rxjs/operators';
 )
 export class DataService {
   isError = false;
-  // private isErrorSub$: BehaviorSubject<boolean>;
-  // isError$: Observable<boolean>;
-  private isErrorSub$ = new BehaviorSubject<boolean>(false);
-  isError$ = this.isErrorSub$.asObservable();
+  // private isErrorSubject$ = new BehaviorSubject<boolean>(false);
+  // isError$ = this.isErrorSubject$.asObservable();
   private urlCase = environment.urlCase;
   private urlVax = environment.urlVax;
   private urlCatg = environment.urlCatg;
   private urlCatgProv = environment.urlCatgProv;
   private urlHosp = environment.urlHosp;
   private urlMaps = window.location.origin + environment.baseHref + '/assets/maps/IDN_adm1.topo.json';
+  private urlLatestUpd = environment.urlLatestUpd;
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
-  // getCase$ = (): Observable<any> => {
-  //   return this.http.get<any>(this.urlCase);
-  // }
-  // getMap$ = (): Observable<any> => {
-  //   console.log('urlMap', this.urlMaps);
-  //   return this.http.get<any>(this.urlMaps);
-  // }
   private handleError(error: HttpErrorResponse): Observable<never> {
-    this.isErrorSub$ = new BehaviorSubject<boolean>(false);
-    this.isError$ = this.isErrorSub$.asObservable();
+
     if (error.status === 0) {
       console.error('An error occurred:', error.error);
     } else {
       console.error(
-        `Backend returned code ${error.status}, ` +
+        `Error occurred. Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
     }
-    this.isError = true;
-    this.isErrorSub$.next(true);
     return throwError(
       'Something bad happened; please try again later.');
   }
@@ -87,5 +75,9 @@ export class DataService {
       retry(3),
       catchError(this.handleError).bind(this)
       );
+  }
+
+  getLatestUpd$(): Observable<any> {
+    return this.http.get<any>(this.urlLatestUpd);
   }
 }

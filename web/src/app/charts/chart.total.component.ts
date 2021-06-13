@@ -125,7 +125,7 @@ export class ChartCumComponent implements OnInit, OnChanges, OnDestroy {
           top: 60,
           left: '3%',
           right: '4%',
-          bottom: '15%',
+          bottom: '20%',
           containLabel: true
         },
         toolbox: {
@@ -157,12 +157,18 @@ export class ChartCumComponent implements OnInit, OnChanges, OnDestroy {
           }
         },
         dataZoom: [{
-          id: 'dataZoomX',
+          id: 'dataZoomFilter',
           type: 'inside',
           filterMode: 'filter',
           start: 0,
           end: 100
           }, {
+            id: 'dataZoomSlider',
+            type: 'slider',
+            start: 0,
+            end: 100,
+            top: '85%',
+            bottom: '5%',
         }],
 
         series: this.setChartTypeOptions(this.SelectedChartType, this.Lang).series,

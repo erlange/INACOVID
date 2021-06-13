@@ -14,6 +14,9 @@ import { environment } from 'src/environments/environment';
       <nb-card-body>
         <div [innerHTML]="About |safeHtml"></div>
       </nb-card-body>
+      <nb-card-footer>
+        <a href="https://github.com/erlange/" target="_blank" title="Eri Airlangga on Github">Eri Airlangga</a> &copy; 2020
+      </nb-card-footer>
     </nb-card>
   </div>
 `,

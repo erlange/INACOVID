@@ -106,6 +106,13 @@ export const i18n = {
     zh: '中文',
     id: 'Bahasa',
   },
+  LATEST_UPDATE: {
+    en: 'Last update',
+    es: 'Última actualización',
+    fr: 'Dernière mise à jour',
+    zh: '最后更新',
+    id: 'Update terakhir',
+  },
   COVID19: {
     en: 'COVID-19 Coronavirus Map',
     es: 'Mapa COVID-19',
@@ -468,11 +475,11 @@ export const i18n = {
   },
 
   ABOUT_TEXT: {
-    en: 'The data are gathered from <a href="https://data.covid19.go.id/public/index.html" target="_blank">BNPB</a>.  Designs, logos and icons are from  <a href="https://akveo.github.io/nebular/" target="_blank">Nebular</a>, <a href="https://icons8.com" target="_blank">Icons8</a> and <a href="https://fontawesome.com/" target="_blank">Font Awesome</a>, developed with <a href="https://angular.io/" target="_blank">Angular</a> framework.  This project is made by <a href="https://github.com/erlange/" target="_blank">me</a> and  <a href="https://github.com/erlange/INACOVID" target="_blank">open-sourced on Github</a>.  ',
+    en: 'The data are gathered from <a href="https://data.covid19.go.id/public/index.html" target="_blank">National Board for Disaster Recovery</a>.  Designs, logos and icons are from  <a href="https://akveo.github.io/nebular/" target="_blank">Nebular</a>, <a href="https://icons8.com" target="_blank">Icons8</a> and <a href="https://fontawesome.com/" target="_blank">Font Awesome</a>, developed with <a href="https://angular.io/" target="_blank">Angular</a> framework.  This project is made by <a href="https://github.com/erlange/" target="_blank">me</a> and  <a href="https://github.com/erlange/INACOVID" target="_blank">open-sourced on Github</a>.  ',
     es: 'Los datos se recopilan de <a href="https://data.covid19.go.id/public/index.html" target="_blank"> BNPB </a>. Los diseños, logotipos e íconos son de <a href="https://akveo.github.io/nebular/" target="_blank"> Nebular </a>, <a href = "https://icons8.com" target = "_ blank"> Icons8 </a> y <a href="https://fontawesome.com/" target="_blank"> Font Awesome </a>, desarrollado con <a href = "https: // angular.io/ "target =" _ blank "> marco angular </a>. Este proyecto está hecho por <a href="https://github.com/erlange/" target="_blank"> yo </a> y <a href = "https://github.com/erlange/INACOVID" target = "_ blank"> código abierto en Github </a>.',
     fr: 'Les données sont collectées à partir du <a href="https://data.covid19.go.id/public/index.html" target="_blank"> BNPB </a>. Les dessins, logos et icônes proviennent de <a href="https://akveo.github.io/nebular/" target="_blank"> Nebular </a>, <a href = "https://icons8.com" target = "_ blank"> Icons8 </a> et <a href="https://fontawesome.com/" target="_blank"> Font Awesome </a>, développés avec <a href = "https: // angular.io/ "target =" _ blank "> Cadre angulaire </a>. Ce projet est réalisé par <a href="https://github.com/erlange/" target="_blank"> moi </a> et <a href = "https://github.com/erlange/INACOVID" target = "_ blank"> open-source sur Github </a>.',
     zh: '数据是从<a href="https://data.covid19.go.id/public/index.html" target="_blank"> BNPB </a>收集的。 设计，徽标和图标来自<a href="https://akveo.github.io/nebular/" target="_blank">星云</a>，<a href =“ https://icons8.com” target =“ _ blank”> Icons8 </a>和<a href="https://fontawesome.com/" target="_blank"> Font Awesome </a>（由<a href =“ https：//开发） angular.io/“ target =” _ blank“> Angular </a>框架。 该项目由<a href="https://github.com/erlange/" target="_blank">我</a>和<a href =“ https://github.com/erlange/INACOVID”制作 target =“ _ blank”>在Github上开源</a>。',
-    id: 'Data dikumpulkan dari <a href="https://data.covid19.go.id/public/index.html" target="_blank"> BNPB </a>. Desain, logo, dan ikon berasal dari <a href="https://akveo.github.io/nebular/" target="_blank"> Nebular </a>, <a href = "https://icons8.com" target = "_ blank"> Icons8 </a> dan <a href="https://fontawesome.com/" target="_blank"> Font Awesome </a>, dikembangkan dengan <a href = "https: // angular.io/ "target =" _ blank "> Angular </a>. Proyek ini dibuat oleh <a href="https://github.com/erlange/" target="_blank"> saya </a> dan <a href = "https://github.com/erlange/INACOVID" target = "_ blank"> bersifat open-source di Github </a>.'
+    id: 'Data dikumpulkan dari <a href="https://data.covid19.go.id/public/index.html" target="_blank"> BNPB </a>. Desain, logo, dan icon dari <a href="https://akveo.github.io/nebular/" target="_blank"> Nebular </a>, <a href = "https://icons8.com" target = "_ blank"> Icons8 </a> dan <a href="https://fontawesome.com/" target="_blank"> Font Awesome </a>, dikembangkan dengan <a href = "https: // angular.io/ "target =" _ blank "> Angular </a>. Proyek ini <a href="https://github.com/erlange/" target="_blank">saya</a> buat bersifat open-source. <a href = "https://github.com/erlange/INACOVID" target = "_ blank">Source code di Github </a>. Semoga bermanfaat!'
   }
 };
 
@@ -481,7 +488,7 @@ export function GetChartTypes(lang: string): IChartType[] {
     {DisplayText: i18n.CONFIRMED[lang], Value: 'CONFIRMED'},
     {DisplayText: i18n.DEATHS[lang], Value: 'DEATHS'},
     {DisplayText: i18n.RECOVERED[lang], Value: 'RECOVERED'},
-    {DisplayText: i18n.ACTIVE[lang], Value: 'ACTIVE'},
+    // {DisplayText: i18n.ACTIVE[lang], Value: 'ACTIVE'},
     {DisplayText: i18n.ALL_CASES[lang], Value: 'ALL_CASES'},
   ];
 }

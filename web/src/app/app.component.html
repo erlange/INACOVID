@@ -37,8 +37,17 @@
     </div>  
 </nb-layout-header>
 
-<nb-layout-column *ngIf="SelectedData; else loading">
-    
+<nb-layout-column>
+  <div *ngIf="SelectedData; else loading">
+  <div class="row" *ngIf="getLatestUpdate()">
+    <div class="col-xxxl-3 col-xxl-4 col-lg-7 col-md-6">
+      <span style="font-size: .785rem;">
+        {{ getLatestUpdate()}}
+      </span>
+      <br />
+    </div>
+  </div>
+  
     <div class="row" *ngIf="LatestCase && Lang" >
       <div class="col-xxxl-4 col-md-3 col-sm-6">
         <app-info-panel 
@@ -81,7 +90,7 @@
         </app-info-panel>
       </div>
     </div>
-  
+
     <div class="row">
       <div class="col-xxxl-3 col-xxl-4 col-lg-7 col-md-6">
   
@@ -90,7 +99,7 @@
             (HeaderClick)="openLocationDialog()"
             Accent = "primary"
             [Lang] = "this.Lang" 
-            style="border-radius: 12px; "
+            style="border-radius: 12px;"
             [CurrentLoc]="CurrentLoc" [topo]="MapTopo" [caseData]="Cases" (selectedLocation)="onSelectLocation($event)" >
           </app-map3>
         </div>
@@ -130,14 +139,12 @@
     </div> -->
 
     <div class="row">
-      <ng-container *ngIf="this.Cases">
-        <div class="col-xxxl-3 col-md-6">
-          <app-chart-prov Accent="success" [Cases]="this.Cases" [Lang]="this.Lang" ></app-chart-prov>
-        </div>
-        <div class="col-xxxl-3 col-md-6">
-          <app-chart-hosp Accent="success" [Hospitals]="this.Hospitals" [Lang]="this.Lang" ></app-chart-hosp>
-        </div>
-      </ng-container>
+      <div class="col-xxxl-3 col-md-6" *ngIf="this.Cases">
+        <app-chart-prov Accent="success" [Cases]="this.Cases" [Lang]="this.Lang" ></app-chart-prov>
+      </div>
+      <div class="col-xxxl-3 col-md-6" *ngIf="this.Hospitals.length!==0">
+        <app-chart-hosp Accent="success" [Hospitals]="this.Hospitals" [Lang]="this.Lang" ></app-chart-hosp>
+      </div>
     </div>
 
     <div class="row">
@@ -150,10 +157,8 @@
         </div>
       </ng-container>
     </div>
-  
+  </div>
   </nb-layout-column>
-
-
 
   <nb-layout-footer >
     &copy; 2020 &nbsp;
@@ -169,18 +174,19 @@
       <i class="fab fa-github" style="font-size:2rem"></i>
     </a>
   </nb-layout-footer>
+
 </nb-layout>
 
 <ng-template #loading >
-  <app-loading ></app-loading>
+  <app-loading *ngIf="!isError"></app-loading>
+  <div class="row" *ngIf="isError">
+    <div class="col-xxxl-9 col-xl-12 col-lg-12 col-md-12">
+      <nb-card accent="danger">
+        <nb-card-header><i class="fas fa-exclamation-triangle"></i>&nbsp; Error</nb-card-header>
+        <nb-card-body>
+          We're sorry but there seems to be an error.<br />Please <button nbButton size="small" status="primary" class="btn btn-sm btn-info" (click)="reload()"><i class="fas fa-redo-alt"></i>&nbsp;Reload</button> the page
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
 </ng-template>
-<!-- <ng-template *ngIf="isError" #error >
-  <div>
-    An Error Occured.<br />Please reload the page
-  </div>
-</ng-template> -->
-<ng-container *ngIf="isError" #error >
-  <div>
-    An Error Occured.<br />Please reload the page
-  </div>
-</ng-container>

@@ -5,6 +5,7 @@ export const environment = {
   urlVax: 'https://raw.githubusercontent.com/erlange/INACOVID/master/data/json/vax.json',
   urlCatg: 'https://raw.githubusercontent.com/erlange/INACOVID/master/data/csv/cat.natl.csv',
   urlCatgProv: 'https://raw.githubusercontent.com/erlange/INACOVID/master/data/csv/cat.prov.csv',
-  urlHosp: 'https://raw.githubusercontent.com/erlange/INACOVID/master/data/json/hospitals.json'
+  urlHosp: 'https://raw.githubusercontent.com/erlange/INACOVID/master/data/json/hospitals.json',
+  urlLatestUpd: 'https://api.github.com/repos/erlange/inacovid/commits?path=data/json/all.min.json'
 
 };

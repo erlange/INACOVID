@@ -71,7 +71,7 @@ export class ChartAgeComponent implements OnChanges, OnDestroy  {
     this.themeSubscription = this.themeSvc.getJsTheme().subscribe(config => {
 
       const echarts: any = config.variables.echarts;
-      const dt: IDataCategory[] = this.SelectedData.sort();
+      const dt: IDataCategory[] = this.SelectedData;
       this.initOpts.locale = this.Lang;
       this.options = {
         animation: true,
@@ -166,11 +166,14 @@ export class ChartAgeComponent implements OnChanges, OnDestroy  {
   }
 
   setChartTypeOptions(type: string, lang: string): IChartTypeOptions {
-    const dt: IDataCategory[] = this.SelectedData.sort();
+    // const dt: IDataCategory[] = this.SelectedData.sort();
+    const dt: IDataCategory[] = this.SelectedData;
     const opts: IChartTypeOptions = { legendData: [], series: [] };
 
     const kond = dt.filter(n => n.Category === type);
     opts.legendData = [i18n.CONFIRMED[lang], i18n.ACTIVE[lang], i18n.RECOVERED[lang], i18n.DEATHS[lang]];
+    // console.log('kond', kond);
+    // console.log('kond.map', kond.map(n => n.Confirmed).map(n => parseFloat(n.toFixed(2))));
 
     opts.series = [{
       name: i18n.CONFIRMED[lang],

@@ -71,7 +71,12 @@ export class ChartCatgComponent implements OnChanges, OnDestroy {
     this.themeSubscription = this.themeSvc.getJsTheme().subscribe(config => {
 
       const echarts: any = config.variables.echarts;
-      const dt: IDataCategory[] = this.SelectedData.sort((m, n) => m.Confirmed - m.Confirmed);
+
+      // create a new copy instead of referring the original data
+      // to prevent interfering with age chart
+      const dt: IDataCategory[] = [...this.SelectedData];
+      dt.sort((m, n) => m.Confirmed - n.Confirmed);
+
       this.initOpts.locale = this.Lang;
       this.options = {
         animation: true,
@@ -166,7 +171,8 @@ export class ChartCatgComponent implements OnChanges, OnDestroy {
   }
 
   setChartTypeOptions(type: string, lang: string): IChartTypeOptions {
-    const dt: IDataCategory[] = this.SelectedData.sort((m, n) => m.Confirmed - n.Confirmed);
+    const dt: IDataCategory[] = [...this.SelectedData];
+    dt.sort((m, n) => m.Confirmed - n.Confirmed);
     const opts: IChartTypeOptions = { legendData: [], series: [] };
 
     const kond = dt.filter(n => n.Category === type);
