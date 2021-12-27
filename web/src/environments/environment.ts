@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
+export const environment_ = {
   production: false,
   baseHref: '/',
   urlCase: 'http://localhost:8028/covid/inacovid/all.min.json',
@@ -13,6 +13,16 @@ export const environment = {
   urlLatestUpd: 'https://api.github.com/repos/erlange/inacovid/commits?path=data/json/all.min.json'
 };
 
+export const environment = {
+  production: false,
+  baseHref: '/',
+  urlCase: './../assets/dummy/all.min.json',
+  urlVax: './../assets/dummy/vax.json',
+  urlCatg: './../assets/dummy/cat.natl.csv',
+  urlCatgProv: './../assets/dummy/cat.prov.csv',
+  urlHosp: './../assets/dummy/hospitals.json',
+  urlLatestUpd: 'https://api.github.com/repos/erlange/inacovid/commits?path=data/json/all.min.json'
+};
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

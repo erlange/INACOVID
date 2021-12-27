@@ -244,11 +244,11 @@ export class ChartTest2Component implements OnChanges, OnDestroy {
     const pplTotalGrowth = pplTotal.map((n, i) => pplTotal[i - 1] === undefined ? 0 : pplTotal[i - 1] === 0 ? 0
                           : (n - pplTotal[i - 1]) / pplTotal[i - 1] * 100);
 
-    const pplPcrDoubling = dt.PplPcrTcmCum.map(n => Math.log(1 + (n.CaseCount / 100)) === 0 ? NaN
-                            : Math.log(2) / Math.log(1 + (n.CaseCount / 100)));
+    const pplPcrDoubling = pplPcrGrowth.map(n => Math.log(1 + (n / 100)) === 0 ? NaN
+                            : Math.log(2) / Math.log(1 + (n / 100)));
 
-    const pplAntigenDoubling = dt.PplAntigenCum.map(n => Math.log(1 + (n.CaseCount / 100)) === 0 ? NaN
-                            : Math.log(2) / Math.log(1 + (n.CaseCount / 100)));
+    const pplAntigenDoubling = pplAntigenGrowth.map(n => Math.log(1 + (n / 100)) === 0 ? NaN
+                            : Math.log(2) / Math.log(1 + (n / 100)));
 
     // tslint:disable-next-line: max-line-length
     const specPcrGrowth = dt.SpecPcrTcmCum.map((n, i) => dt.SpecPcrTcmCum[i - 1] === undefined ? 0 : dt.SpecPcrTcmCum[i - 1].CaseCount === 0 ? 0
@@ -262,11 +262,12 @@ export class ChartTest2Component implements OnChanges, OnDestroy {
     const specTotalDoubling = specTotal.map(n => Math.log(1 + (n / 100)) === 0 ? NaN
                           : Math.log(2) / Math.log(1 + (n / 100)));
 
-    const specPcrDoubling = dt.SpecPcrTcmCum.map(n => Math.log(1 + (n.CaseCount / 100)) === 0 ? NaN
-                          : Math.log(2) / Math.log(1 + (n.CaseCount / 100)));
+    const specPcrDoubling = specPcrGrowth.map(n => Math.log(1 + (n / 100)) === 0 ? NaN
+                          : Math.log(2) / Math.log(1 + (n / 100)));
 
-    const specAntigenDoubling = dt.SpecAntigenCum.map(n => Math.log(1 + (n.CaseCount / 100)) === 0 ? NaN
-                          : Math.log(2) / Math.log(1 + (n.CaseCount / 100)));
+    const specAntigenDoubling = specAntigenGrowth.map(n => Math.log(1 + (n / 100)) === 0 ? NaN
+                          : Math.log(2) / Math.log(1 + (n / 100)));
+
 
     if (mode === 1) {
       if (type === 'DAILY') {
