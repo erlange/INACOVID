@@ -194,7 +194,7 @@ export class ChartVaxComponent implements OnChanges, OnDestroy {
             id: 'dataZoomX',
             type: 'inside',
             filterMode: 'filter',
-            start: 0,
+            start: 50,
             end: 100,
           }, {
             // id: 'dataZoomY',

@@ -160,7 +160,7 @@ export class ChartCumComponent implements OnInit, OnChanges, OnDestroy {
           id: 'dataZoomFilter',
           type: 'inside',
           filterMode: 'filter',
-          start: 0,
+          start: 50,
           end: 100
           }, {
             id: 'dataZoomSlider',
@@ -238,6 +238,29 @@ export class ChartCumComponent implements OnInit, OnChanges, OnDestroy {
           0 : dt.ConfirmedCum.find(j => j.CaseDate === k.CaseDate).CaseCount) ).map(n => parseFloat(n.toFixed(2)))
         }, ];
     }
+
+    if (type === 'DIFF') {
+      opts.legendData = [i18n.CONFIRMED[lang], i18n.RECOVERED[lang], i18n.DEATHS[lang]];
+
+      opts.series = [
+        {
+          name: i18n.DEATHS[lang],
+          type: 'line',
+          data: dt.Dead.map((n, i) => dt.Dead[i - 1] === undefined ? 0 : n.CaseCount - dt.Dead[i - 1].CaseCount),
+        },
+        {
+          name: i18n.RECOVERED[lang],
+          type: 'line',
+          data: dt.Cured.map((n, i) => dt.Cured[i - 1] === undefined ? 0 : n.CaseCount - dt.Cured[i - 1].CaseCount),
+        },
+        {
+          name: i18n.CONFIRMED[lang],
+          type: 'line',
+          data: dt.Confirmed.map((n, i) => dt.Confirmed[i - 1] === undefined ? 0 : n.CaseCount - dt.Confirmed[i - 1].CaseCount),
+        },
+      ];
+    }
+
 
     if (type === 'GROWTH_RATE') {
       opts.legendData = [i18n.CONFIRMED[lang], i18n.RECOVERED[lang], i18n.DEATHS[lang]];

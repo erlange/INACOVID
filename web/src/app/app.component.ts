@@ -15,7 +15,7 @@ import { LocationPanelComponent } from './panels/locationpanel.component';
   providers: [Svc.DataService],
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: []
+  styleUrls: [],
 })
 
 

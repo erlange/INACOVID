@@ -274,6 +274,13 @@ export const i18n = {
     zh: '治愈率',
     id: 'Laju Kesembuhan',
   },
+  DIFF: {
+    en: 'Difference',
+    es: 'Diferencia',
+    fr: 'Différence',
+    zh: '区别',
+    id: 'Differens',
+  },
   GROWTH_RATE: {
     en: 'Growth Rate',
     es: 'Tasa de crecimiento',
@@ -497,6 +504,7 @@ export function GetChartCumTypes(lang: string): IChartType[] {
   return [
     {DisplayText: i18n.ALL_CASES[lang], Value: 'ALL_CASES'},
     {DisplayText: i18n.FATALITY_RECOVERY_RATE[lang], Value: 'FATALITY_RECOVERY_RATE'},
+    {DisplayText: i18n.DIFF[lang], Value: 'DIFF'},
     {DisplayText: i18n.GROWTH_RATE[lang], Value: 'GROWTH_RATE'},
     {DisplayText: i18n.DOUBLING_TIME[lang], Value: 'DOUBLING_TIME'},
     {DisplayText: i18n.ESTIMATED_R0[lang], Value: 'ESTIMATED_R0'},

@@ -44,5 +44,15 @@
     }
   }
 
+  nb-layout-header {
+    height: 3.75rem;
+  }
+
+  nb-layout-header nav {
+    height: 3.75rem;
+  }
 }
 
+div.container-fluid {
+  padding-bottom: 15px;
+}
