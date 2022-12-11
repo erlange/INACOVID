@@ -1,17 +1,17 @@
 [![Scheduled Data Collecting](https://github.com/erlange/INACOVID/workflows/Report%20Collecting/badge.svg)](https://github.com/erlange/INACOVID/actions?query=workflow%3A%22Report+Collecting%22)
 
 ## Indonesia COVID-19 (INACOVID) Data Repository in CSV and JSON Format
+An on-going effort of providing up-to-the-minute time-series reports in JSON and CSV format for analytical purposes.
 
 [Live version:](https://erlange.github.io/INACOVID/)
 https://erlange.github.io/INACOVID/
 
-![Inacovid Web](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inacovid-web.png)
+[![Inacovid Web](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inacovid-web.png)](https://erlange.github.io/INACOVID/)
 
 ![Indonesia Covid-19 Cases](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inachart.png)
 
 ![Indonesia Covid-19 Vaccination Statistics](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/vax.png)
 
-An on-going effort of providing up-to-the-minute time-series reports in JSON and CSV format for analytical purposes.
 
 ## Table of Contents
 * [**Dataset**](#dataset-and-downloadables)
