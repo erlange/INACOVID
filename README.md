@@ -8,14 +8,10 @@ https://erlange.github.io/INACOVID/
 
 [![Inacovid Web](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inacovid-web.png)](https://erlange.github.io/INACOVID/)
 
-![Indonesia Covid-19 Cases](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inachart.png)
-
-![Indonesia Covid-19 Vaccination Statistics](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/vax.png)
-
-
 ## Table of Contents
 * [**Dataset**](#dataset-and-downloadables)
 * [**Charts**](#charts)
+  * [Daily Cases and Vaccinations](#daily-cases-and-vaccinations)
   * [Impacts on Indonesia Provinces](#impacts-on-indonesia-provinces)
   * [Demographics](#demographics)
   * [Medical Conditions](#medical-conditions)
@@ -127,6 +123,16 @@ The data files are stored in the [data](https://github.com/erlange/INACOVID/tree
 ### Charts
 ---
 These charts are plotted regularly based on the scraped data. You can find some `.py` files to generate the charts in the [📁ActionRunner](https://github.com/erlange/INACOVID/tree/master/ActionRunner) folder.
+<br>
+#### Daily Cases and Vaccinations
+---
+##### Daily Cases
+![Indonesia Covid-19 Daily Cases](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/inachart.png)
+Script: [createplot.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/createplot.py)
+
+##### Vaccinations
+![Indonesia Covid-19 Vaccination Statistics](https://raw.githubusercontent.com/erlange/INACOVID/master/data/plot/vax.png)
+Script: [CreatePlot-Vax.py](https://github.com/erlange/INACOVID/blob/master/ActionRunner/CreatePlot-Vax.py)
 <br>
 
 #### Impacts on Indonesia Provinces
